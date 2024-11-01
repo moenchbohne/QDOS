@@ -17,7 +17,7 @@
       theme = "blockchain";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "ibm" "blockchain" ];
+          selected_themes = [ "ibm" "blockchain" "pixels" ];
         })
       ];
     };
