@@ -4,6 +4,7 @@ alias w="curl wttr.in/Celle"
 alias ff="fastfetch"
 alias pok="pokeget 382 383 384 -s"
 alias reb="sudo nixos-rebuild switch"
+alias rel="source ~/.zshrc"
 
 # replace old shit
 alias cd="z"
