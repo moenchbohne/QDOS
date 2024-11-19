@@ -82,6 +82,9 @@
   services.emacs.enable = true;
   services.fwupd.enable = true;
   # services.jack.jackd.enable = true;
+
+  # * terminal password
+  security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
   
   # coolercontrol
   programs.coolercontrol = {
@@ -145,6 +148,9 @@
     dockerCompat = true;
   };
 
+  # Waydroid
+  virtualisation.waydroid.enable = true;
+
   # virt-manager
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
@@ -206,8 +212,7 @@
     musescore
     pavucontrol
     qbittorrent
-    mediawriter
-    darktable
+    kdePackages.isoimagewriter
     spotify
     # multimedia
     vlc
@@ -235,7 +240,6 @@
   };
 
   # network
-
    networking.firewall = { 
     enable = true;
     allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];  
