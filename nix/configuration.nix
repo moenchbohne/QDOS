@@ -6,9 +6,9 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
+  # Boot
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme1n1";
+  boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
   boot = {
@@ -23,8 +23,10 @@
     };
   };
 
-  # Kernel
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  # start-up commands
+  powerManagement.powerUpCommands = "
+    distrobox enter archlinux
+  ";
 
   # Hostname
   networking.hostName = "mangrove"; 
@@ -64,9 +66,6 @@
   # shell
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
-  programs.fish.enable = true;
-  programs.nushell.enable = true;
-  programs.powershell.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -86,11 +85,6 @@
   # * terminal password
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
   
-  # coolercontrol
-  programs.coolercontrol = {
-    enable = true;
-  };
-
   # printing
   services.printing.enable = true;
   services.avahi = {
@@ -121,24 +115,16 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    noto-fonts
     noto-fonts-emoji
     fira-code-symbols
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "ZedMono" "0xProto" ]; })
+    (nerdfonts.override { fonts = [ "ZedMono" "0xProto" ]; })
   ];
  
   # Define a user 
   users.users.quentin = {
     isNormalUser = true;
     description = "quentin";
-    extraGroups = [ "networkmanager" "wheel" "docker" "audio" "libvirtd"];
-  };
-
-  # Docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
+    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
   };
 
   # Podman
@@ -146,13 +132,6 @@
     enable = true;
     dockerCompat = true;
   };
-
-  # Waydroid
-  virtualisation.waydroid.enable = true;
-
-  # virt-manager
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
 
   # Nvidia / Graphics 
   hardware.opengl = {
@@ -167,7 +146,7 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.legacy;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   programs.coolercontrol.nvidiaSupport = true;
 
@@ -181,7 +160,6 @@
     alsa-utils
     btop
     appimage-run
-    thefuck
     # big three + fzf
     zoxide
     eza
@@ -203,16 +181,13 @@
     vesktop
     distrobox
     brave
-    whatsapp-for-linux
     git
     qemu
     quickemu
     qastools
     musescore
     pavucontrol
-    qbittorrent
-    kdePackages.isoimagewriter
-    spotify
+    github-desktop
     # multimedia
     vlc
     handbrake
@@ -220,6 +195,7 @@
     libaacs
     libbluray
     freac
+    spotify
     # office
     libreoffice
     texliveFull
@@ -228,6 +204,7 @@
     hunspellDicts.en_GB-ize
     # kde
     kdePackages.kdeconnect-kde
+    kdePackages.isoimagewriter
   ];
 
   # steam
@@ -242,7 +219,7 @@
    networking.firewall = { 
     enable = true;
     allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];  
-    allowedUDPPortRanges = allowedTCPPortRanges;  
+    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ]; 
   };
 
   services.openssh = {
@@ -266,9 +243,9 @@
     options = "--delete-older-than 7d";
   };
 
-  system.autUpgrade = {
+  system.autoUpgrade = {
     enable = true;
-    channel = "hhtps://nixos.org/channels/nixos-unstable";
+    channel = "https://nixos.org/channels/nixos-unstable";
     dates = "weekly";
   };
 
