@@ -2,7 +2,8 @@
 alias e="emacs -nw"
 alias w="curl wttr.in/Celle"
 alias ff="fastfetch"
-alias pok="pokeget 382 383 384 -s"
+alias pok="pokeget 382 383 384 -s --hide-name"
+alias pok2="pokeget 487 -s --hide-name"
 alias reb="sudo nixos-rebuild switch"
 alias rel="source ~/.zshrc"
 
@@ -21,5 +22,3 @@ source <(fzf --zsh)
 # starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
-
-export PATH=$PATH:/home/quentin/.spicetify
