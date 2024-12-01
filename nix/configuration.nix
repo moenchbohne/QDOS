@@ -171,6 +171,8 @@
     unimatrix
     pokeget-rs
     pipes-rs
+    # QOL
+    apple-cursor
     # gaming
     steam
     lutris
