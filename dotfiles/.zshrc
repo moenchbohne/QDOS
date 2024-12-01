@@ -1,3 +1,13 @@
+# random poke on start
+select_random() {
+    printf "%s\0" "$@" | shuf -z -n1 | tr -d '\0'
+}
+
+pokes=("pokeget 487 -s --hide-name" "pokeget 382 -s --hide-name" "pokeget 384 -s --hide-name" "pokeget 383 -s --hide-name")
+
+selectedpoke=$(select_random "${pokes[@]}")
+eval $selectedpoke
+
 # aliases
 alias e="emacs -nw"
 alias w="curl wttr.in/Celle"
