@@ -10,29 +10,29 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
+  boot.loader.timeout = 3;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
 
-  boot = {
-    plymouth = {
-      enable = true;
-      theme = "blockchain";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "ibm" "blockchain" "pixels" ];
-        })
-      ];
+  boot.loader.grub.theme = pkgs.stdenv.mkDerivation { # works, hail mary!!!
+    pname = "distro-grub-themes";
+    version = "3.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "AdisonCavani";
+      repo = "distro-grub-themes";
+      rev = "v3.1";
+      hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
     };
+    installPhase = "cp -r customize/nixos $out";
   };
 
   # start-up commands
-  powerManagement.powerUpCommands = "
-    distrobox enter archlinux
-  ";
+  powerManagement.powerUpCommands = "";
 
   # Hostname
-  networking.hostName = "mangrove"; 
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "mangrove";
+    networkmanager.enable = true;
+  }; 
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -57,11 +57,16 @@
 
   # SDDM config
   services.displayManager.sddm.enable = true;
-  services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off";
+  services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off"; # works, hail mary!!!
   services.displayManager.sddm.autoNumlock = true;
 
   # Enable Desktop Environment
   services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma-browser-integration
+    konsole
+    oxygen
+  ];
 
   # shell
   users.defaultUserShell = pkgs.zsh;
@@ -77,9 +82,11 @@
   console.keyMap = "de";
 
   # Services
-  services.flatpak.enable = true;
-  services.emacs.enable = true;
-  services.fwupd.enable = true;
+  services = {
+    flatpak.enable = true;
+    emacs.enable = true;
+    fwupd.enable = true;
+  };
   # services.jack.jackd.enable = true;
 
   # * terminal password
@@ -117,10 +124,12 @@
   fonts.packages = with pkgs; [
     noto-fonts-emoji
     fira-code-symbols
-    (nerdfonts.override { fonts = [ "ZedMono" "0xProto" ]; })
+    migmix # Japanese Chars
+    lxgw-wenkai # Chinese Chars
+    (nerdfonts.override { fonts = [ "ZedMono" "JetBrainsMono" "0xProto" ]; })
   ];
  
-  # Define a user 
+  # Users
   users.users.quentin = {
     isNormalUser = true;
     description = "quentin";
@@ -148,7 +157,6 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-  programs.coolercontrol.nvidiaSupport = true;
 
   # List packages installed in system profile. 
   environment.systemPackages = with pkgs; [
@@ -190,6 +198,9 @@
     musescore
     pavucontrol
     github-desktop
+    obsidian
+    angryipscanner
+    qbittorrent
     # multimedia
     vlc
     handbrake
@@ -207,7 +218,23 @@
     # kde
     kdePackages.kdeconnect-kde
     kdePackages.isoimagewriter
+    # mltplxer
+    zellij
+    tmux
+    # POC/WIP
+    nh
+    nushell
+    kitty
   ];
+
+  
+  nixpkgs.config.permittedInsecurePackages = [ "qbittorrent-4.6.4" ];
+            
+
+  # VPN POC (Für einen Monat gepayed)
+  services.resolved.enable = true;
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   # steam
   programs.steam = {
@@ -217,7 +244,7 @@
    localNetworkGameTransfers.openFirewall = true;
   };
 
-  # network
+  # ssh + ports
    networking.firewall = { 
     enable = true;
     allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];  
