@@ -15,6 +15,8 @@ alias ff="fastfetch"
 alias pok="pokeget 382 383 384 -s --hide-name"
 alias pok2="pokeget 487 -s --hide-name"
 alias reb="sudo nixos-rebuild switch"
+alias rep="sudo nixos-rebuild switch --upgrade --verbose"
+alias build="echo PLACEHOLDER"
 alias rel="source ~/.zshrc"
 
 # replace old shit
