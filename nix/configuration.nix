@@ -68,10 +68,6 @@
     oxygen
   ];
 
-  # shell
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
@@ -81,13 +77,16 @@
   # Configure console keymap
   console.keyMap = "de";
 
-  # Services
+  # services
   services = {
     flatpak.enable = true;
     emacs.enable = true;
     fwupd.enable = true;
   };
   # services.jack.jackd.enable = true;
+
+  # programs
+  programs.zsh.enable = true;
 
   # * terminal password
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
@@ -130,10 +129,13 @@
   ];
  
   # Users
-  users.users.quentin = {
-    isNormalUser = true;
-    description = "quentin";
-    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
+  users = {
+    users.quentin = {
+      isNormalUser = true;
+      description = "quentin";
+      extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
+    };
+    defaultUserShell = pkgs.zsh;
   };
 
   # Podman
@@ -179,6 +181,9 @@
     unimatrix
     pokeget-rs
     pipes-rs
+    fortune-kind
+    charasay
+    lolcat
     # QOL
     apple-cursor
     # gaming
@@ -190,7 +195,7 @@
     vscodium
     vesktop
     distrobox
-    brave
+    floorp
     git
     qemu
     quickemu
@@ -209,6 +214,7 @@
     libbluray
     freac
     spotify
+    filebot
     # office
     libreoffice
     texliveFull
@@ -218,18 +224,18 @@
     # kde
     kdePackages.kdeconnect-kde
     kdePackages.isoimagewriter
-    # mltplxer
-    zellij
-    tmux
+    krusader
     # POC/WIP
+    tmux
     nh
     nushell
     kitty
   ];
-
   
-  nixpkgs.config.permittedInsecurePackages = [ "qbittorrent-4.6.4" ];
-            
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "qbittorrent-4.6.4" ];
+  };        
 
   # VPN POC (Für einen Monat gepayed)
   services.resolved.enable = true;
@@ -278,6 +284,5 @@
     dates = "weekly";
   };
 
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05"; 
 }
