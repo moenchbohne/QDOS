@@ -148,24 +148,23 @@
     users.quentin = {
       isNormalUser = true;
       description = "quentin";
-      extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "audio" "libvirtd"];
     };
     defaultUserShell = pkgs.zsh;
   };
 
-  # Podman
+  # Virt
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
   };
+  virtualisation.libvirtd.enable = true;
 
   # Nvidia / Graphics 
   hardware.opengl = {
     enable = true;
   };
-
   services.xserver.videoDrivers = ["nvidia"];
-
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
@@ -199,7 +198,7 @@
     fortune-kind
     charasay
     lolcat
-    # QOL
+    # themes
     apple-cursor
     # gaming
     steam
@@ -212,8 +211,6 @@
     distrobox
     floorp
     git
-    qemu
-    quickemu
     qastools
     musescore
     pavucontrol
@@ -221,6 +218,7 @@
     obsidian
     angryipscanner
     qbittorrent
+    virt-manager-qt
     # multimedia
     vlc
     handbrake
@@ -240,7 +238,12 @@
     kdePackages.kdeconnect-kde
     kdePackages.isoimagewriter
     krusader
+    # VMs
+    qemu
+    quickemu
+    quickgui
     # POC/WIP
+    blanket
     tmux
     nushell
     kitty
