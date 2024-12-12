@@ -55,12 +55,15 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # SDDM config
-  services.displayManager.sddm.enable = true;
+  # SDDM
   services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off"; # works, hail mary!!!
-  services.displayManager.sddm.autoNumlock = true;
+  services.displayManager.sddm = { 
+    enable = true;
+    autoNumlock = true;
+    wayland.enable = true; 
+  };
 
-  # Enable Desktop Environment
+  # Desktop Environment
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     plasma-browser-integration
