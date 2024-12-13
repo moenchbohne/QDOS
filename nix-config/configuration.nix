@@ -55,22 +55,21 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # SDDM config
-  services.displayManager.sddm.enable = true;
+  # SDDM
   services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off"; # works, hail mary!!!
-  services.displayManager.sddm.autoNumlock = true;
+  services.displayManager.sddm = { 
+    enable = true;
+    autoNumlock = true;
+    wayland.enable = true; 
+  };
 
-  # Enable Desktop Environment
+  # Desktop Environment
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     plasma-browser-integration
     konsole
     oxygen
   ];
-
-  # shell
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -81,13 +80,31 @@
   # Configure console keymap
   console.keyMap = "de";
 
-  # Services
+  # services
   services = {
     flatpak.enable = true;
     emacs.enable = true;
     fwupd.enable = true;
   };
   # services.jack.jackd.enable = true;
+
+  # programs.enable
+  programs = {
+    zsh = {
+      enable = true;
+      syntaxHighlighting.enable = true;
+      enableCompletion = true;
+      autosuggestions.enable = true;
+    };
+    nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        dates = "weekly";
+        extraArgs = "--keep 5";
+      };
+    };
+  };
 
   # * terminal password
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
@@ -130,25 +147,27 @@
   ];
  
   # Users
-  users.users.quentin = {
-    isNormalUser = true;
-    description = "quentin";
-    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
+  users = {
+    users.quentin = {
+      isNormalUser = true;
+      description = "quentin";
+      extraGroups = [ "networkmanager" "wheel" "docker" "audio" "libvirtd"];
+    };
+    defaultUserShell = pkgs.zsh;
   };
 
-  # Podman
+  # Virt
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
   };
+  virtualisation.libvirtd.enable = true;
 
   # Nvidia / Graphics 
   hardware.opengl = {
     enable = true;
   };
-
   services.xserver.videoDrivers = ["nvidia"];
-
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
@@ -179,7 +198,10 @@
     unimatrix
     pokeget-rs
     pipes-rs
-    # QOL
+    fortune-kind
+    charasay
+    lolcat
+    # themes
     apple-cursor
     # gaming
     steam
@@ -190,10 +212,8 @@
     vscodium
     vesktop
     distrobox
-    brave
+    floorp
     git
-    qemu
-    quickemu
     qastools
     musescore
     pavucontrol
@@ -201,6 +221,7 @@
     obsidian
     angryipscanner
     qbittorrent
+    virt-manager-qt
     # multimedia
     vlc
     handbrake
@@ -209,6 +230,7 @@
     libbluray
     freac
     spotify
+    filebot
     # office
     libreoffice
     texliveFull
@@ -218,18 +240,22 @@
     # kde
     kdePackages.kdeconnect-kde
     kdePackages.isoimagewriter
-    # mltplxer
-    zellij
-    tmux
+    krusader
+    # VMs
+    qemu
+    quickemu
+    quickgui
     # POC/WIP
-    nh
+    blanket
+    tmux
     nushell
     kitty
   ];
-
   
-  nixpkgs.config.permittedInsecurePackages = [ "qbittorrent-4.6.4" ];
-            
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "qbittorrent-4.6.4" ];
+  };        
 
   # VPN POC (Für einen Monat gepayed)
   services.resolved.enable = true;
@@ -264,13 +290,8 @@
   };
 
   # nix config
-  # nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" ];
   nix.optimise.automatic = true;
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
-  };
 
   system.autoUpgrade = {
     enable = true;
@@ -278,6 +299,5 @@
     dates = "weekly";
   };
 
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05"; 
 }

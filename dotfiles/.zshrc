@@ -17,6 +17,7 @@ alias pok2="pokeget 487 -s --hide-name"
 alias reb="sudo nixos-rebuild switch"
 alias rep="sudo nixos-rebuild switch --upgrade --verbose"
 alias nett="ping -c 3 8.8.8.8"
+alias build="echo PLACEHOLDER"
 alias rel="source ~/.zshrc"
 
 # replace old shit
