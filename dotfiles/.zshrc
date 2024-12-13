@@ -8,13 +8,15 @@ pokes=("pokeget 487 -s --hide-name" "pokeget 382 -s --hide-name" "pokeget 384 -s
 selectedpoke=$(select_random "${pokes[@]}")
 eval $selectedpoke
 
-# aliases
+# shorthands
 alias e="emacs -nw"
 alias w="curl wttr.in/Celle"
 alias ff="fastfetch"
 alias pok="pokeget 382 383 384 -s --hide-name"
 alias pok2="pokeget 487 -s --hide-name"
 alias reb="sudo nixos-rebuild switch"
+alias rep="sudo nixos-rebuild switch --upgrade --verbose"
+alias nett="ping -c 3 8.8.8.8"
 alias rel="source ~/.zshrc"
 
 # replace old shit
