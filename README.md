@@ -20,3 +20,5 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 ![Arch-Peace](wallpaper/desktop/arch-peace.png?raw=true "Arch-Peace")
 
 ![Vaporwave](wallpaper/desktop/long-lost.jpg?raw=true "Vaporwave")
+
+![Red-Sunset](wallpaper/desktop/red-sunset.jpg?raw=true "Red-Sunset")
