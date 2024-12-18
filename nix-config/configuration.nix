@@ -79,11 +79,12 @@
   # Configure console keymap
   console.keyMap = "de";
 
-  # services
+  # services.enable
   services = {
     flatpak.enable = true;
     emacs.enable = true;
     fwupd.enable = true;
+    onedrive.enable = true;
   };
   # services.jack.jackd.enable = true;
 
@@ -222,6 +223,7 @@
     angryipscanner
     qbittorrent
     gparted
+    onedrivegui
     # multimedia
     vlc
     handbrake
