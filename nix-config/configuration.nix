@@ -60,7 +60,6 @@
   services.displayManager.sddm = { 
     enable = true;
     autoNumlock = true;
-    wayland.enable = true; 
   };
 
   # Desktop Environment
@@ -182,6 +181,7 @@
     # cli-util
     emacs
     alacritty
+    kitty
     starship
     ani-cli
     alsa-utils
@@ -221,7 +221,7 @@
     obsidian
     angryipscanner
     qbittorrent
-    virt-manager-qt
+    gparted
     # multimedia
     vlc
     handbrake
@@ -230,7 +230,9 @@
     libbluray
     freac
     spotify
-    filebot
+    puddletag
+    flacon
+    foliate
     # office
     libreoffice
     texliveFull
@@ -245,11 +247,11 @@
     qemu
     quickemu
     quickgui
+    virt-manager-qt
     # POC/WIP
     blanket
     tmux
     nushell
-    kitty
   ];
   
   nixpkgs.config = {
