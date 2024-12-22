@@ -11,7 +11,7 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 - 🖌️ [wallpaper collection](wallpaper)
 
 ## 📑 to-do
-- [ ] nix-flakes
+- [x] nix-flakes
 - [ ] laptop dots
 - [ ] better deployment
 - [ ] commit dots of more apps
