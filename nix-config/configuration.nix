@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
+      inputs.spicetify-nix.nixosModules.default
     ];
 
   # Boot
@@ -84,7 +85,6 @@
     flatpak.enable = true;
     emacs.enable = true;
     fwupd.enable = true;
-    onedrive.enable = true;
   };
   # services.jack.jackd.enable = true;
 
@@ -104,6 +104,7 @@
         extraArgs = "--keep 5";
       };
     };
+    virt-manager.enable = true;
   };
 
   # * terminal password
@@ -134,7 +135,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  sound.enable = true;
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
   # Fonts
@@ -143,7 +143,7 @@
     fira-code-symbols
     migmix # Japanese Chars
     lxgw-wenkai # Chinese Chars
-    (nerdfonts.override { fonts = [ "ZedMono" "JetBrainsMono" "0xProto" ]; })
+    nerd-fonts.jetbrains-mono
   ];
  
   # Users
@@ -164,7 +164,7 @@
   virtualisation.libvirtd.enable = true;
 
   # Nvidia / Graphics 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
   services.xserver.videoDrivers = ["nvidia"];
@@ -221,9 +221,8 @@
     github-desktop
     obsidian
     angryipscanner
-    qbittorrent
+    transmission_4
     gparted
-    onedrivegui
     # multimedia
     vlc
     handbrake
@@ -248,17 +247,15 @@
     # VMs
     qemu
     quickemu
-    quickgui
-    virt-manager-qt
     # POC/WIP
     blanket
     tmux
     nushell
+    squeezelite
   ];
   
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [ "qbittorrent-4.6.4" ];
   };        
 
   # VPN POC (Für einen Monat gepayed)
@@ -273,6 +270,22 @@
    dedicatedServer.openFirewall = true; 
    localNetworkGameTransfers.openFirewall = true;
   };
+
+  # spicetify
+  programs.spicetify =
+   let
+     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+   in
+   {
+     enable = true;
+     enabledExtensions = with spicePkgs.extensions; [
+      fullAppDisplay
+      betterGenres
+      addToQueueTop
+     ];
+     theme = spicePkgs.themes.catppuccin;
+     colorScheme = "mocha";
+   };
 
   # ssh + ports
    networking.firewall = { 
@@ -294,7 +307,7 @@
   };
 
   # nix config
-  nix.settings.experimental-features = [ "nix-command" ];
+  nix.settings.experimental-features = [ "flakes" "nix-command" ];
   nix.optimise.automatic = true;
 
   system.autoUpgrade = {
