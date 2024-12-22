@@ -11,10 +11,10 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 - 🖌️ [wallpaper collection](wallpaper)
 
 ## 📑 to-do
-- nix-flakes
-- laptop dots
-- better deployment
-- commit dots of more apps
+- [ ] nix-flakes
+- [ ] laptop dots
+- [ ] better deployment
+- [ ] commit dots of more apps
 
 ## wallpaper preview
 ![Arch-Peace](wallpaper/desktop/arch-peace.png?raw=true "Arch-Peace")
