@@ -7,7 +7,7 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 
 ## 📋 content
 - 📊 [dotfiles](dotfiles)
-- 🧭 [nix-configs](nix)
+- 🧭 [nix-configs](nix-config)
 - 🖌️ [wallpaper collection](wallpaper)
 
 ## 📑 to-do
