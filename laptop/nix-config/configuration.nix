@@ -177,12 +177,14 @@
     parsec-bin
     pipx
     mpv
-    nushell
     qbittorrent
     qemu
     quickemu
     squeezelite
     eza
+    powertop
+    # nushell POC
+    nushell
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

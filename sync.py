@@ -1,10 +1,22 @@
 import os
 import shutil
 
-# sync nix
+# global vars
 src = "/etc/nixos/"
-dest = "/home/quentin/GitRepos/QDOS/nix-config/"
 
+# destinction
+destinction = input('Desktop or Laptop? (D or L)' )
+
+if destinction == 'D':
+	dest = "/home/quentin/GitRepos/QDOS/nix-config/"
+
+elif destinction == 'L':
+	dest = "/home/quentin/GitRepos/QDOS/laptop/nix-config/" 
+
+else:
+	print('ERROR: Invalid Input')
+
+# actual magic
 src_files = os.listdir(src)
 
 for file_name in src_files:
