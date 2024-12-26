@@ -164,6 +164,8 @@
     aha
     pciutils
     appimage-run
+    # python
+    python3
     # office
     libreoffice
     hunspell
