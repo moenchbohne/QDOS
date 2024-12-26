@@ -8,15 +8,15 @@ pokes=("pokeget 487 -s --hide-name" "pokeget 382 -s --hide-name" "pokeget 384 -s
 selectedpoke=$(select_random "${pokes[@]}")
 eval $selectedpoke
 
-# shorthands
-alias e="emacs -nw"
+# aliases
+alias e="emacsclient -nw -c -a 'emacs -nw' "
 alias w="curl wttr.in/Celle"
 alias ff="fastfetch"
 alias pok="pokeget 382 383 384 -s --hide-name"
 alias pok2="pokeget 487 -s --hide-name"
-alias reb="sudo nixos-rebuild switch"
+alias reb="nh os switch /etc/nixos"
 alias rep="sudo nixos-rebuild switch --upgrade --verbose"
-alias nett="ping -c 3 8.8.8.8"
+alias nixcp="cp /etc/nixos/* ~/GitRepos/QDOS/nix-config"
 alias build="echo PLACEHOLDER"
 alias rel="source ~/.zshrc"
 
