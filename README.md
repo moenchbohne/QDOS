@@ -12,7 +12,7 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 
 ## 📑 to-do
 - [x] nix-flakes
-- [ ] laptop dots
+- [x] laptop dots
 - [ ] better deployment
 - [ ] commit dots of more apps
 
