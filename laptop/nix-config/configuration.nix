@@ -132,7 +132,6 @@
     blueman
     mkvtoolnix
     puddletag
-    flacon
     foliate
     # gnome
     apple-cursor

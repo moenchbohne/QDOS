@@ -3,15 +3,21 @@ import shutil
 
 # global vars
 src = "/etc/nixos/"
+src-lst = [ 
+    "/etc/nixos/" 
+    "~/.config/kitty/"
+    "~/.config/fastfetch/"
+    "~/.config/nushell"
+]
 
 # destinction
-destinction = input('Desktop or Laptop? (D or L)' )
+destinction = input('Desktop or Laptop? (D or L) ')
 
 if destinction == 'D':
-	dest = "/home/quentin/GitRepos/QDOS/nix-config/"
+	dest = "~/GitRepos/QDOS/nix-config/"
 
 elif destinction == 'L':
-	dest = "/home/quentin/GitRepos/QDOS/laptop/nix-config/" 
+	dest = "~/GitRepos/QDOS/laptop/nix-config/" 
 
 else:
 	print('ERROR: Invalid Input')
