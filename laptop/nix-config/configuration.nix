@@ -3,7 +3,6 @@
 {
   imports =
     [ 
-      <nixos-hardware/lenovo/thinkpad/t480>
       ./hardware-configuration.nix
     ];
 
@@ -137,7 +136,7 @@
     foliate
     # gnome
     apple-cursor
-    gnome.gnome-tweaks
+    gnome-tweaks
     gnome-extension-manager
     # kde
     kdePackages.filelight
@@ -178,9 +177,6 @@
     pipx
     mpv
     qbittorrent
-    qemu
-    quickemu
-    squeezelite
     eza
     powertop
     # nushell POC
@@ -191,10 +187,6 @@
     "qbittorrent-4.6.4"
   ];
 
-  # virt-POC
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-
   # VPN
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
@@ -203,7 +195,9 @@
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "0xProto" "JetBrainsMono" "ZedMono" ]; })
+    nerd-fonts._0xproto
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.zed-mono
   ];
 
   networking.firewall = rec {
