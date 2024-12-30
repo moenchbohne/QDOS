@@ -1,52 +1,129 @@
-#format = """
-#[╭─user───❯](bold blue) $username
-#[┣─system─❯](bold yellow) $hostname
-#[┣─project❯](bold red) $directory$rust$git_branch$git_state$git_status$package$golang$terraform$docker_context$python$docker_context$nodejs
-#[╰─cmd────❯](bold green)
-#"""
+format = """\
+[╭╴](fg:arrow)\
+$username\
+$directory\
+$time\
+(\
+    $git_branch\
+    $git_status\
+)\
+(\
+    $python\
+    $conda\
+    $nodejs\
+)\
+$cmd_duration
+[╰─](fg:arrow)$character\
+"""
+# Add the modules you need
+
+# Disables the blank line at the start of the prompt
+add_newline = true
+
+
+# Palettes:
+#   old: the previous version.
+#   normal: dark gray / yellow / white palette.
+#   light: pastel light colors.
+# To change the colors: change to the corresponding palette.
+palette = "light"
+
+
+[palettes.old]
+arrow = "#353535"
+os = "#3778BF"
+os_admin = "#6A040F"
+directory = "#3F37C9"
+node = "green"
+time = "#177E89"
+git = "#B02B10"
+git_status = "#8B1D2C"
+python = "#3776AB"
+conda = "#3EB049"
+java = "#861215"
+rust = "#C33C00"
+clang = "#00599D"
+duration = "yellow"
+text_color = "#EDF2F4"
+text_light = "#EDF2F4"
+
+[palettes.normal]
+arrow = "#353535"
+os = "#2C3032"
+os_admin = "#6A040F"
+directory = "#363C3E"
+time = "#474D5C"
+node = "#F1DEA9"
+git = "#D0DBDA"
+git_status = "#DFEBED"
+python = "#F5CB5C"
+conda = "#3EB049"
+java = "#861215"
+rust = "#C33C00"
+clang = "#00599D"
+duration = "#F4FBFF"
+text_color = "#EDF2F4"
+text_light = "#26272A"
+
+[palettes.light]
+arrow = "#BF40BF"
+os = "#F7768E"
+os_admin = "#ACBEF1"
+directory = "#FF9578"
+time = "#FFDC72"
+git = "#F5F5F5"
+git_status = "#72FFD5"
+clang = "#67E3FF"
+java = "#FF52A3"
+python = "#B4F9F8"
+node = "#81FF85"
+conda = "#BAF5C0"
+duration = "#91FFE7"
+text_color = "#26272A"
+text_light = "#26272A"
+
 [username]
-style_user = "green bold"
-style_root = "red bold"
-format = "[$user]($style) "
+style_user = 'os'
+style_root = 'os_admin'
+format = '[]($style)[  $user](bg:$style fg:text_color)[]($style)'
 disabled = false
 show_always = true
 
-[hostname]
-ssh_only = false
-format = '|| [$hostname](bold purple) '
-trim_at = "."
-disabled = false
+[character]
+success_symbol = "[󰍟](fg:arrow)"
+error_symbol = "[󰍟](fg:red)"
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            
-success_symbol = "[➜](bold green)"     
-error_symbol = "[➜](bold yellow)"
-
-#  
-# configure directory
 [directory]
-read_only = " 🔒"
-truncation_length = 10
-truncate_to_repo = true # truncates directory to root folder if in github repo
-style = "bold italic blue"
+format = " [](fg:directory)[  $path ]($style)[$read_only]($read_only_style)[](fg:directory)"
+truncation_length = 2
+style = "fg:text_color bg:directory"
+read_only_style = "fg:text_color bg:directory"
+before_repo_root_style = "fg:text_color bg:directory"
+truncation_symbol = "…/"
+truncate_to_repo = true
+read_only ="  "
+
+[time]
+disabled = false
+format = " [](fg:time)[ $time]($style)[](fg:time)"
+time_format = "%H:%M"
+style = "fg:text_color bg:time"
 
 [cmd_duration]
-min_time = 4
-show_milliseconds = false
-disabled = false
-style = "bold italic red"
+format = " [](fg:duration)[ $duration]($style)[](fg:duration)"
+style = "fg:text_light bg:duration"
+min_time = 500
 
-[aws]
-symbol = "  "
+[git_branch]
+format = " [](fg:git)[$symbol$branch](fg:text_light bg:git)[](fg:git)"
+symbol = " "
 
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
+[git_status]
+format = '([ ](fg:git_status)[ $all_status$ahead_behind ]($style)[](fg:git_status))'
+style = "fg:text_light bg:git_status"
 
 [docker_context]
-symbol = " "
+symbol = "<U+F308> "
 format = "via [$symbol$context]($style) "
 style = "blue bold"
 only_with_files = true
@@ -54,96 +131,79 @@ detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
 detect_folders = []
 disabled = false
 
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[git_branch]
-symbol = " "
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
-stashed = "[${count}*](green)" 
-modified = "[${count}+](yellow)" 
-deleted =  "[${count}-](red)" 
-conflicted =  "[${count}~](red)" 
-ahead = "⇡${count}"
-behind = "⇣${count}"
-untracked = "[${count}?](blue)" 
-staged = "[${count}+](green)" 
-
-[git_state]
-style =	"bold red"
-format = "[$state( $progress_current/$progress_total) ]($style)"
-rebase = "rebase"
-merge = "merge"	
-revert = "revert"	
-cherry_pick = "cherry"
-bisect = "bisect"	
-am = "am"	
-am_or_rebase = "am/rebase"
-
-[golang]
-symbol = " "
-
-[hg_branch]
-symbol = " "
+[package]
+disabled=true
 
 [java]
+format = "[ ](fg:java)[$symbol$version](bg:java fg:text_color)[](fg:java)"
+version_format = "${raw}"
 symbol = " "
-
-[julia]
-symbol = " "
-
-[haskell]
-symbol = "λ "
-
-[memory_usage]
-symbol = " "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
-
-[package]
-symbol = " "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[python]
-symbol = "🐍 "
-#pyenv_version_name = true
-format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
-style = "bold yellow"
-pyenv_prefix = "venv "
-python_binary = ["./venv/bin/python", "python", "python3", "python2"]
-detect_extensions = ["py"]
-version_format = "v${raw}"
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = " "
-
-[scala]
-symbol = " "
-
-[shlvl]
-symbol = " "
-
-[swift]
-symbol = "ﯣ "
+disabled = true
 
 [nodejs]
-format = "via [ Node.js $version](bold green) "
-detect_files = ["package.json", ".node-version"]
-detect_folders = ["node_modules"]
+format = "[ ](fg:node)[$symbol$version]($style)[](fg:node)"
+style = "bg:node fg:text_light"
+symbol = " "
+version_format = "${raw}"
+disabled=false
+
+[rust]
+format = "[ ](fg:rust)[$symbol$version](bg:rust fg:text_color)[](fg:rust)"
+symbol = " "
+version_format = "${raw}"
+disabled=true
+
+[python]
+disabled=false
+format = '[ ](fg:python)[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)[](fg:python)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:text_light bg:python"
+
+[conda]
+format = "[ ](fg:conda)[$symbol$environment]($style)[](fg:conda)"
+style = "bg:conda fg:text_color"
+ignore_base = false
+disabled=false
+symbol = " "
+
+[nix_shell]
+symbol = "<U+F2DC> "
+
+[c]
+format = "[ ](fg:clang)[$symbol($version(-$name) )](bg:clang fg:text_color)[](fg:clang)"
+symbol = " "
+version_format = "${raw}"
+disabled=true
+
+[os.symbols]
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Gentoo = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+openSUSE = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = " "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = " "
