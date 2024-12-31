@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, pkgs-stable, inputs, ... }:
 
 {
   imports =
@@ -11,10 +11,13 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
-  boot.loader.timeout = 3;
+  boot.loader.timeout = 0;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  boot.kernelModules = [
+    "sg" # SCSI for BlueRay
+  ];
 
-  boot.loader.grub.theme = pkgs.stdenv.mkDerivation { # works, hail mary!!!
+  boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
     pname = "distro-grub-themes";
     version = "3.1";
     src = pkgs.fetchFromGitHub {
@@ -57,11 +60,8 @@
   services.xserver.enable = true;
 
   # SDDM
-  services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off"; # works, hail mary!!!
-  services.displayManager.sddm = { 
-    enable = true;
-    autoNumlock = true;
-  };
+  services.xserver.displayManager.setupCommands="${lib.getExe pkgs-stable.xorg.xrandr} --output DP-2 --off";
+  services.displayManager.sddm.enable = true;
 
   # Desktop Environment
   services.desktopManager.plasma6.enable = true;
@@ -125,8 +125,7 @@
     powerOnBoot = true;
   };
 
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  # sound
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -135,7 +134,10 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  
+
+  # musnix
+  musnix.enable = true;
 
   # Fonts
   fonts.packages = with pkgs; [
@@ -143,17 +145,17 @@
     fira-code-symbols
     migmix # Japanese Chars
     lxgw-wenkai # Chinese Chars
-    nerd-fonts.jetbrains-mono
+    nerd-fonts.jetbrains-mono # Terminal Font
   ];
  
-  # Users
+  # User / quentin
   users = {
     users.quentin = {
       isNormalUser = true;
       description = "quentin";
       extraGroups = [ "networkmanager" "wheel" "docker" "audio" "libvirtd"];
     };
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs-stable.zsh;
   };
 
   # Virt
@@ -178,89 +180,107 @@
   };
 
   # List packages installed in system profile. 
-  environment.systemPackages = with pkgs; [
-    # cli-util
-    emacs
-    alacritty
-    kitty
-    starship
-    ani-cli
-    alsa-utils
-    btop
-    appimage-run
-    # big three + fzf
-    zoxide
-    eza
-    bat
-    fzf
-    # unixp*rn
-    fastfetch
-    cbonsai
-    unimatrix
-    pokeget-rs
-    pipes-rs
-    fortune-kind
-    charasay
-    lolcat
-    # themes
-    apple-cursor
-    # gaming
-    steam
-    lutris
-    bottles
-    prismlauncher
-    # productivity
-    vscodium
-    vesktop
-    distrobox
-    floorp
-    git
-    qastools
-    musescore
-    pavucontrol
-    github-desktop
-    obsidian
-    angryipscanner
-    transmission_4
-    gparted
-    # multimedia
-    vlc
-    handbrake
-    makemkv
-    libaacs
-    libbluray
-    freac
-    spotify
-    puddletag
-    flacon
-    foliate
-    # office
-    libreoffice
-    texliveFull
-    hunspell
-    hunspellDicts.de_DE
-    hunspellDicts.en_GB-ize
-    # kde
-    kdePackages.kdeconnect-kde
-    kdePackages.isoimagewriter
-    krusader
-    # VMs
-    qemu
-    quickemu
-    # POC/WIP
-    blanket
-    tmux
-    nushell
-    squeezelite
-  ];
-  
+  environment.systemPackages =
+
+    # rolling release
+    (with pkgs; [
+      # cli-util
+      emacs
+      kitty
+      starship
+      ani-cli
+      alsa-utils
+      btop
+      appimage-run
+      git
+      # big three + fzf
+      zoxide
+      eza
+      bat
+      fzf
+      # unixp*rn
+      fastfetch
+      cbonsai
+      unimatrix
+      pokeget-rs
+      pipes-rs
+      fortune-kind
+      charasay
+      lolcat
+      snowmachine
+      # themes + rice
+      apple-cursor
+      catppuccin-sddm
+      # gaming
+      steam
+      lutris
+      prismlauncher
+      # productivity
+      kando
+      vscodium
+      vesktop
+      distrobox
+      floorp
+      musescore
+      pavucontrol
+      github-desktop
+      obsidian
+      angryipscanner
+      transmission_4
+      gparted
+      # creative
+      darktable
+      reaper
+      hydrogen
+      synthv1
+      # multimedia
+      vlc
+      handbrake
+      makemkv
+      libaacs
+      libbluray
+      freac
+      spotify
+      puddletag
+      foliate
+      # python
+      python3
+      # office
+      libreoffice
+      texliveFull
+      hunspell
+      hunspellDicts.de_DE
+      hunspellDicts.en_GB-ize
+      # kde
+      kdePackages.kdeconnect-kde
+      kdePackages.isoimagewriter
+      # plugins 
+      oxefmsynth
+      # POC/WIP
+      blanket
+      zellij
+      nushell
+      ghostty
+    ])
+
+    ++
+
+    # stable release
+    (with pkgs-stable; [
+      flacon
+      qemu
+      quickemu
+    ]);
+
+
+
   nixpkgs.config = {
     allowUnfree = true;
   };        
 
   # VPN POC (Für einen Monat gepayed)
   services.resolved.enable = true;
-  services.mullvad-vpn.enable = true;
+  #services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   # steam
@@ -283,8 +303,8 @@
       betterGenres
       addToQueueTop
      ];
-     theme = spicePkgs.themes.catppuccin;
-     colorScheme = "mocha";
+     theme = spicePkgs.themes.sleek;
+     # colorScheme = "mocha";
    };
 
   # ssh + ports
