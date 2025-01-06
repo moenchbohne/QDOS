@@ -1,31 +1,45 @@
+import sys
 import os
 import shutil
 
 # global vars
 src = "/etc/nixos/"
-src-lst = [ 
+srcl = [ 
     "/etc/nixos/" 
     "~/.config/kitty/"
     "~/.config/fastfetch/"
     "~/.config/nushell"
 ]
 
-# destinction
-destinction = input('Desktop or Laptop? (D or L) ')
+# args
+destinc = sys.argv[1]
+sds = sys.argv[2]
 
-if destinction == 'D':
+if destinc == 'desktop':
 	dest = "~/GitRepos/QDOS/nix-config/"
 
-elif destinction == 'L':
+elif destinc == 'laptop':
 	dest = "~/GitRepos/QDOS/laptop/nix-config/" 
 
 else:
 	print('ERROR: Invalid Input')
 
 # actual magic
-src_files = os.listdir(src)
+if sds == 'sync':
+    src_files = os.listdir(src)
 
-for file_name in src_files:
-    full_file_name = os.path.join(src, file_name)
+    for file_name in src_files:
+        full_file_name = os.path.join(src, file_name)
     if os.path.isfile(full_file_name):
         shutil.copy(full_file_name, dest)
+
+elif sds == 'desync':
+    src_files = os.listdir(src)
+
+    for file_name in src_files:
+        full_file_name = os.path.join(dest, file_name)
+    if os.path.isfile(full_file_name):
+        shutil.copy(full_file_name, src)
+
+else:
+	print('ERROR: Invalid Input')
