@@ -14,12 +14,13 @@ alias w="curl wttr.in/Celle"
 alias ff="fastfetch"
 alias pok="pokeget 382 383 384 -s --hide-name"
 alias pok2="pokeget 487 -s --hide-name"
-# only work with flake.lock chowned to the user exec nh
+# only work with flake.lock chowned to the user executing nh
 alias reb="nh os switch /etc/nixos"
 alias rep="nh os switch /etc/nixos --update"
 alias nixcp="cp /etc/nixos/* ~/GitRepos/QDOS/nix-config"
-alias build="echo PLACEHOLDER"
 alias rel="source ~/.zshrc"
+alias build="nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { } '"
+alias doom="sudo nix run github:nix-community/nix-doom-emacs"
 
 # replace old shit
 alias cd="z"
