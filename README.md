@@ -17,7 +17,7 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 - [ ] commit dots of more apps
 - [ ] declarative sddm theming
 
-## nix-packaging
+## 📦 nix-packaging
 - [ ] deskthing
 - [ ] eshare
 
