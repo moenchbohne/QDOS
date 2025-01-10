@@ -15,6 +15,11 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 - [x] laptop dots
 - [ ] better deployment
 - [ ] commit dots of more apps
+- [ ] declarative sddm theming
+
+## nix-packaging
+- [ ] deskthing
+- [ ] eshare
 
 ## wallpaper preview
 ![Arch-Peace](wallpaper/desktop/arch-peace.png?raw=true "Arch-Peace")
