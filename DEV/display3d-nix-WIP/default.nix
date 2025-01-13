@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-CqbYFz78hjEhqzHoziWDvBPMmhAjx2Sqx56PSM81Pd4="; # richtiger hash prop
   };
 
-  cargoHash = "";
+  cargoHash = lib.fakeHash;
 
   doInstallCheck = true;
 
