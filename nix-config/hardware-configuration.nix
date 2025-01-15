@@ -25,8 +25,8 @@
     };
 
   fileSystems."/mount/D:" =
-    { device = "/dev/disk/by-uuid/DAA2B193A2B1751B";
-      fsType = "ntfs";
+    { device = "/dev/disk/by-uuid/51b20546-2486-4286-8059-f7029ac75751";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
@@ -39,6 +39,7 @@
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp10s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wg0-mullvad.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp6s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

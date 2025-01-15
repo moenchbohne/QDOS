@@ -11,23 +11,11 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
-  boot.loader.timeout = 0;
+  boot.loader.timeout = 3;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   boot.kernelModules = [
     "sg" # SCSI for BlueRay
   ];
-
-  boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
-    pname = "distro-grub-themes";
-    version = "3.1";
-    src = pkgs.fetchFromGitHub {
-      owner = "AdisonCavani";
-      repo = "distro-grub-themes";
-      rev = "v3.1";
-      hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
-    };
-    installPhase = "cp -r customize/nixos $out";
-  };
 
   # start-up commands
   powerManagement.powerUpCommands = "";
@@ -62,6 +50,8 @@
   # SDDM
   services.xserver.displayManager.setupCommands="${lib.getExe pkgs-stable.xorg.xrandr} --output DP-2 --off";
   services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.theme = "sddm-astronaut"; 
+  # services.displayManager.sddm.package = lib.mkForce pkgs-stable.plasma5Packages.sddm; 
 
   # Desktop Environment
   services.desktopManager.plasma6.enable = true;
@@ -69,6 +59,7 @@
     plasma-browser-integration
     konsole
     oxygen
+    kate
   ];
 
   # Configure keymap in X11
@@ -85,8 +76,8 @@
     flatpak.enable = true;
     emacs.enable = true;
     fwupd.enable = true;
+    #jack.jackd.enable = true;
   };
-  # services.jack.jackd.enable = true;
 
   # programs.enable
   programs = {
@@ -96,6 +87,7 @@
       enableCompletion = true;
       autosuggestions.enable = true;
     };
+
     nh = {
       enable = true;
       clean = {
@@ -104,7 +96,26 @@
         extraArgs = "--keep 5";
       };
     };
+
+    firefox = {
+      enable = true;
+      package = pkgs.floorp;
+    };
+
+    kdeconnect = {
+      enable = true;
+    };
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true; 
+      localNetworkGameTransfers.openFirewall = true;
+    };
+
     virt-manager.enable = true;
+
+    gamemode.enable = true;
   };
 
   # * terminal password
@@ -135,25 +146,22 @@
     jack.enable = true;
   };
   
-
   # musnix
   musnix.enable = true;
-
-  # Fonts
-  fonts.packages = with pkgs; [
-    noto-fonts-emoji
-    fira-code-symbols
-    migmix # Japanese Chars
-    lxgw-wenkai # Chinese Chars
-    nerd-fonts.jetbrains-mono # Terminal Font
-  ];
  
   # User / quentin
   users = {
     users.quentin = {
       isNormalUser = true;
       description = "quentin";
-      extraGroups = [ "networkmanager" "wheel" "docker" "audio" "libvirtd"];
+      extraGroups = [ 
+        "networkmanager" 
+        "wheel" 
+        "docker" 
+        "audio" 
+        "libvirtd" 
+        "gamemode" 
+        ];
     };
     defaultUserShell = pkgs-stable.zsh;
   };
@@ -209,24 +217,24 @@
       lolcat
       snowmachine
       # themes + rice
-      apple-cursor
       catppuccin-sddm
+      base16-schemes
+      sddm-astronaut
       # gaming
-      steam
       lutris
       prismlauncher
+      mangohud
+      ryujinx-greemdev
+      protonup
       # productivity
       kando
       vscodium
-      vesktop
-      distrobox
-      floorp
+      yazi
       musescore
       pavucontrol
       github-desktop
-      obsidian
       angryipscanner
-      transmission_4
+      qbittorrent-enhanced
       gparted
       # creative
       darktable
@@ -239,10 +247,10 @@
       makemkv
       libaacs
       libbluray
-      freac
       spotify
       puddletag
       foliate
+      mpv
       # python
       python3
       # office
@@ -252,12 +260,10 @@
       hunspellDicts.de_DE
       hunspellDicts.en_GB-ize
       # kde
-      kdePackages.kdeconnect-kde
       kdePackages.isoimagewriter
       # plugins 
       oxefmsynth
-      # POC/WIP
-      blanket
+      # POC/WIPy
       zellij
       nushell
       ghostty
@@ -270,6 +276,8 @@
       flacon
       qemu
       quickemu
+      bottles
+      freac
     ]);
 
 
@@ -280,16 +288,8 @@
 
   # VPN POC (Für einen Monat gepayed)
   services.resolved.enable = true;
-  #services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
-
-  # steam
-  programs.steam = {
-   enable = true;
-   remotePlay.openFirewall = true;
-   dedicatedServer.openFirewall = true; 
-   localNetworkGameTransfers.openFirewall = true;
-  };
 
   # spicetify
   programs.spicetify =
@@ -303,9 +303,43 @@
       betterGenres
       addToQueueTop
      ];
-     theme = spicePkgs.themes.sleek;
+     theme = lib.mkForce spicePkgs.themes.sleek;
      # colorScheme = "mocha";
    };
+
+  # stylix
+  stylix = {
+    
+    enable = true;
+    image = ./red-sunset.jpg;
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Emoji";
+      };
+    };
+
+    cursor = {
+      package = pkgs.apple-cursor;
+      name = "macOS";
+    };
+  };
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    noto-fonts-emoji
+    fira-code-symbols
+    migmix # Japanese Chars
+    lxgw-wenkai # Chinese Chars
+    nerd-fonts.jetbrains-mono # Terminal Font
+  ];
 
   # ssh + ports
    networking.firewall = { 
@@ -327,8 +361,10 @@
   };
 
   # nix config
-  nix.settings.experimental-features = [ "flakes" "nix-command" ];
-  nix.optimise.automatic = true;
+  nix = {
+    settings.experimental-features = [ "flakes" "nix-command" ];
+    optimise.automatic = true;
+  };
 
   system.autoUpgrade = {
     enable = true;

@@ -9,6 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     musnix.url = "github:musnix/musnix"; 
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs: 
@@ -25,7 +26,8 @@
       };
       modules = [
         ./configuration.nix
-        inputs.musnix.nixosModules.musnix 
+        inputs.musnix.nixosModules.musnix
+        inputs.stylix.nixosModules.stylix 
       ];
     };
   };
