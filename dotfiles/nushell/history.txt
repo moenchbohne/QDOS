@@ -1,0 +1,277 @@
+clear
+exit
+fish
+exit
+clear
+fastfetch
+clear
+fish
+exit
+clear
+ff
+clear
+fastfetch 
+clear
+exit
+fish
+exit
+clear
+gg
+clear
+exit
+ps
+clear
+pw
+clear
+ps
+clear
+exit
+clear
+bat /etc/nixos/configuration.nix
+clear
+exit
+clear
+sudo nixos-rebuild switch
+clear
+sudo nixos-rebuild switch
+clear
+sudo nixos-rebuild switch --update --verbose
+sudo nixos-rebuild switch -update --verbose
+sudo nixos-rebuild switch --verbose
+clear
+pwd
+cd /etc/nixos/
+clear
+ls
+sudo flake init
+sudo nix flake init
+cd /etc/nixos/
+eza
+clear
+l
+clear
+ll
+clear
+ls
+ls -a
+clear
+ls -l
+fastfetch
+clear
+cd
+clear
+ls
+ls -a
+rm -r TOP.org~
+cd .config/
+clear
+ls
+shutdown noiw
+shutdown now
+clear
+ff
+clear
+fastfetch 
+fish
+clear
+exit
+clear
+ls
+eza
+clear
+$env.config.buffer_editor = "emacsclient -nw"
+config nu
+nano
+clear
+$env.config.buffer_editor = "emacs"
+config nu
+$env.config.buffer_editor = "nano"
+clear
+config nu
+clear
+exit
+clear
+ls
+ls -a
+clear
+cd .config/nushell/
+clear
+ls
+e env.nu
+clear
+emacsclient -nw env.nu
+emacsclient -nw config.nu
+clear
+bat config.nu
+clear
+exit
+clear
+exit
+clear
+ls
+exit
+clear
+ff
+clear
+$env.config
+clear
+fastfetch
+clear
+fastfetch
+clear
+config.nu
+clear
+config nu
+clear
+ff
+clear
+ll
+lt
+source $nu.config-path
+clear
+exit
+ls -t
+ls -T
+ls -Tree
+ls --help
+config nu
+clear
+source $nu.config-path
+clear
+ff
+ll
+clear
+ll -a
+clear
+lt
+clear
+eza --help
+config nu
+clear
+source $nu.config-path
+clear
+ff
+la
+ls
+clear
+ll
+lt
+clear
+e
+clear
+pwd
+bat .zshrc
+clear
+config nu
+clear
+source $nu.config-path
+config nu
+clear
+source $nu.config-path
+config nu 
+cleare
+clear
+source $nu.config-path
+clear
+e
+clear
+exit
+clear
+echo $SHELL
+clear
+exit
+emacsclient -nw config.nu
+emacsclient -nw .config/nushell/
+clearclear
+clear
+emacsclient -nw .config/nushell/env.nu
+clear
+exit
+clear
+exit
+ff
+ls
+ll
+lt
+clear
+shutdown now
+clear
+ls
+clear
+e 
+clear
+dolphin
+clear
+exit
+shutdown now
+ff
+clear
+cleaer
+clear
+expected a reedline EditCommand, but got 'pasteselection'clear
+clear
+exit
+clear
+exit
+clear
+exit
+clear
+ff
+l
+ll
+lt
+la
+clear
+ll
+bat .zshrc
+bat /etc/nixos/configuration.nix
+clear
+lt GitRepos/
+clear
+cd GitRepos/QDOS/
+clear
+ls
+lt dotfiles/
+ls dotfiles/
+clear
+ls dotfiles/
+ll dotfiles/
+clear
+la dotfiles/
+cd dotfiles/
+clear
+ls
+l
+clear
+la
+mkdir zsh
+mv .zshrc zsh/
+ls
+clear
+mv .config/* .
+clear
+ls
+la
+ls .config/
+rm -rf .config/
+clear
+ls
+mkdir nushell
+cp ~/.config/nushell/* ./nushell/
+ls nushell/
+cd nushell/
+clear
+ls
+rm -rf history.txt
+clear
+ls
+cd ..
+cd .
+cd ..
+clear
+ls
+git add *
+git commit -m "nushell config"
+clear
+skim
+clear
