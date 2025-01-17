@@ -275,3 +275,30 @@ git commit -m "nushell config"
 clear
 skim
 clear
+cp ~/.config/nushell/* ~/GitRepos/QDOS/dotfiles/nushell/
+clear
+ff
+clea
+rclea
+clear
+nh os switch
+nh os switch /etc/nixos
+clear
+ff
+clear
+echo $SHELL
+clear
+l
+clear
+ls
+sudo rm -rf configuration.nix~
+ls
+clear
+sudo nano ./configuration.nix
+clear
+cd
+clear
+nh os switch /etc/nixos
+clear
+exit
+clear

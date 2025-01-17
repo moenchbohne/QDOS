@@ -380,6 +380,11 @@ $env.config = {
         }
     ]
 }
+# startup cmd
+# fastfetch
+
+# env
+$env.config.buffer_editor = "codium"
 
 # aliases
 alias ll = ls -l
@@ -387,6 +392,8 @@ alias la = ls -a
 alias lt = eza --tree
 alias ff = fastfetch
 alias e = emacsclient -nw -a -c "emacs -nw"
+alias reb = nh os switch /etc/nixos
+alias rep = nh os switch /etc/nixos --update
 
 # starship
 use ~/.cache/starship/init.nu
