@@ -1,0 +1,10 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    /etc/nixos: nix-config
+    ~/.config/fastfetch: dotfiles/fastfetch
+    ~/.zshrc: dotfiles/zsh
