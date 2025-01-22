@@ -8,7 +8,7 @@ srcl = [
     "/etc/nixos/" 
     "~/.config/kitty/"
     "~/.config/fastfetch/"
-    "~/.config/nushell"
+    "~/.config/nushell/"
 ]
 
 # args
