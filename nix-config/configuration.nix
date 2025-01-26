@@ -1,12 +1,6 @@
 { config, lib, pkgs, pkgs-stable, inputs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      inputs.spicetify-nix.nixosModules.default
-    ];
-
   # Boot
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
@@ -20,7 +14,7 @@
   # start-up commands
   powerManagement.powerUpCommands = "";
 
-  # Hostname
+  # Network
   networking = {
     hostName = "mangrove";
     networkmanager.enable = true;
@@ -102,10 +96,6 @@
       package = pkgs.floorp;
     };
 
-    kdeconnect = {
-      enable = true;
-    };
-
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -114,12 +104,14 @@
     };
 
     virt-manager.enable = true;
-
     gamemode.enable = true;
+    kdeconnect.enable = true;
   };
 
-  # * terminal password
-  security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
+  security ={
+    sudo.extraConfig = "Defaults env_reset,pwfeedback"; # * terminal password
+    rtkit.enable = true;
+  };
   
   # printing
   services.printing.enable = true;
@@ -137,7 +129,6 @@
   };
 
   # sound
-  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -239,8 +230,6 @@
       # creative
       darktable
       reaper
-      hydrogen
-      synthv1
       # multimedia
       vlc
       handbrake
@@ -250,7 +239,6 @@
       spotify
       puddletag
       foliate
-      mpv
       # python
       python3
       # office
@@ -261,9 +249,9 @@
       hunspellDicts.en_GB-ize
       # kde
       kdePackages.isoimagewriter
-      # plugins 
+      # (vst) plugins 
       oxefmsynth
-      # POC/WIPy
+      # POC/WIP
       zellij
       nushell
       ghostty

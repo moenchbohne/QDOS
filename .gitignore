@@ -1,1 +1,10 @@
+# nix-build output
 **/result
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-*

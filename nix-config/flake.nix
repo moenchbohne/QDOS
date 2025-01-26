@@ -26,8 +26,10 @@
       };
       modules = [
         ./configuration.nix
+        ./hardware-configuration.nix
         inputs.musnix.nixosModules.musnix
         inputs.stylix.nixosModules.stylix 
+        inputs.spicetify-nix.nixosModules.default
       ];
     };
   };
