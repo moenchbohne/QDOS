@@ -10,7 +10,9 @@ stdenv.mkDerivation rec {
   };
 
   dontBuild = true;
-  nativeBuildInputs = [dpkg];
+  nativeBuildInputs = [
+    dpkg
+    ];
 
   unpackPhase = ''
    dpkg-deb --fsys-tarfile $src | tar -x --no-same-permissions --no-same-owner
