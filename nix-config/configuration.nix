@@ -252,6 +252,7 @@
       # (vst) plugins 
       oxefmsynth
       # POC/WIP
+      localsend
       zellij
       nushell
       ghostty
@@ -274,7 +275,7 @@
     allowUnfree = true;
   };        
 
-  # VPN POC (Für einen Monat gepayed)
+  # VPN
   services.resolved.enable = true;
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
@@ -334,10 +335,10 @@
     enable = true;
     # TCP
     allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedTCPPorts = [ 445 139 ];
+    allowedTCPPorts = [ 445 139 53317 ];
     # UDP
     allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPorts = [ 137 138 ]; 
+    allowedUDPPorts = [ 137 138 53317 ]; 
   };
 
   services.openssh = {
@@ -355,8 +356,8 @@
   # smb
   services.samba = {
     enable = true;
-    securityType = "user";
     settings = {
+      global.security = "user";
       public = {
         browsable = "yes";
         "guest ok" = "yes";
