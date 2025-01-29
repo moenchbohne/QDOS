@@ -332,8 +332,12 @@
   # ssh + ports
    networking.firewall = { 
     enable = true;
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];  
-    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ]; 
+    # TCP
+    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedTCPPorts = [ 445 139 ];
+    # UDP
+    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedUDPPorts = [ 137 138 ]; 
   };
 
   services.openssh = {
@@ -345,6 +349,20 @@
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "no";
+    };
+  };
+
+  # smb
+  services.samba = {
+    enable = true;
+    securityType = "user";
+    settings = {
+      public = {
+        browsable = "yes";
+        "guest ok" = "yes";
+        path = "/home/quentin/Transfer";
+        "read only" = "no";
+      };
     };
   };
 
