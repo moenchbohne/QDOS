@@ -102,6 +102,7 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true; 
       localNetworkGameTransfers.openFirewall = true;
+      gamescopeSession.enable = true;
     };
 
     virt-manager.enable = true;
@@ -143,19 +144,19 @@
  
   # User / quentin
   users = {
+    defaultUserShell = pkgs.zsh;
     users.quentin = {
       isNormalUser = true;
       description = "quentin";
       extraGroups = [ 
+        "audio" 
+        "docker" 
+        "gamemode" 
+        "libvirtd" 
         "networkmanager" 
         "wheel" 
-        "docker" 
-        "audio" 
-        "libvirtd" 
-        "gamemode" 
-        ];
+      ];
     };
-    defaultUserShell = pkgs-stable.zsh;
   };
 
   # Virt
@@ -168,6 +169,15 @@
   # Nvidia / Graphics 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
+    extraPackages32 = with pkgs.pkgsi686Linux; [ 
+      libva
+      vulkan-loader
+    ];
+    extraPackages = with pkgs; [ 
+      nvidia-vaapi-driver 
+      vulkan-loader 
+    ];
   };
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
