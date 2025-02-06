@@ -10,6 +10,10 @@
     };
     musnix.url = "github:musnix/musnix"; 
     stylix.url = "github:danth/stylix";
+    nix-snapd = {
+      url = "github:nix-community/nix-snapd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs: 
@@ -30,6 +34,7 @@
         inputs.musnix.nixosModules.musnix
         inputs.stylix.nixosModules.stylix 
         inputs.spicetify-nix.nixosModules.default
+        inputs.nix-snapd.nixosModules.default
       ];
     };
   };

@@ -70,6 +70,7 @@
     flatpak.enable = true;
     emacs.enable = true;
     fwupd.enable = true;
+    snap.enable = true;
     #jack.jackd.enable = true;
   };
 
