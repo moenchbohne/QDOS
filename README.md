@@ -22,8 +22,8 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 - [ ] eshare
 
 ## wallpaper preview
-![Arch-Peace](wallpaper/desktop/horizontal/arch-peace.png?raw=true "Arch-Peace")
+![Arch-Peace](wallpaper/horizontal/arch-peace.png?raw=true "Arch-Peace")
 
-![Vaporwave](wallpaper/desktop/horizontal/long-lost.jpg?raw=true "Vaporwave")
+![Vaporwave](wallpaper/horizontal/long-lost.jpg?raw=true "Vaporwave")
 
-![Red-Sunset](wallpaper/desktop/horizontal/red-sunset.jpg?raw=true "Red-Sunset")
+![Red-Sunset](wallpaper/horizontal/red-sunset.jpg?raw=true "Red-Sunset")
