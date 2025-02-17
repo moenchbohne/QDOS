@@ -153,6 +153,7 @@
         "gamemode"  
         "networkmanager" 
         "wheel" 
+        "mpd"
       ];
     };
   };
@@ -194,6 +195,7 @@
       btop
       appimage-run
       git
+      ncmpcpp
       # big three + fzf
       zoxide
       eza
@@ -228,6 +230,7 @@
       github-desktop
       angryipscanner
       qbittorrent-enhanced
+      nicotine-plus
       gparted
       # creative
       darktable
@@ -241,6 +244,8 @@
       spotify
       puddletag
       foliate
+      ffmpeg
+      scdl
       # python
       python3
       # office
@@ -352,20 +357,6 @@
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "no";
-    };
-  };
-
-  # smb
-  services.samba = {
-    enable = true;
-    settings = {
-      global.security = "user";
-      public = {
-        browsable = "yes";
-        "guest ok" = "yes";
-        path = "/home/quentin/Transfer";
-        "read only" = "no";
-      };
     };
   };
 

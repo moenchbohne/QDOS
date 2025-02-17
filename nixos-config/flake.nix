@@ -32,6 +32,8 @@
         ./configuration.nix
         ./modules/hardware-configuration.nix
         ./modules/virtualization.nix
+        ./modules/mpd.nix
+        ./modules/samba.nix
         inputs.musnix.nixosModules.musnix
         inputs.stylix.nixosModules.stylix 
         inputs.spicetify-nix.nixosModules.default

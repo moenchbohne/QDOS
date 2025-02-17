@@ -6,21 +6,18 @@
   # Enable Samba service
   services.samba = {
     enable = true;
-    securityType = "user";
-    extraConfig = ''
-      map to guest = Bad User
-      guest account = nobody
-    '';
-    
-    shares = {
-      transfer = {
-        path = "/srv/samba/transfer";
-        "guest ok" = "yes";
+    settings.global.security = "user";
+
+    settings = {
+      public = {
+        path = "/home/quentin/Downloads";
+        public = "yes";
+        browseable = "yes";
+        writable = "yes";
         "read only" = "no";
-        "browseable" = "yes";
-        "create mask" = "0666";
-        "directory mask" = "0777";
-      };
+        "guest ok" = "yes";
+        "force user" = "quentin";
+     };
     };
   };
 
