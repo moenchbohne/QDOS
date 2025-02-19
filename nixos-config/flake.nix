@@ -14,7 +14,13 @@
       url = "github:nix-community/nix-snapd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
+
+
+# ----------------------------------------------------------------------
+
 
   outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs: 
   let 
@@ -38,6 +44,7 @@
         inputs.stylix.nixosModules.stylix 
         inputs.spicetify-nix.nixosModules.default
         inputs.nix-snapd.nixosModules.default
+        inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };
   };

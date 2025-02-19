@@ -67,7 +67,6 @@
 
   # services.enable
   services = {
-    flatpak.enable = true;
     emacs.enable = true;
     fwupd.enable = true;
     snap.enable = true;
@@ -186,6 +185,12 @@
 
     # rolling release
     (with pkgs; [
+      # POC/WIP
+      localsend
+      zellij
+      nushell
+      ghostty
+      inputs.zen-browser.packages."${system}".specific
       # cli-util
       emacs
       kitty
@@ -246,6 +251,7 @@
       foliate
       ffmpeg
       scdl
+      mixxx
       # python
       python3
       # office
@@ -258,11 +264,6 @@
       kdePackages.isoimagewriter
       # (vst) plugins 
       oxefmsynth
-      # POC/WIP
-      localsend
-      zellij
-      nushell
-      ghostty
     ])
 
     ++
@@ -286,6 +287,12 @@
   services.resolved.enable = true;
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
+  # Flatpak
+  services.flatpak = {
+    enable = true;
+    remotes = [{ name = "flathub-beta"; location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo"; }];
+  };
 
   # spicetify
   programs.spicetify =
