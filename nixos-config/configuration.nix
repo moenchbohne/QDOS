@@ -44,8 +44,7 @@
   # SDDM
   services.xserver.displayManager.setupCommands="${lib.getExe pkgs-stable.xorg.xrandr} --output DP-2 --off";
   services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.theme = "sddm-astronaut"; 
-  # services.displayManager.sddm.package = lib.mkForce pkgs-stable.plasma5Packages.sddm; 
+  
 
   # Desktop Environment
   services.desktopManager.plasma6.enable = true;
@@ -70,7 +69,6 @@
     emacs.enable = true;
     fwupd.enable = true;
     snap.enable = true;
-    #jack.jackd.enable = true;
   };
 
   # programs.enable
@@ -186,7 +184,6 @@
     # rolling release
     (with pkgs; [
       # POC/WIP
-      localsend
       zellij
       nushell
       ghostty
@@ -227,6 +224,7 @@
       ryujinx-greemdev
       protonup
       # productivity
+      localsend
       kando
       vscodium
       yazi
