@@ -184,6 +184,7 @@
     # rolling release
     (with pkgs; [
       # POC/WIP
+      wofi
       zellij
       nushell
       ghostty
@@ -315,6 +316,7 @@
     image = ./red-sunset.jpg;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    targets.gtk.enable = true;
 
     fonts = {
       monospace = {
