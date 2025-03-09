@@ -26,7 +26,8 @@ alias doom="sudo nix run github:nix-community/nix-doom-emacs"
 alias cd="z"
 alias cdi="zi"
 alias cat="bat"
-alias ls="eza"
+alias ls="eza --icons"
+alias lt="eza --icons -l -T -L=3"
 
 # zoxide
 eval "$(zoxide init zsh)"
