@@ -38,15 +38,12 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # SDDM
-  services.xserver.displayManager.setupCommands="${lib.getExe pkgs-stable.xorg.xrandr} --output DP-2 --off";
+  services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off";
   services.displayManager.sddm.enable = true;
   
 
-  # Desktop Environment
+  # KDE
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     plasma-browser-integration
@@ -55,10 +52,16 @@
     kate
   ];
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
+  # XFCE
+  services.xserver = {
+    enable = true;
+    xkb.layout = "de";
+
+    desktopManager.xfce = {
+      enable = true;
+      noDesktop = false;
+      enableXfwm = true;
+    };
   };
 
   # Configure console keymap
@@ -105,6 +108,8 @@
     virt-manager.enable = true;
     gamemode.enable = true;
     kdeconnect.enable = true;
+
+    adb.enable = true;
   };
 
   security ={
@@ -151,6 +156,7 @@
         "networkmanager" 
         "wheel" 
         "mpd"
+        "adbusers kvm"
       ];
     };
   };
@@ -189,6 +195,7 @@
       nushell
       ghostty
       inputs.zen-browser.packages."${system}".specific
+      android-tools
       # cli-util
       emacs
       kitty
@@ -239,6 +246,7 @@
       # creative
       darktable
       reaper
+      tenacity
       # multimedia
       vlc
       handbrake
@@ -333,6 +341,11 @@
       package = pkgs.apple-cursor;
       name = "macOS";
     };
+  };
+
+  qt =  {
+    enable = true;
+    platformTheme = lib.mkForce "kde";
   };
 
   # Fonts
