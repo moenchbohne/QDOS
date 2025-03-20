@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    install -m755 -D studio-link-standalone-v${version} $out/bin/studio-link
+    install -m755 -D slsk-batchdl-v${version} $out/bin/slsk-batchdl
     runHook postInstall
   '';
 
