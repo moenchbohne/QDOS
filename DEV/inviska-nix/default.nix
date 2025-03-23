@@ -9,8 +9,8 @@ let
   pname = "Inviska";
 
   src = fetchurl {
-    url = "https://www.videohelp.com/download/${pname}_MKV_Extract-${version}-x86_64.AppImage";
-    hash = "sha256-nv+ouKyS1Gd9tf1j7Cz5F+AFmqTu5Ql543yqVylDC/I=";
+    url = "https://www.videohelp.com/download/Inviska_MKV_Extract-11.0-x86_64.AppImage?r=HRwDfTLT";
+    hash = "sha256-ozw1GDHnPYKkxrWFZdSqsMib4CTFoxcKiIVDLzCR5NA=";
   };
 
   appimageContents = appimageTools.extractType1 { inherit pname src; };
