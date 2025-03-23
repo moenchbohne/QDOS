@@ -204,13 +204,14 @@
       appimage-run
       git
       ncmpcpp
-      starfetch
       # big three + fzf
       zoxide
       eza
       bat
       fzf
       # unixp*rn
+      starfetch
+      countryfetch
       fastfetch
       cbonsai
       unimatrix
