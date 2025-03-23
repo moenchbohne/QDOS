@@ -62,7 +62,7 @@
   # Enable DNS resolution in containers
   services.resolved.enable = true;
 
-  # Optional: Enable firewall for Docker/Podman
+  # Optional: Enable firewall for Podman
   networking.firewall = {
     trustedInterfaces = [ "podman0" ];
   };

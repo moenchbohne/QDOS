@@ -1,6 +1,12 @@
 { config, lib, pkgs, pkgs-stable, inputs, ... }:
 
 {
+  imports = [
+    ./modules/hardware-configuration.nix
+    ./modules/cli.nix
+    ./modules/virtualization.nix
+  ];
+
   # Boot
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
@@ -38,7 +44,7 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # SDDM
+  # SDDM / Login
   services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off";
   services.displayManager.sddm.enable = true;
   
@@ -76,13 +82,6 @@
 
   # programs.enable
   programs = {
-    zsh = {
-      enable = true;
-      syntaxHighlighting.enable = true;
-      enableCompletion = true;
-      autosuggestions.enable = true;
-    };
-
     nh = {
       enable = true;
       clean = {
@@ -195,7 +194,6 @@
       nushell
       ghostty
       inputs.zen-browser.packages."${system}".specific
-      android-tools
       # cli-util
       emacs
       kitty
@@ -206,6 +204,7 @@
       appimage-run
       git
       ncmpcpp
+      starfetch
       # big three + fzf
       zoxide
       eza
