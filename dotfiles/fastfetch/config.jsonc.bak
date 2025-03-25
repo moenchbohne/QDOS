@@ -1,0 +1,115 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "source": "$(find \"${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch/pngs/\" -name \"*.png\" | sort -R | head -1)",
+    "height": 25,
+    "padding": {
+      "right": 3,
+      "top": 1,
+    }
+  },
+  "general": {
+    "multithreading": true
+  },
+  "display": {
+    "separator": "➜   "
+  },
+  "modules": [
+    "break",
+    {
+      "type": "title",
+      "format": "                                {6}{7}{8}"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "┌──────────────────────────────────────────────────────────────────────────────┐" // `\u001b` is `\033`, or `\e`
+    },
+    "break",
+    {
+      "key": "     OS           ",
+      "keyColor": "green",
+      "type": "os"
+    },
+    {
+      "key": "    󰌢 Machine      ",
+      "keyColor": "cyan",
+      "type": "host"
+    },
+    {
+      "key": "     Kernel       ",
+      "keyColor": "blue",
+      "type": "kernel"
+    },
+    {
+      "key": "    󰅐 Display      ",
+      "keyColor": "green",
+      "type": "display"
+    },
+    {
+      "key": "     Packages     ",
+      "keyColor": "cyan",
+      "type": "packages"
+    },
+    {
+      "key": "     DE           ",
+      "keyColor": "blue",
+      "type": "de"
+    },
+    {
+      "key": "     Shell        ",
+      "keyColor": "blue",
+      "type": "shell"
+    },
+    {
+      "key": "     Terminal     ",
+      "keyColor": "green",
+      "type": "terminal"
+    },
+    {
+      "key": "     Font         ",
+      "keyColor": "cyan",
+      "type": "terminalfont"
+    },
+    {
+      "key": "    󰻠 CPU          ",
+      "keyColor": "blue",
+      "type": "cpu"
+    },
+    {
+      "key": "    󰍛 GPU          ",
+      "keyColor": "green",
+      "type": "gpu"
+    },
+    {
+      "key":  "    🖴 Disk         ",
+      "keyColor": "cyan",
+      "type": "disk"
+    },
+    {
+      "key": "    󰑭 Memory       ",
+      "keyColor": "green",
+      "type": "memory"
+    },
+    {
+      "key": "     UpTime       ",
+      "keyColor": "blue",
+      "type": "uptime"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────────────────────────────────────────────────┘" // `\u001b` is `\033`, or `\e`
+    },
+    "break",
+    {
+      "type": "colors",
+      "paddingLeft": 34,
+      "symbol": "circle",
+      "block": {
+        "width": 10
+      }
+    }
+  ]
+}
