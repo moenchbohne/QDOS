@@ -5,7 +5,9 @@ let
     w ="curl wttr.in/Celle";
     ff="fastfetch";
     sf = "starfetch";
+    cf = "countryfetch";
     qnh = "nh os switch /etc/nixos";
+    qnhu = "nh os switch /etc/nixos --update";
     reb = "sudo nixos-rebuild switch --flake /etc/nixos";
     rep = "sudo nixos-rebuild switch --flake /etc/nixos --upgrade";
     nixcp = "cp -r /etc/nixos/* ~/GitRepos/QDOS/nixos-config";
@@ -13,7 +15,8 @@ let
     rel = "source ~/.zshrc";
     build = "nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { } '";
     doom = "sudo nix run github:nix-community/nix-doom-emacs";
-    # replace old shit
+
+    # ===== replace old shit =====
     cd = "z";
     cdi = "zi";
     cat= "bat";

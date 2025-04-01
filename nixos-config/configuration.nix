@@ -5,6 +5,7 @@
     ./modules/hardware-configuration.nix
     ./modules/cli.nix
     ./modules/virtualization.nix
+    ./modules/java.nix
   ];
 
   # Boot
@@ -13,6 +14,7 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.timeout = 3;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [
     "sg" # SCSI for BlueRay
   ];
@@ -109,6 +111,8 @@
     kdeconnect.enable = true;
 
     adb.enable = true;
+
+    vim.enable = true;
   };
 
   security ={
@@ -164,24 +168,29 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages32 = with pkgs.pkgsi686Linux; [ 
+    extraPackages32 = with pkgs; [ 
       libva
       vulkan-loader
+      driversi686Linux.amdvlk
     ];
     extraPackages = with pkgs; [ 
-      nvidia-vaapi-driver 
-      vulkan-loader 
+      # nvidia-vaapi-driver 
+      vulkan-loader
+      amdvlk 
     ];
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+  services.xserver.videoDrivers = [ 
+    # "nvidia" 
+    "amdgpu" 
+  ];
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   powerManagement.enable = true;
+  #   powerManagement.finegrained = false;
+  #   open = false;
+  #   nvidiaSettings = true;
+  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+  # };
 
   # List packages installed in system profile. 
   environment.systemPackages =
@@ -195,7 +204,7 @@
       ghostty
       inputs.zen-browser.packages."${system}".specific
       # cli-util
-      emacs
+      emacs-nox
       kitty
       starship
       ani-cli
@@ -211,8 +220,8 @@
       fzf
       # unixp*rn
       starfetch
-      countryfetch
       fastfetch
+      countryfetch
       cbonsai
       unimatrix
       pokeget-rs
@@ -226,7 +235,7 @@
       base16-schemes
       sddm-astronaut
       # gaming
-      lutris
+      # lutris
       prismlauncher
       mangohud
       ryujinx-greemdev
@@ -340,6 +349,7 @@
     cursor = {
       package = pkgs.apple-cursor;
       name = "macOS";
+      size = 12;
     };
   };
 
