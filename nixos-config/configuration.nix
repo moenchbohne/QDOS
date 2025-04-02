@@ -192,6 +192,11 @@
   #   package = config.boot.kernelPackages.nvidiaPackages.stable;
   # };
 
+  # ===== Env Vars =====
+  environment.variables = {
+    DRI_PRIME = 1;
+  };
+
   # List packages installed in system profile. 
   environment.systemPackages =
 
