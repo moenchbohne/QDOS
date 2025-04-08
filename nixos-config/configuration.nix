@@ -6,6 +6,7 @@
     ./modules/cli.nix
     ./modules/virtualization.nix
     ./modules/java.nix
+    ./modules/gaming.nix
   ];
 
   # Boot
@@ -98,20 +99,9 @@
       package = pkgs.floorp;
     };
 
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true; 
-      localNetworkGameTransfers.openFirewall = true;
-      gamescopeSession.enable = true;
-    };
-
     virt-manager.enable = true;
-    gamemode.enable = true;
     kdeconnect.enable = true;
-
     adb.enable = true;
-
     vim.enable = true;
   };
 
@@ -192,11 +182,6 @@
   #   package = config.boot.kernelPackages.nvidiaPackages.stable;
   # };
 
-  # ===== Env Vars =====
-  environment.variables = {
-    DRI_PRIME = 1;
-  };
-
   # List packages installed in system profile. 
   environment.systemPackages =
 
@@ -239,12 +224,6 @@
       catppuccin-sddm
       base16-schemes
       sddm-astronaut
-      # gaming
-      # lutris
-      prismlauncher
-      mangohud
-      ryujinx-greemdev
-      protonup
       # productivity
       localsend
       kando
