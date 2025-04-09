@@ -28,4 +28,4 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 
 ![Vaporwave](wallpaper/horizontal/long-lost.jpg?raw=true "Vaporwave")
 
-![Mountain](wallpaper/horizontal/0037.jpg?raw=true "Mountain")
+![Mountain](wallpaper/horizontal/0037.png?raw=true "Mountain")
