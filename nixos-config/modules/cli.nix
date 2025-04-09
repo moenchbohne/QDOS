@@ -6,7 +6,7 @@ let
     ff="fastfetch";
     sf = "starfetch";
     cf = "countryfetch";
-    ccf = "countryfetch china";
+    ccf = "countryfetch finnland";
     qnh = "nh os switch /home/quentin/GitRepos/QDOS/nixos-config";
     qnhu = "nh os switch /home/quentin/GitRepos/QDOS/nixos-config --update";
     reb = "sudo nixos-rebuild switch --flake /home/quentin/GitRepos/QDOS/nixos-config";
