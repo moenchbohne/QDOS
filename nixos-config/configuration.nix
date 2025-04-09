@@ -182,10 +182,6 @@
   #   package = config.boot.kernelPackages.nvidiaPackages.stable;
   # };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "pulsar-1.127.0"
-  ];
-
   # List packages installed in system profile. 
   environment.systemPackages =
 
