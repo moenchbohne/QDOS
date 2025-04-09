@@ -207,6 +207,7 @@
       btop
       appimage-run
       git
+      git-filter-repo
       ncmpcpp
       # big three + fzf
       zoxide
