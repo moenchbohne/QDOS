@@ -3,27 +3,29 @@
 
 This is the collection of my personal configurations, dotfiles and wallpapers.
 
-⚠️ Regarding the wallpaper collection, you must pay attention to the file size of the commit ⚠️
-
 ## 📋 content
 - 📊 [dotfiles](dotfiles)
 - 🧭 [nix-configs](nix-config)
 - 🖌️ [wallpaper collection](wallpaper)
+- 🛜 [DEV](DEV)
 
 ## 📑 to-do
 - [x] nix-flakes
 - [x] laptop dots
 - [ ] better deployment
-- [ ] commit dots of more apps
-- [ ] declarative sddm theming
+- [x] commit dots of more apps
+- [ ] modular nix-conf
+- [ ] home-manager  
 
 ## 📦 nix-packaging
-- [ ] deskthing
+- [x] deskthing
 - [ ] eshare
+- [ ] sldl
+- [ ] inviska 
 
 ## wallpaper preview
 ![Arch-Peace](wallpaper/horizontal/arch-peace.png?raw=true "Arch-Peace")
 
 ![Vaporwave](wallpaper/horizontal/long-lost.jpg?raw=true "Vaporwave")
 
-![Red-Sunset](wallpaper/horizontal/red-sunset.jpg?raw=true "Red-Sunset")
+![Mountain](wallpaper/horizontal/0037.jpg?raw=true "Mountain")
