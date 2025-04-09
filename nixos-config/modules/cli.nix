@@ -6,12 +6,11 @@ let
     ff="fastfetch";
     sf = "starfetch";
     cf = "countryfetch";
-    qnh = "nh os switch /etc/nixos";
-    qnhu = "nh os switch /etc/nixos --update";
-    reb = "sudo nixos-rebuild switch --flake /etc/nixos";
-    rep = "sudo nixos-rebuild switch --flake /etc/nixos --upgrade";
-    nixcp = "cp -r /etc/nixos/* ~/GitRepos/QDOS/nixos-config";
-    cpnix = "sudo cp -r GitRepos/QDOS/nixos-config/* /etc/nixos/";
+    ccf = "countryfetch china";
+    qnh = "nh os switch /home/quentin/GitRepos/QDOS/nixos-config";
+    qnhu = "nh os switch /home/quentin/GitRepos/QDOS/nixos-config --update";
+    reb = "sudo nixos-rebuild switch --flake /home/quentin/GitRepos/QDOS/nixos-config";
+    rep = "sudo nixos-rebuild switch --flake /home/quentin/GitRepos/QDOS/nixos-config --upgrade";
     rel = "source ~/.zshrc";
     build = "nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { } '";
     doom = "sudo nix run github:nix-community/nix-doom-emacs";
@@ -33,5 +32,4 @@ in
       autosuggestions.enable = true;
       shellAliases = myAliases;
     };
-
 }

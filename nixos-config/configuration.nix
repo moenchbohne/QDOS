@@ -87,6 +87,7 @@
   programs = {
     nh = {
       enable = true;
+      flake = /home/quentin/GitRepos/QDOS/nixos-config/;
       clean = {
         enable = true;
         dates = "weekly";
