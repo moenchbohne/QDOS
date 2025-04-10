@@ -162,10 +162,12 @@
       libva
       vulkan-loader
       driversi686Linux.amdvlk
+      mesa
     ];
     extraPackages = with pkgs; [ 
       # nvidia-vaapi-driver 
       vulkan-loader
+      mesa
       amdvlk 
     ];
   };
