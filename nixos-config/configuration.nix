@@ -195,7 +195,6 @@
       nushell
       ghostty
       inputs.zen-browser.packages."${system}".specific
-      pulsar
       # cli-util
       emacs-nox
       kitty
