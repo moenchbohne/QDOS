@@ -4,7 +4,7 @@
   stylix = {
     
     enable = true;
-    image = ./red-sunset.jpg;
+    image = /../../wallpaper/horizontal/0001.jpg;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     targets.gtk.enable = true;
