@@ -175,6 +175,17 @@
     # "nvidia" 
     "amdgpu" 
   ];
+
+  hardware.amdgpu = {
+    opencl.enable = true;
+    amdvlk = {
+      enable = true;
+      support32Bit.enable = true;
+      supportExperimental.enable = true;
+    };
+    legacySupport.enable = true;
+    
+  };
   # hardware.nvidia = {
   #   modesetting.enable = true;
   #   powerManagement.enable = true;
