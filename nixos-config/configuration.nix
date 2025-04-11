@@ -271,9 +271,12 @@
       # office
       libreoffice
       texliveFull
-      hunspell
-      hunspellDicts.de_DE
-      hunspellDicts.en_GB-ize
+      (aspellWithDicts (dicts: with dicts; [
+        de
+        en
+        en-computers
+        en-science
+      ]))
       # kde
       kdePackages.isoimagewriter
       # (vst) plugins 
