@@ -7,6 +7,7 @@
     ./modules/virtualization.nix
     ./modules/java.nix
     ./modules/gaming.nix
+    ./modules/graphics/amd.nix
   ];
 
   # Boot
@@ -152,47 +153,6 @@
       ];
     };
   };
-
-  # Nvidia / Graphics 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages32 = with pkgs; [ 
-      libva
-      vulkan-loader
-      driversi686Linux.amdvlk
-      driversi686Linux.mesa
-    ];
-    extraPackages = with pkgs; [ 
-      # nvidia-vaapi-driver 
-      vulkan-loader
-      mesa
-      amdvlk 
-    ];
-  };
-  services.xserver.videoDrivers = [ 
-    # "nvidia" 
-    "amdgpu" 
-  ];
-
-  hardware.amdgpu = {
-    opencl.enable = true;
-    amdvlk = {
-      enable = true;
-      support32Bit.enable = true;
-      supportExperimental.enable = true;
-    };
-    legacySupport.enable = true;
-    
-  };
-  # hardware.nvidia = {
-  #   modesetting.enable = true;
-  #   powerManagement.enable = true;
-  #   powerManagement.finegrained = false;
-  #   open = false;
-  #   nvidiaSettings = true;
-  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
-  # };
 
   # List packages installed in system profile. 
   environment.systemPackages =
