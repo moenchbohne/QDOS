@@ -32,9 +32,11 @@
     options kvm_intel nested=1
   '';
 
+  # virt-manager (QEMU-GUI)
+  programs.virt-manager.enable = true;
+
   # Virtualization packages
   environment.systemPackages = with pkgs; [
-    virt-manager # GUI for managing virtual machines
     libvirt-glib # Libvirt GLib bindings
     spice # SPICE protocol support
     spice-gtk # SPICE client

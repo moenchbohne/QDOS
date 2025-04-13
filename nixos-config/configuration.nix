@@ -99,7 +99,6 @@
       package = pkgs.floorp;
     };
 
-    virt-manager.enable = true;
     kdeconnect.enable = true;
     adb.enable = true;
     vim.enable = true;
