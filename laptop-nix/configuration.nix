@@ -15,7 +15,7 @@
 
     plymouth = {
       enable = true;
-      theme = "ibm";
+      theme = "blockchain";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
@@ -25,7 +25,7 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   networking.hostName = "poplar"; 
   # networking.wireless.enable = true; 
@@ -52,28 +52,35 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    xkb.layout = "de";
+    
+    desktopManager.xfce = {
+      enable = true;
+      noDesktop = false;
+      enableXfwm = true;
+   };
+  };
 
-  # Enable the Desktop Environment.
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.lightdm.greeters.slick.enable = true;
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    background = ./red-sunset.jpg;
+  };
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-    gedit 
-    epiphany
-  ]);
+  # podman
+  virtualisation.podman = {
+  enable = true;
+  dockerCompat = true;
+  defaultNetwork.settings.dns_enabled = true;
+  };
+ 
 
   # bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
+  programs.adb.enable = true;
 
   # Configure console keymap
   console.keyMap = "de";
@@ -86,8 +93,7 @@
     openFirewall = true;
   };
 
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  # Enable sound with pipewire
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -110,13 +116,25 @@
     defaultUserShell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
+  
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
+    wofi
+    waybar
+    # misc
+    podman-tui
+    mixxx
+    vim
+    ghostty
     vesktop
     vscodium
     spotify
@@ -126,20 +144,23 @@
     prismlauncher
     vlc
     musescore
-    floorp
     angryipscanner
-    github-desktop
     blueman
     mkvtoolnix
     puddletag
     foliate
+    qbittorrent-enhanced
+    powertop
+    signal-desktop
+    localsend
+    nicotine-plus
     # gnome
     apple-cursor
     gnome-tweaks
-    gnome-extension-manager
     # kde
     kdePackages.filelight
-    valent
+    krusader
+    kdePackages.kdeconnect-kde
     # cli
     charasay
     fortune-kind
@@ -162,6 +183,7 @@
     aha
     pciutils
     appimage-run
+    eza
     # python
     python3
     # office
@@ -171,20 +193,23 @@
     hunspellDicts.de_DE
     texliveFull
     texstudio
-    # POC
+    # temp
     parsec-bin
     pipx
     mpv
-    qbittorrent
-    eza
-    powertop
+    ghostty
     # nushell POC
     nushell
+    nushellPlugins.skim
+    nushellPlugins.formats
+    nushellPlugins.highlight
+    nushellPlugins.net
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "qbittorrent-4.6.4"
-  ];
+  programs.firefox = {
+    enable = true;
+    package = pkgs.floorp;
+  };
 
   # VPN
   services.mullvad-vpn.enable = true;
@@ -192,6 +217,8 @@
   services.resolved.enable = true;
 
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
+  security.soteria.enable = true;
+  security.polkit.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts._0xproto
@@ -202,6 +229,8 @@
   networking.firewall = rec {
     allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
     allowedUDPPortRanges = allowedTCPPortRanges;
+    allowedUDPPorts = [ 53317 ];
+    allowedTCPPorts = [ 52217 ]; 
   };
 
   services.openssh = {

@@ -4,9 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    #hyprland.url = "github:hyprwm/hyprland#hyprland";
   };
 
-  outputs = { self, nixpkgs, ...}@inputs: 
+  outputs = { self, nixpkgs, nix-doom-emacs, ...}@inputs: 
   let 
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
