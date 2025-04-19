@@ -21,6 +21,20 @@
     "sg" # SCSI for BlueRay
   ];
 
+  # GRUB Theme
+
+  boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
+    pname = "distro-grub-themes";
+    version = "3.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "AdisonCavani";
+      repo = "distro-grub-themes";
+      rev = "v3.1";
+      hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
+    };
+    installPhase = "cp -r customize/nixos $out";
+  };
+
   # start-up commands
   powerManagement.powerUpCommands = "";
 
@@ -156,15 +170,20 @@
 
   # List packages installed in system profile. 
   environment.systemPackages =
+  # let
+  #   doom-emacs = inputs.nix-doom-emacs.packages."${pkgs.system}".default.override { 
+  #     doomPrivateDir = ../dotfiles/doom.d; 
+  #   };
+  # in
 
     # rolling release
     (with pkgs; [
       # POC/WIP
+      # doom-emacs
       wofi
       zellij
       nushell
       ghostty
-      inputs.zen-browser.packages."${system}".specific
       # cli-util
       emacs-nox
       kitty
