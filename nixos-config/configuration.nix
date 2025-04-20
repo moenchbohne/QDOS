@@ -7,6 +7,7 @@
     ./modules/virtualization.nix
     ./modules/java.nix
     ./modules/gaming.nix
+    ./modules/spotify.nix
     ./modules/graphics/amd.nix
   ];
 
@@ -65,7 +66,6 @@
   # SDDM / Login
   services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off";
   services.displayManager.sddm.enable = true;
-  
 
   # KDE
   services.desktopManager.plasma6.enable = true;
@@ -238,7 +238,6 @@
       makemkv
       libaacs
       libbluray
-      spotify
       puddletag
       foliate
       ffmpeg
@@ -288,22 +287,6 @@
     enable = true;
     remotes = [{ name = "flathub-beta"; location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo"; }];
   };
-
-  # spicetify
-  programs.spicetify =
-   let
-     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-   in
-   {
-     enable = true;
-     enabledExtensions = with spicePkgs.extensions; [
-      fullAppDisplay
-      betterGenres
-      addToQueueTop
-     ];
-     theme = lib.mkForce spicePkgs.themes.sleek;
-     colorScheme = "mocha";
-   };
 
   qt =  {
     enable = true;
