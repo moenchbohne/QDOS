@@ -17,7 +17,7 @@
       betterGenres
       addToQueueTop
      ];
-     theme = lib.mkForce spicePkgs.themes.sleek;
-     colorScheme = "mocha";
+     # theme = lib.mkForce spicePkgs.themes.starryNight; # alt: text; retroBlur; hazy 
+     # colorScheme = "mocha";
    };
 }

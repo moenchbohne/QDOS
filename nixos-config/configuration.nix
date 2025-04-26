@@ -242,7 +242,7 @@
       foliate
       ffmpeg
       scdl
-      mixxx
+      # mixxx
       # python
       python3
       # office
