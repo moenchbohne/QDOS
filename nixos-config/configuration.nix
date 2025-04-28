@@ -242,6 +242,7 @@
       foliate
       ffmpeg
       scdl
+      asunder
       # mixxx
       # python
       python3
@@ -256,6 +257,7 @@
       ]))
       # kde
       kdePackages.isoimagewriter
+      kdePackages.audex
       # (vst) plugins 
       oxefmsynth
     ])
@@ -268,7 +270,6 @@
       qemu
       quickemu
       bottles
-      freac
     ]);
 
 
