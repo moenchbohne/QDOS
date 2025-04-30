@@ -95,7 +95,7 @@
   services = {
     emacs.enable = true;
     fwupd.enable = true;
-    snap.enable = true;
+    # snap.enable = true;
   };
 
   # programs.enable
