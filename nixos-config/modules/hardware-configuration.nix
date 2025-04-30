@@ -24,8 +24,44 @@
       fsType = "ext4";
     };
 
-  fileSystems."/mount/D:" =
-    { device = "/dev/disk/by-uuid/51b20546-2486-4286-8059-f7029ac75751";
+  fileSystems."/snap/bare/5" =
+    { device = "/var/lib/snapd/snaps/bare_5.snap";
+      fsType = "squashfs";
+      options = [ "loop" ];
+    };
+
+  fileSystems."/snap/core20/2496" =
+    { device = "/var/lib/snapd/snaps/core20_2496.snap";
+      fsType = "squashfs";
+      options = [ "loop" ];
+    };
+
+  fileSystems."/snap/core20/2501" =
+    { device = "/var/lib/snapd/snaps/core20_2501.snap";
+      fsType = "squashfs";
+      options = [ "loop" ];
+    };
+
+  fileSystems."/snap/gtk-common-themes/1535" =
+    { device = "/var/lib/snapd/snaps/gtk-common-themes_1535.snap";
+      fsType = "squashfs";
+      options = [ "loop" ];
+    };
+
+  fileSystems."/snap/snapd/23545" =
+    { device = "/var/lib/snapd/snaps/snapd_23545.snap";
+      fsType = "squashfs";
+      options = [ "loop" ];
+    };
+
+  fileSystems."/snap/snapd/23771" =
+    { device = "/var/lib/snapd/snaps/snapd_23771.snap";
+      fsType = "squashfs";
+      options = [ "loop" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/200ba35a-54dc-461c-b351-9d9ed94b9dbf";
       fsType = "ext4";
     };
 
@@ -39,7 +75,6 @@
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp10s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wg0-mullvad.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp6s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
