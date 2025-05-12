@@ -24,8 +24,8 @@ This is the collection of my personal configurations, dotfiles and wallpapers.
 - [ ] inviska 
 
 ## wallpaper preview
-![Arch-Peace](wallpaper/horizontal/0026.png?raw=true "Arch-Peace")
+![0026](wallpaper/horizontal/0026.jpg?raw=true "0026")
 
-![Vaporwave](wallpaper/horizontal/0103.jpg?raw=true "Vaporwave")
+![0103](wallpaper/horizontal/0103.jpg?raw=true "0103")
 
-![Mountain](wallpaper/horizontal/0068.png?raw=true "Mountain")
+![0068](wallpaper/horizontal/0068.jpg?raw=true "0068")
