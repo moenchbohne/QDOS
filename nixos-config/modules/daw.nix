@@ -2,16 +2,16 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # REAPER
+    # ===== REAPER =====
     reaper
     reaper-sws-extension
     reaper-reapack-extension
 
-    # yabridge compat
+    # ===== yabridge compat =====
     yabridge
     yabridgectl
 
-    # VSTs (plugins)
+    # ===== VSTs (plugins) =====
     oxefmsynth
     vital
     # chow-tape-model
@@ -21,7 +21,7 @@
     tap-plugins # collection
   ];
 
-  # MUSNIX real-time audio
+  # ===== MUSNIX real-time audio =====
   musnix = {
     enable = true;
   };
