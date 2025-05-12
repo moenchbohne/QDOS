@@ -8,6 +8,7 @@
     ./modules/java.nix
     ./modules/gaming.nix
     ./modules/spotify.nix
+    ./modules/daw.nix
     ./modules/graphics/amd.nix
   ];
 
@@ -147,9 +148,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  
-  # musnix
-  musnix.enable = true;
  
   # User / quentin
   users = {
@@ -230,7 +228,6 @@
       gparted
       # creative
       darktable
-      reaper
       tenacity
       # multimedia
       vlc
@@ -258,8 +255,6 @@
       # kde
       kdePackages.isoimagewriter
       kdePackages.audex
-      # (vst) plugins 
-      oxefmsynth
     ])
 
     ++
