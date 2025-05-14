@@ -8,6 +8,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +36,7 @@
     pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux; 
   in
   {
+# ===== Desktop =====
     nixosConfigurations.mangrove = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { 
@@ -41,13 +44,27 @@
         inherit pkgs-stable; 
       };
       modules = [
-        ./configuration.nix
+        ./host/desktop/configuration.nix
         inputs.musnix.nixosModules.musnix
         # inputs.stylix.nixosModules.stylix 
         inputs.spicetify-nix.nixosModules.default
         inputs.nix-snapd.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
+        inputs.chaotic.nixosModules.default
       ];
     };
+
+# ===== Laptop =====
+    nixosConfigurations.poplar = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        ./host/laptop/configuration.nix
+        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
+      ];
+    };
+# ===== End =====
   };
 }
