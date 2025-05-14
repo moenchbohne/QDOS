@@ -1,6 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports =
+    [
+      ./hardware-configuration.nix
+    ];
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,8 +27,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
-  networking.hostName = "poplar"; 
-  # networking.wireless.enable = true; 
+  networking.hostName = "poplar";
+  # networking.wireless.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -45,22 +50,19 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     xkb.layout = "de";
-    
+
     desktopManager.xfce = {
       enable = true;
       noDesktop = false;
       enableXfwm = true;
    };
-  };
-
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    background = ./red-sunset.jpg;
   };
 
   # podman
@@ -69,7 +71,7 @@
   dockerCompat = true;
   defaultNetwork.settings.dns_enabled = true;
   };
- 
+
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -120,14 +122,15 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     wofi
     waybar
     # misc
+    opensoundmeter
+    github-desktop
     podman-tui
-    mixxx
     vim
     ghostty
     vesktop
@@ -225,7 +228,7 @@
     allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
     allowedUDPPortRanges = allowedTCPPortRanges;
     allowedUDPPorts = [ 53317 ];
-    allowedTCPPorts = [ 52217 ]; 
+    allowedTCPPorts = [ 52217 ];
   };
 
   services.openssh = {
