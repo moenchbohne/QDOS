@@ -177,6 +177,7 @@
     (with pkgs; [
       # POC/WIP
       # doom-emacs
+      opensoundmeter
       wofi
       zellij
       nushell
