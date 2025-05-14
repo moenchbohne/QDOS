@@ -2,14 +2,13 @@
 
 {
   imports = [
-    ./modules/hardware-configuration.nix
-    ./modules/cli.nix
-    ./modules/virtualization.nix
-    ./modules/java.nix
-    ./modules/gaming.nix
-    ./modules/spotify.nix
-    ./modules/daw.nix
-    ./modules/graphics/amd.nix
+    ../../modules/cli.nix
+    ../../modules/virtualization.nix
+    ../../modules/java.nix
+    ../../modules/gaming.nix
+    ../../modules/spotify.nix
+    ../../modules/daw.nix
+    ../../modules/graphics/amd.nix
   ];
 
   # Boot
@@ -182,7 +181,6 @@
       zellij
       nushell
       ghostty
-      firedragon
       # cli-util
       emacs-nox
       kitty

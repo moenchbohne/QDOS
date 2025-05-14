@@ -32,39 +32,60 @@
 
   outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs: 
   let 
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux; 
+    system = "x86_64-linux";
+
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    pkgs-stable = import nixpkgs-stable {
+      inherit system;
+      config.allowUnfree = true;
+    }; 
   in
   {
+
+# ===== Hosts ===== 
+
+    nixosConfigurations = {
+
 # ===== Desktop =====
-    nixosConfigurations.mangrove = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { 
-        inherit inputs;
-        inherit pkgs-stable; 
+
+      desktop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { 
+          inherit inputs;
+          inherit pkgs-stable; 
+        };
+        modules = [
+          ./host/desktop/configuration.nix 
+          ./host/desktop/hardware-configuration.nix
+          inputs.musnix.nixosModules.musnix
+          inputs.spicetify-nix.nixosModules.default
+          inputs.nix-snapd.nixosModules.default
+          inputs.nix-flatpak.nixosModules.nix-flatpak
+          inputs.chaotic.nixosModules.default
+          # inputs.stylix.nixosModules.stylix 
+        ];
       };
-      modules = [
-        ./host/desktop/configuration.nix
-        inputs.musnix.nixosModules.musnix
-        # inputs.stylix.nixosModules.stylix 
-        inputs.spicetify-nix.nixosModules.default
-        inputs.nix-snapd.nixosModules.default
-        inputs.nix-flatpak.nixosModules.nix-flatpak
-        inputs.chaotic.nixosModules.default
-      ];
-    };
 
 # ===== Laptop =====
-    nixosConfigurations.poplar = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
+
+      laptop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./host/laptop/configuration.nix
+          ./host/laptop/hardware-configuration.nix
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
+        ];
       };
-      modules = [
-        ./host/laptop/configuration.nix
-        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
-      ];
+
+# ===== Closing Brackets =====
+
     };
-# ===== End =====
   };
 }
+
