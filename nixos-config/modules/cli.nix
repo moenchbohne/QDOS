@@ -6,11 +6,8 @@ let
     ff="fastfetch";
     sf = "starfetch";
     cf = "countryfetch";
-    ccf = "countryfetch finnland";
-    qnh = "nh os switch /home/quentin/GitRepos/QDOS/nixos-config";
-    qnhu = "nh os switch /home/quentin/GitRepos/QDOS/nixos-config --update";
-    reb = "sudo nixos-rebuild switch --flake /home/quentin/GitRepos/QDOS/nixos-config";
-    rep = "sudo nixos-rebuild switch --flake /home/quentin/GitRepos/QDOS/nixos-config --upgrade";
+    dreb = "sudo nixos-rebuild switch --flake .#desktop";
+    lreb = "sudo nixos-rebuild switch --flake .#laptop";
     rel = "source ~/.zshrc";
     build = "nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { } '";
     doom = "sudo nix run github:nix-community/nix-doom-emacs";
