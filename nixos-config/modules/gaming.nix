@@ -21,7 +21,9 @@
     mangohud 
     mangojuice
     ryujinx-greemdev 
+    # ===== Compat =====
     protonup # Proton-GE
+    protontricks
   ];
 
   # ===== GPU Error Fix =====
