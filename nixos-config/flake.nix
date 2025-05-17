@@ -51,7 +51,7 @@
 
 # ===== Desktop =====
 
-      desktop = nixpkgs.lib.nixosSystem {
+      mangrove = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { 
           inherit inputs;
@@ -71,7 +71,7 @@
 
 # ===== Laptop =====
 
-      laptop = nixpkgs.lib.nixosSystem {
+      poplar = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;

@@ -6,8 +6,8 @@ let
     ff="fastfetch";
     sf = "starfetch";
     cf = "countryfetch";
-    dreb = "sudo nixos-rebuild switch --flake .#desktop";
-    lreb = "sudo nixos-rebuild switch --flake .#laptop";
+    dreb = "sudo nixos-rebuild switch --flake .#mangrove";
+    lreb = "sudo nixos-rebuild switch --flake .#poplar";
     rel = "source ~/.zshrc";
     build = "nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { } '";
     doom = "sudo nix run github:nix-community/nix-doom-emacs";
