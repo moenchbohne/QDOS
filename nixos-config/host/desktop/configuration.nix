@@ -244,7 +244,7 @@
       # python
       python3
       # office
-      libreoffice
+      onlyoffice-desktopeditors
       texliveFull
       (aspellWithDicts (dicts: with dicts; [
         de
