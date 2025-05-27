@@ -252,9 +252,6 @@
         en-computers
         en-science
       ]))
-      # kde
-      kdePackages.isoimagewriter
-      kdePackages.audex
     ])
 
     ++
