@@ -114,7 +114,6 @@
       package = pkgs.floorp;
     };
 
-    kdeconnect.enable = true;
     adb.enable = true;
     vim.enable = true;
   };
