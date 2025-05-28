@@ -192,11 +192,6 @@
       git
       git-filter-repo
       ncmpcpp
-      # big three + fzf
-      zoxide
-      eza
-      bat
-      fzf
       # unixp*rn
       starfetch
       fastfetch

@@ -29,4 +29,12 @@ in
       autosuggestions.enable = true;
       shellAliases = myAliases;
     };
+
+  environment.systemPackages = with pkgs; [
+    # big three + fzf
+    zoxide
+    eza
+    bat
+    fzf
+  ];
 }
