@@ -9,7 +9,7 @@
     kate
   ];
 
-  program.kdeconnect.enable = true;
+  programs.kdeconnect.enable = true;
 
   environment.systemPackages = with pkgs.kdePackages; [
     filelight
