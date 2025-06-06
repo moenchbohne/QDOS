@@ -15,5 +15,6 @@
     filelight
     audex
     isoimagewriter
+    elisa
   ];
 }

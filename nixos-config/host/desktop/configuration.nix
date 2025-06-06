@@ -9,6 +9,7 @@
     ../../modules/spotify.nix
     ../../modules/daw.nix
     ../../modules/graphics/amd.nix
+    ../../modules/kde.nix
   ];
 
   # Boot
@@ -66,15 +67,6 @@
   # SDDM / Login
   services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off";
   services.displayManager.sddm.enable = true;
-
-  # KDE
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    plasma-browser-integration
-    konsole
-    oxygen
-    kate
-  ];
 
   # XFCE
   services.xserver = {
