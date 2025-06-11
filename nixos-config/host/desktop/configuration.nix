@@ -196,6 +196,7 @@
       charasay
       lolcat
       snowmachine
+      asciiquarium-transparent
       # themes + rice
       catppuccin-sddm
       base16-schemes
