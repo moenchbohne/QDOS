@@ -245,7 +245,6 @@
 
     # stable release
     (with pkgs-stable; [
-      rustdesk
       flacon
       qemu
       quickemu
