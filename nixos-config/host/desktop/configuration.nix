@@ -202,7 +202,6 @@
       base16-schemes
       sddm-astronaut
       # productivity
-      rustdesk
       localsend
       kando
       vscodium
@@ -246,6 +245,7 @@
 
     # stable release
     (with pkgs-stable; [
+      rustdesk
       flacon
       qemu
       quickemu
