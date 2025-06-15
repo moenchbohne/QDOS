@@ -202,6 +202,7 @@
       base16-schemes
       sddm-astronaut
       # productivity
+      rustdesk
       localsend
       kando
       vscodium
