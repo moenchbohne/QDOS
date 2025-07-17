@@ -1,10 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
       ../../modules/cli.nix
+      ../../modules/spotify.nix
     ];
 
   # Bootloader
@@ -133,10 +134,8 @@
     github-desktop
     podman-tui
     vim
-    ghostty
     vesktop
     vscodium
-    spotify
     obsidian
     kitty
     git
