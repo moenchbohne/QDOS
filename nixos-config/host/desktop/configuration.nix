@@ -9,6 +9,7 @@
     ../../modules/spotify.nix
     ../../modules/daw.nix
     ../../modules/graphics/amd.nix
+    ../../modules/apps/mullvad.nix
     ../../modules/kde.nix
   ];
 
@@ -255,12 +256,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-  };        
-
-  # VPN
-  services.resolved.enable = true;
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  };       
 
   # Flatpak
   services.flatpak = {

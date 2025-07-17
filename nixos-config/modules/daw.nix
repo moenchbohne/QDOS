@@ -22,8 +22,8 @@
   ];
 
   # ===== MUSNIX real-time audio =====
-  musnix = {
-    enable = true;
-  };
+  # musnix = {
+  #   enable = true;
+  # };
 }
 

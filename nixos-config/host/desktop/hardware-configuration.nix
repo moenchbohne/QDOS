@@ -14,50 +14,8 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cbdd3cdb-ddc0-4215-9a0b-ecf960a3ad16";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
-
-  fileSystems."/mount/E:" =
-    { device = "/dev/disk/by-uuid/f4328487-3c67-489d-bad8-bdeea89661c8";
+    { device = "/dev/disk/by-uuid/4b94824c-1a82-4eb0-bb08-4c55024a7806";
       fsType = "ext4";
-    };
-
-  fileSystems."/snap/bare/5" =
-    { device = "/var/lib/snapd/snaps/bare_5.snap";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-  fileSystems."/snap/core20/2496" =
-    { device = "/var/lib/snapd/snaps/core20_2496.snap";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-  fileSystems."/snap/core20/2501" =
-    { device = "/var/lib/snapd/snaps/core20_2501.snap";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-  fileSystems."/snap/gtk-common-themes/1535" =
-    { device = "/var/lib/snapd/snaps/gtk-common-themes_1535.snap";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-  fileSystems."/snap/snapd/23545" =
-    { device = "/var/lib/snapd/snaps/snapd_23545.snap";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-  fileSystems."/snap/snapd/23771" =
-    { device = "/var/lib/snapd/snaps/snapd_23771.snap";
-      fsType = "squashfs";
-      options = [ "loop" ];
     };
 
   fileSystems."/home" =

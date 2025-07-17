@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    musnix.url = "github:musnix/musnix"; 
+    # musnix.url = "github:musnix/musnix"; 
 
     # stylix.url = "github:danth/stylix";
 
