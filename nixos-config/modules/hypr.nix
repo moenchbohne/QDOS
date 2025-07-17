@@ -13,6 +13,8 @@
     wofi
     # network
     networkmanagerapplet
+    # filemanager
+    krusader
   ];
 
   xdg.portal = {
