@@ -9,8 +9,10 @@
     # notis
     dunst
     libnotify
-
+    # launcher
     wofi
+    # network
+    networkmanagerapplet
   ];
 
   xdg.portal = {
