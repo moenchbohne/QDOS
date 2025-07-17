@@ -72,6 +72,8 @@
 
   # Configure console keymap
   console.keyMap = "de";
+  services.xserver.enable = true;
+  services.xserver.xkb.layout = "de"; 
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
