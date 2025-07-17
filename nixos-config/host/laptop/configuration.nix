@@ -5,7 +5,7 @@
     [
       ./hardware-configuration.nix
       ../../modules/cli.nix
-      ../../modules/spotify.nix
+      ../../modules/apps/spotify.nix
     ];
 
   # Bootloader
