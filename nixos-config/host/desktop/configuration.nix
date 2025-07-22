@@ -6,10 +6,10 @@
     ../../modules/virtualization.nix
     ../../modules/java.nix
     ../../modules/gaming.nix
-    ../../modules/spotify.nix
     ../../modules/daw.nix
     ../../modules/graphics/amd.nix
     ../../modules/apps/mullvad.nix
+    ../../modules/apps/spotify.nix
     ../../modules/kde.nix
   ];
 
