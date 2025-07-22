@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
       ../../modules/cli.nix
+      ../../modules/hypr.nix
+      ../../modules/apps/spotify.nix
     ];
 
   # Bootloader
@@ -54,18 +56,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    xkb.layout = "de";
-
-    desktopManager.xfce = {
-      enable = true;
-      noDesktop = false;
-      enableXfwm = true;
-   };
-  };
-
   # podman
   virtualisation.podman = {
   enable = true;
@@ -82,6 +72,8 @@
 
   # Configure console keymap
   console.keyMap = "de";
+  services.xserver.enable = true;
+  services.xserver.xkb.layout = "de"; 
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -133,10 +125,8 @@
     github-desktop
     podman-tui
     vim
-    ghostty
     vesktop
     vscodium
-    spotify
     obsidian
     kitty
     git
@@ -156,9 +146,6 @@
     # gnome
     apple-cursor
     gnome-tweaks
-    # kde
-    kdePackages.filelight
-    krusader
     kdePackages.kdeconnect-kde
     # cli
     charasay
