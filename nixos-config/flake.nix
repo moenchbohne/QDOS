@@ -70,12 +70,12 @@
         modules = [
           ./host/desktop/configuration.nix 
           ./host/desktop/hardware-configuration.nix
-          inputs.musnix.nixosModules.musnix
           inputs.spicetify-nix.nixosModules.default
           inputs.nix-snapd.nixosModules.default
           inputs.nix-flatpak.nixosModules.nix-flatpak
           inputs.chaotic.nixosModules.default
           # inputs.stylix.nixosModules.stylix 
+          # inputs.musnix.nixosModules.musnix
         ];
       };
 
