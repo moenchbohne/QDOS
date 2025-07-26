@@ -203,6 +203,7 @@
       base16-schemes
       sddm-astronaut
       # productivity
+      masterpdfeditor4
       localsend
       kando
       vscodium
