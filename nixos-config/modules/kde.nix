@@ -16,5 +16,6 @@
     audex
     isoimagewriter
     elisa
+    kalk
   ];
 }
