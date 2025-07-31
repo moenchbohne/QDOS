@@ -277,6 +277,7 @@
     migmix # Japanese Chars
     lxgw-wenkai # Chinese Chars
     nerd-fonts.jetbrains-mono # Terminal Font
+    maple-mono.NL-CN # Mono Space 
   ];
 
   # ssh + ports
