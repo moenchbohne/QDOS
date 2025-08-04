@@ -18,8 +18,14 @@
     krusader
   ];
 
+  # portals
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+
+  # env-vars
+  # environment.variables = {
+  #   HYPRLAND_CONFIG = "/home/quentin/GitRepos/QDOS/dotfiles/hypr/"
+  # };
 }
