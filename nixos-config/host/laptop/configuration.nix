@@ -122,6 +122,7 @@
     wofi
     waybar
     # misc
+    android-studio-full
     opensoundmeter
     github-desktop
     podman-tui
