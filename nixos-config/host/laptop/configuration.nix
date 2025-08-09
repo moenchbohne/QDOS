@@ -117,6 +117,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Allow android license
+  android_sdk.accept_license = true;
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     wofi
