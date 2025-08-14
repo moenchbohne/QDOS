@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ../../modules/cli.nix
       ../../modules/hypr.nix
+      ../../modules/java.nix
       ../../modules/apps/spotify.nix
     ];
 
@@ -116,11 +117,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Allow android license
+  # android_sdk.accept_license = true;
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     wofi
     waybar
     # misc
+    android-studio
     opensoundmeter
     github-desktop
     podman-tui
