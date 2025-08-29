@@ -159,16 +159,9 @@
 
   # List packages installed in system profile. 
   environment.systemPackages =
-  # let
-  #   doom-emacs = inputs.nix-doom-emacs.packages."${pkgs.system}".default.override { 
-  #     doomPrivateDir = ../dotfiles/doom.d; 
-  #   };
-  # in
-
     # rolling release
     (with pkgs; [
       # POC/WIP
-      # doom-emacs
       opensoundmeter
       wofi
       zellij
