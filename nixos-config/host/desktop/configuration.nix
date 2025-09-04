@@ -73,12 +73,6 @@
   services.xserver = {
     enable = true;
     xkb.layout = "de";
-
-    desktopManager.xfce = {
-      enable = true;
-      noDesktop = false;
-      enableXfwm = true;
-    };
   };
 
   # Configure console keymap
