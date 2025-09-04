@@ -10,6 +10,7 @@
       },
       "locked": {
         "lastModified": 1756909345,
+        "narHash": "sha256-dSz08uK6NlgGxfo7F7E8rBB3lAROWdncOFTH/lZLVFI=",
         "owner": "chaotic-cx",
         "repo": "nyx",
         "rev": "478969e9fcd639751841009415df6178044cb6e2",
