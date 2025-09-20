@@ -161,6 +161,7 @@
       zellij
       nushell
       ghostty
+      ventoy-full-gtk
       # cli-util
       emacs-nox
       kitty
