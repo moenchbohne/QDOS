@@ -9,9 +9,6 @@
       "top": 1
     }
   },
-  "general": {
-    "multithreading": true
-  },
   "display": {
     "separator": " ➜ "
   },
