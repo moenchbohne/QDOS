@@ -151,6 +151,10 @@
     };
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-gtk3-1.1.05"
+  ];
+
   # List packages installed in system profile. 
   environment.systemPackages =
     # rolling release
