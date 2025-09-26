@@ -206,6 +206,8 @@
       angryipscanner
       qbittorrent-enhanced
       nicotine-plus
+      kid3-qt
+      aonsoku
       gparted
       # creative
       darktable
