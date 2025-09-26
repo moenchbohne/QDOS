@@ -208,6 +208,7 @@
       nicotine-plus
       kid3-qt
       aonsoku
+      feishin
       gparted
       # creative
       darktable
