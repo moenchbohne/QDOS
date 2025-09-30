@@ -73,12 +73,6 @@
   services.xserver = {
     enable = true;
     xkb.layout = "de";
-
-    desktopManager.xfce = {
-      enable = true;
-      noDesktop = false;
-      enableXfwm = true;
-    };
   };
 
   # Configure console keymap
@@ -157,23 +151,21 @@
     };
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-gtk3-1.1.05"
+  ];
+
   # List packages installed in system profile. 
   environment.systemPackages =
-  # let
-  #   doom-emacs = inputs.nix-doom-emacs.packages."${pkgs.system}".default.override { 
-  #     doomPrivateDir = ../dotfiles/doom.d; 
-  #   };
-  # in
-
     # rolling release
     (with pkgs; [
       # POC/WIP
-      # doom-emacs
       opensoundmeter
       wofi
       zellij
       nushell
       ghostty
+      ventoy-full-gtk
       # cli-util
       emacs-nox
       kitty
@@ -214,6 +206,9 @@
       angryipscanner
       qbittorrent-enhanced
       nicotine-plus
+      kid3-qt
+      aonsoku
+      feishin
       gparted
       # creative
       darktable
