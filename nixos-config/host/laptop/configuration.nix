@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ../../modules/cli.nix
+      ../../modules/uni.nix
       ../../modules/hypr.nix
       ../../modules/java.nix
       ../../modules/apps/spotify.nix
