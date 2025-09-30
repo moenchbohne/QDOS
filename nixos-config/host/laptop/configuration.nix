@@ -195,7 +195,7 @@
     nushellPlugins.skim
     nushellPlugins.formats
     nushellPlugins.highlight
-    nushellPlugins.net
+    # nushellPlugins.net
   ];
 
   programs.firefox = {
