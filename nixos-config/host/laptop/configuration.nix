@@ -9,6 +9,7 @@
       ../../modules/hypr.nix
       ../../modules/java.nix
       ../../modules/apps/spotify.nix
+      ../../modules/apps/emacs.nix
     ];
 
   # Bootloader
@@ -96,7 +97,6 @@
   };
 
   # services.xserver.libinput.enable = true;
-  services.emacs.enable = true;
 
   # Define a user account.
   users = {
@@ -161,7 +161,6 @@
     pipes-rs
     cbonsai
     fastfetch
-    emacs
     starship
     pokeget-rs
     btop
