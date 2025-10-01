@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    geteduroam
+    qalculate-qt # calculator
+    geteduroam # wifi
   ];
 }
