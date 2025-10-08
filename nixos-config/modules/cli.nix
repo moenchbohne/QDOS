@@ -6,6 +6,8 @@ let
     ff="fastfetch";
     sf = "starfetch";
     cf = "countryfetch";
+    cc="clear";
+    rr="rm -rf";
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
     rel = "source ~/.zshrc";
