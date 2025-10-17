@@ -8,6 +8,7 @@
       ../../modules/uni.nix
       ../../modules/hypr.nix
       ../../modules/java.nix
+      ../../modules/xfce.nix
       ../../modules/apps/spotify.nix
       ../../modules/apps/emacs.nix
       ../../modules/apps/thunderbird.nix
