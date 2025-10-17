@@ -39,4 +39,7 @@ in
     bat
     fzf
   ];
+
+  # enable * term PW
+  security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
 }

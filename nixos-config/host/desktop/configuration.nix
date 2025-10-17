@@ -106,7 +106,6 @@
   };
 
   security ={
-    sudo.extraConfig = "Defaults env_reset,pwfeedback"; # * terminal password
     rtkit.enable = true;
   };
   

@@ -207,7 +207,6 @@
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
   services.resolved.enable = true;
 
-  security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
   security.soteria.enable = true;
   security.polkit.enable = true;
 
