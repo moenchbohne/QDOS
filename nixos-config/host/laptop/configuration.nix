@@ -10,6 +10,7 @@
       ../../modules/java.nix
       ../../modules/apps/spotify.nix
       ../../modules/apps/emacs.nix
+      ../../modules/apps/thunderbird.nix
     ];
 
   # Bootloader
