@@ -17,5 +17,6 @@
     isoimagewriter
     elisa
     kalk
+    krusader
   ];
 }
