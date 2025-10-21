@@ -9,6 +9,7 @@
     ../../modules/daw.nix
     ../../modules/graphics/amd.nix
     ../../modules/apps/mullvad.nix
+    ../../modules/apps/krusader.nix
     ../../modules/apps/spotify.nix
     ../../modules/kde.nix
   ];
