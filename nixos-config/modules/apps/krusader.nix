@@ -13,6 +13,10 @@
     zip # zip archieves
     rar # rar archieves
 
+    # auto mount??
+    kio-fuse
+    kdePackages.kio
+
     # qt control outside of KDE
     kdePackages.qt6ct
   ];
