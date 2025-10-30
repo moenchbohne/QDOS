@@ -10,20 +10,24 @@
     # ===== yabridge compat =====
     yabridge
     yabridgectl
+    (wine.override { 
+      # You may need to experiment, but wine-staging is often good
+      wineBuild = "wine-staging"; 
+    })
 
     # ===== VSTs (plugins) =====
     oxefmsynth
     vital
     # chow-tape-model
     # x42-avldrums
-    lsp-plugins # collection
+    # lsp-plugins # collection
     # gxmatcheq-lv2
-    tap-plugins # collection
+    # tap-plugins # collection
   ];
 
   # ===== MUSNIX real-time audio =====
-  # musnix = {
-  #   enable = true;
-  # };
+  musnix = {
+    enable = true;
+  };
 }
 
