@@ -7,6 +7,7 @@ let
     sf = "starfetch";
     cf = "countryfetch";
     cc="clear";
+    x="exit";
     rr="rm -rf";
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
