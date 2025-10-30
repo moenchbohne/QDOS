@@ -10,10 +10,6 @@
     # ===== yabridge compat =====
     yabridge
     yabridgectl
-    (wine.override { 
-      # You may need to experiment, but wine-staging is often good
-      wineBuild = "wine-staging"; 
-    })
 
     # ===== VSTs (plugins) =====
     oxefmsynth
