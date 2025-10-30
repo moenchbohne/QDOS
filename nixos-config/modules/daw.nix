@@ -26,7 +26,7 @@
   ];
 
   # ===== MUSNIX real-time audio =====
-  inputs.musnix = {
+  musnix = {
     enable = true;
   };
 }

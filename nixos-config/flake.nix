@@ -75,7 +75,7 @@
           inputs.nix-flatpak.nixosModules.nix-flatpak
           inputs.chaotic.nixosModules.default
           # inputs.stylix.nixosModules.stylix 
-          # inputs.musnix.nixosModules.musnix
+          inputs.musnix.nixosModules.musnix
         ];
       };
 
