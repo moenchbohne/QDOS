@@ -9,6 +9,7 @@
       ../../modules/hypr.nix
       ../../modules/java.nix
       ../../modules/xfce.nix
+      ../../modules/sailing.nix
       ../../modules/apps/spotify.nix
       ../../modules/apps/emacs.nix
       ../../modules/apps/krusader.nix
@@ -147,11 +148,9 @@
     mkvtoolnix
     puddletag
     foliate
-    qbittorrent-enhanced
     powertop
     signal-desktop
     localsend
-    nicotine-plus
     # gnome
     apple-cursor
     gnome-tweaks
