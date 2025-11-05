@@ -8,6 +8,7 @@
     kid3
     # soundcloud
     scdl
+    ffmpeg
     # Slsk und BitTorrent
     qbittorrent-enhanced
     nicotine-plus
