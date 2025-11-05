@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # musnix.url = "github:musnix/musnix"; 
+    musnix.url = "github:musnix/musnix"; 
 
     # stylix.url = "github:danth/stylix";
 
@@ -75,7 +75,7 @@
           inputs.nix-flatpak.nixosModules.nix-flatpak
           inputs.chaotic.nixosModules.default
           # inputs.stylix.nixosModules.stylix 
-          # inputs.musnix.nixosModules.musnix
+          inputs.musnix.nixosModules.musnix
         ];
       };
 

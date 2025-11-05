@@ -206,6 +206,8 @@
       angryipscanner
       qbittorrent-enhanced
       nicotine-plus
+      picard
+      slsk-batchdl
       kid3-qt
       aonsoku
       feishin

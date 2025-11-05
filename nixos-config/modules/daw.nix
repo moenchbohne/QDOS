@@ -16,14 +16,14 @@
     vital
     # chow-tape-model
     # x42-avldrums
-    lsp-plugins # collection
+    # lsp-plugins # collection
     # gxmatcheq-lv2
-    tap-plugins # collection
+    # tap-plugins # collection
   ];
 
   # ===== MUSNIX real-time audio =====
-  # musnix = {
-  #   enable = true;
-  # };
+  musnix = {
+    enable = true;
+  };
 }
 
