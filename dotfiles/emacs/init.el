@@ -1,3 +1,16 @@
+;;; --- Package Management ("Channels") ---
+
+;; Initialize the package system
+(require 'package)
+
+;; Add the package archives (MELPA for bleeding-edge, ELPA for official)
+(setq package-archives '(("melpa" . "[https://melpa.org/packages/](https://melpa.org/packages/)")
+                         ("elpa" . "[https://elpa.gnu.org/packages/](https://elpa.gnu.org/packages/)")))
+
+;; Load packages and activate them
+(package-initialize)
+
+;; ----- Woher? -----
 (setq package-enable-at-startup nil
       inhibit-startup-message   t
       frame-resize-pixelwise    t  ; fine resize
