@@ -2,7 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
+    # emacs package
     emacs-nox
+
+    # language server
+    nixd
   ];
 
   services.emacs = {
