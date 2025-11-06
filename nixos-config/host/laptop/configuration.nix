@@ -177,6 +177,7 @@
     pciutils
     appimage-run
     eza
+    audacity
     # python
     python3
     # office
