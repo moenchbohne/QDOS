@@ -130,6 +130,7 @@
     wofi
     waybar
     # misc
+    networkmanagerapplet
     android-studio
     opensoundmeter
     github-desktop
