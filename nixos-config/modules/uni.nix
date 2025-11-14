@@ -6,6 +6,5 @@
     geteduroam # wifi
     # ----- c-Packages -----
     gcc
-    make
   ];
 }
