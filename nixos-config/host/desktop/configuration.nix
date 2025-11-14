@@ -22,6 +22,12 @@
   boot.loader.timeout = 3;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.availableKernelModules = [
+    "vmd"
+    "nvme"
+    "ahci"
+    "sd_mod"
+  ];
   boot.kernelModules = [
     "sg" # SCSI for BlueRay
   ];
