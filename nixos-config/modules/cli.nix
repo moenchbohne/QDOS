@@ -9,7 +9,7 @@ let
     cc="clear";
     x="exit";
     rr="rm -rf";
-    nhr="nh os switch ."
+    nhr="nh os switch .";
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
     rel = "source ~/.zshrc";
