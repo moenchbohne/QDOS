@@ -50,6 +50,11 @@
     # Container tools
     docker-compose
     podman-compose
+
+    # The QUICK-Trio
+    quickemu
+    quickget
+    quickgui
   ];
 
   # User groups for virtualization access
