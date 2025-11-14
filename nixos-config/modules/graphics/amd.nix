@@ -22,7 +22,6 @@
 
   hardware.amdgpu = {
     opencl.enable = true;
-    };
     legacySupport.enable = true;
   };
 }
