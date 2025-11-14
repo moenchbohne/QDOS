@@ -22,7 +22,7 @@
     mangojuice
     ryubing
     # ===== Compat =====
-    protonup # Proton-GE
+    protonup-ng # Proton-GE
     protontricks
   ];
 
