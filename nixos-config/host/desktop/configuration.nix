@@ -7,6 +7,7 @@
     ../../modules/java.nix
     ../../modules/gaming.nix
     ../../modules/daw.nix
+    ../../modules/uni.nix
     ../../modules/graphics/amd.nix
     ../../modules/apps/mullvad.nix
     ../../modules/apps/krusader.nix
