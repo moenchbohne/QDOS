@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
     qalculate-qt # calculator
     geteduroam # wifi
+    # ----- c-Packages -----
     gcc
+    make
   ];
 }
