@@ -53,7 +53,6 @@
 
     # The QUICK-Trio
     quickemu
-    quickget
     quickgui
   ];
 
