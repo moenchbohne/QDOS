@@ -52,8 +52,8 @@
     podman-compose
 
     # The QUICK-Trio
-    quickemu
-    quickgui
+    # quickemu
+    # quickgui
   ];
 
   # User groups for virtualization access

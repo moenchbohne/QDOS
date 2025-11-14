@@ -6,7 +6,6 @@
     ../../modules/virtualization.nix
     ../../modules/java.nix
     ../../modules/gaming.nix
-    ../../modules/apps/distrobox.nix
     ../../modules/daw.nix
     ../../modules/uni.nix
     ../../modules/graphics/amd.nix
