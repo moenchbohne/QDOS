@@ -20,7 +20,7 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
   boot.loader.timeout = 3;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_6_16;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.initrd.availableKernelModules = [
     "vmd"
