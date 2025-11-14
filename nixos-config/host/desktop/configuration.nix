@@ -100,7 +100,7 @@
 
     firefox = {
       enable = true;
-      package = pkgs.floorp;
+      package = pkgs.floorp-bin;
     };
 
     adb.enable = true;

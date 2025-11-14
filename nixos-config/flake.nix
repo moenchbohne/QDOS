@@ -23,8 +23,6 @@
 
     # stylix.url = "github:danth/stylix";
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
-
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     nix-snapd = {
