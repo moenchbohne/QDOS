@@ -20,7 +20,7 @@
     prismlauncher # Minecraft 
     mangohud 
     mangojuice
-    ryujinx-greemdev 
+    ryubing
     # ===== Compat =====
     protonup # Proton-GE
     protontricks
