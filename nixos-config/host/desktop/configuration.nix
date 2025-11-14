@@ -205,7 +205,7 @@
       musescore
       pavucontrol
       github-desktop
-      angryipscanner
+      # angryipscanner
       qbittorrent-enhanced
       nicotine-plus
       picard
