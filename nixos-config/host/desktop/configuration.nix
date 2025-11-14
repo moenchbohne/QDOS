@@ -154,6 +154,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-gtk3-1.1.07"
+    "electron-36.9.5"
   ];
 
   # List packages installed in system profile. 
