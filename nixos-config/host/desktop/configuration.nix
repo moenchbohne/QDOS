@@ -308,11 +308,11 @@
     optimise.automatic = true;
   };
 
-  stdenv.hostPlatform.system.autoUpgrade = {
+  system.autoUpgrade = {
     enable = true;
     channel = "https://nixos.org/channels/nixos-unstable";
     dates = "weekly";
   };
 
-  stdenv.hostPlatform.system.stateVersion = "24.05"; 
+  system.stateVersion = "24.05"; 
 }
