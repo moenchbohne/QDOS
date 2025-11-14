@@ -7,13 +7,11 @@
     extraPackages32 = with pkgs; [ 
       libva
       vulkan-loader
-      driversi686Linux.amdvlk
       driversi686Linux.mesa
     ];
     extraPackages = with pkgs; [ 
       vulkan-loader
       mesa
-      amdvlk 
     ];
   };
   services.xserver.videoDrivers = [  
