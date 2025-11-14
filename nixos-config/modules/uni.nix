@@ -6,5 +6,7 @@
     geteduroam # wifi
     # ----- c-Packages -----
     gcc
+    gnumake
+    stdenv
   ];
 }
