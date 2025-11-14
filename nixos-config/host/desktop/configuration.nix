@@ -216,7 +216,7 @@
       gparted
       # creative
       darktable
-      tenacity
+      audacity
       # multimedia
       vlc
       handbrake
