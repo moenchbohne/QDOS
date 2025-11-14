@@ -12,7 +12,6 @@
     yabridgectl
 
     # ===== VSTs (plugins) =====
-    oxefmsynth
     vital
     # chow-tape-model
     # x42-avldrums
