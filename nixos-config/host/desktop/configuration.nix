@@ -271,7 +271,7 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     fira-code-symbols
     migmix # Japanese Chars
     lxgw-wenkai # Chinese Chars
