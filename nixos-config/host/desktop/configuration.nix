@@ -153,7 +153,7 @@
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-gtk3-1.1.05"
+    "ventoy-gtk3-1.1.07"
   ];
 
   # List packages installed in system profile. 
