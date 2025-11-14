@@ -20,7 +20,7 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
   boot.loader.timeout = 3;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.initrd.availableKernelModules = [
     "vmd"
@@ -31,6 +31,9 @@
   boot.kernelModules = [
     "sg" # SCSI for BlueRay
   ];
+  
+  # Please Fix 
+  hardware.enableRedistributableFirmware = true;
 
   # GRUB Theme
 
