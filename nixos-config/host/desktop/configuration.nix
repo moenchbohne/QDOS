@@ -181,6 +181,7 @@
       ghostty
       ventoy-full-gtk
       helix
+      pulsar
       # cli-util
       emacs-nox
       kitty
