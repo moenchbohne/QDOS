@@ -6,7 +6,6 @@
     plasma-browser-integration
     konsole
     oxygen
-    kate
   ];
 
   programs.kdeconnect.enable = true;

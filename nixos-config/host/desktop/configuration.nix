@@ -180,6 +180,7 @@
       nushell
       ghostty
       ventoy-full-gtk
+      helix
       # cli-util
       emacs-nox
       kitty
