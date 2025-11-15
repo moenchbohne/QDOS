@@ -23,12 +23,7 @@
   boot.kernelPackages = pkgs.linuxPackages_6_6;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.initrd.kernelModules = [ 
-    "amdgpu"
-    # -----
-    "vmd"
-    "nvme"
-    "ahci"
-    "sd_mod" 
+    "amdgpu" 
   ];
   boot.initrd.availableKernelModules = [
     "vmd"
