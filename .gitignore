@@ -8,3 +8,4 @@
 .vscode/
 .idea/
 *.sublime-*
+nixos-config/modules/uni.nix
