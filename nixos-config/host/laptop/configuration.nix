@@ -138,7 +138,6 @@
     vim
     vesktop
     vscodium
-    obsidian
     kitty
     git
     prismlauncher
