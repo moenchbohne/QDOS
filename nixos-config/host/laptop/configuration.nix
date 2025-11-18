@@ -143,7 +143,6 @@
     prismlauncher
     vlc
     musescore
-    angryipscanner
     blueman
     mkvtoolnix
     puddletag
