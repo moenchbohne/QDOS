@@ -203,7 +203,7 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.floorp;
+    package = pkgs.floorp-bin;
   };
 
   # VPN
