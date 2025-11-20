@@ -145,7 +145,6 @@
     musescore
     blueman
     mkvtoolnix
-    puddletag
     foliate
     powertop
     signal-desktop
@@ -203,11 +202,6 @@
     enable = true;
     package = pkgs.floorp-bin;
   };
-
-  # VPN
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
-  services.resolved.enable = true;
 
   security.soteria.enable = true;
   security.polkit.enable = true;

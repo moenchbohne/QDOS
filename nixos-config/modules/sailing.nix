@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./apps/mullvad.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     # music metadata
     picard
