@@ -13,9 +13,11 @@ $time\
     $nodejs\
 )\
 $cmd_duration
-[╰─](fg:arrow)$character\
+[╰─][\$]
 """
 # Add the modules you need
+
+# (fg:arrow)$character\
 
 # Disables the blank line at the start of the prompt
 add_newline = true
@@ -90,8 +92,8 @@ disabled = false
 show_always = true
 
 [character]
-success_symbol = "[\\$](fg:arrow)"
-error_symbol = "[\\$](fg:red)"
+success_symbol = "[󰍟](fg:arrow)"
+error_symbol = "[󰍟](fg:red)"
 
 [directory]
 format = " [](fg:directory)[  $path ]($style)[$read_only]($read_only_style)[](fg:directory)"
