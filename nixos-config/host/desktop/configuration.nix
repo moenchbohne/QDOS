@@ -13,6 +13,7 @@
     ../../modules/apps/krusader.nix
     ../../modules/apps/spotify.nix
     ../../modules/kde.nix
+    ../../modules/sailing.nix
   ];
 
   # Boot
