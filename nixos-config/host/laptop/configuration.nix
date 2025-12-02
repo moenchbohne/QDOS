@@ -6,9 +6,10 @@
       ./hardware-configuration.nix
       ../../modules/cli.nix
       ../../modules/uni.nix
-      ../../modules/hypr.nix
+      ../../modules/sessions/hypr.nix
       ../../modules/java.nix
-      ../../modules/xfce.nix
+      ../../modules/sessions/xfce.nix
+      ../../modules/sessions/gnome.nix
       ../../modules/sailing.nix
       ../../modules/apps/spotify.nix
       ../../modules/apps/emacs.nix
