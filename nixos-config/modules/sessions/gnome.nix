@@ -29,4 +29,7 @@
     # gnome packages
     gnome-extension-manager
   ];
+
+  # fix for seahorse
+  programs.ssh.askPassword = lib.mkForce true;
 }
