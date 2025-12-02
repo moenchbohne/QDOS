@@ -21,12 +21,7 @@
   # gnome shell extensions
   environment.systemPackages = with pkgs; [
     # shell extensions
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.just-perfection
-    gnomeExtensions.arc-menu
-    gnomeExtensions.vitals
-    gnomeExtensions.desktop-cube
-    gnomeExtensions.dash-to-dock
+      # MT
 
     # gnome packages
     gnome-extension-manager
