@@ -12,7 +12,7 @@
     ../../modules/apps/mullvad.nix
     ../../modules/apps/krusader.nix
     ../../modules/apps/spotify.nix
-    ../../modules/kde.nix
+    ../../modules/sessions/kde.nix
     ../../modules/sailing.nix
   ];
 
