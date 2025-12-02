@@ -6,9 +6,7 @@
       ./hardware-configuration.nix
       ../../modules/cli.nix
       ../../modules/uni.nix
-      ../../modules/sessions/hypr.nix
       ../../modules/java.nix
-      ../../modules/sessions/xfce.nix
       ../../modules/sessions/gnome.nix
       ../../modules/sessions/kde.nix
       ../../modules/sailing.nix
