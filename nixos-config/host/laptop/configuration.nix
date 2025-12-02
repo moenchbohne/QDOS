@@ -25,7 +25,7 @@
 
     plymouth = {
       enable = true;
-      theme = "blockchain";
+      theme = "ibm";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
