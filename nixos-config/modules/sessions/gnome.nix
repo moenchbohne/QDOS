@@ -24,8 +24,9 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.arc-menu
-    gnomeExtensions.
+    gnomeExtensions.vitals
     gnomeExtensions.desktop-cube
+    gnomeExtensions.dash-to-dock
 
     # gnome packages
     gnome-extension-manager
