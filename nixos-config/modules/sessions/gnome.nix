@@ -31,5 +31,5 @@
   ];
 
   # fix for seahorse
-  programs.ssh.askPassword = lib.mkForce true;
+  programs.ssh.askPassword = lib.mkForce "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
 }
