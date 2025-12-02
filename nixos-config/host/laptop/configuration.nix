@@ -14,6 +14,7 @@
       ../../modules/apps/emacs.nix
       ../../modules/apps/krusader.nix
       ../../modules/apps/thunderbird.nix
+      ../../modules/apps/flameshot.nix
     ];
 
   # Bootloader
