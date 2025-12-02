@@ -28,6 +28,7 @@
 
     # gnome packages
     gnome-extension-manager
+    gnome-tweaks
   ];
 
   # fix for seahorse
