@@ -8,7 +8,6 @@
       ../../modules/uni.nix
       ../../modules/java.nix
       ../../modules/sessions/gnome.nix
-      ../../modules/sessions/kde.nix
       ../../modules/sailing.nix
       ../../modules/apps/spotify.nix
       ../../modules/apps/emacs.nix
