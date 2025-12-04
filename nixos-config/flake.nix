@@ -10,6 +10,11 @@
     
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -33,7 +38,13 @@
 
 # ===== Outputs =====
 
-  outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs: 
+  outputs = {
+    self, 
+    nixpkgs, 
+    nixpkgs-stable, 
+    home-manager, 
+    ... 
+  }@inputs: 
   let 
     system = "x86_64-linux";
 
@@ -47,9 +58,7 @@
     }; 
   in
   {
-
-# ===== Hosts ===== 
-
+   
     nixosConfigurations = {
 
 # ===== Desktop =====
