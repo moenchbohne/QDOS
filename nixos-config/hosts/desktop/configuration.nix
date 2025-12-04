@@ -276,12 +276,6 @@
     allowUnfree = true;
   };       
 
-  # Flatpak
-  services.flatpak = {
-    enable = true;
-    remotes = [{ name = "flathub-beta"; location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo"; }];
-  };
-
   qt =  {
     enable = true;
     platformTheme = lib.mkForce "kde";
