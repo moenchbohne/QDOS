@@ -1,8 +1,11 @@
 { lib, config, pkgs, ... }: 
 
 {
-  # core gnome config
+  # gdm config
   services.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "gnome";
+
+  # core gnome config
   services.desktopManager.gnome = {
     enable = true;
   };
