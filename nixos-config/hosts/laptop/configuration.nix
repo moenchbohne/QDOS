@@ -127,6 +127,7 @@
   environment.systemPackages = with pkgs; [
     wofi
     waybar
+    librewolf
     # misc
     networkmanagerapplet
     android-studio
