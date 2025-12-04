@@ -2,7 +2,11 @@
 
 {
   # gdm config
-  services.displayManager.gdm.enable = true;
+  services.displayManager.gdm = {
+    enable = true;
+    autoSuspend = false;
+    banner = "It's declarative!";
+  };
   services.displayManager.defaultSession = "gnome";
 
   # core gnome config
