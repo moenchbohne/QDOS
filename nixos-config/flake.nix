@@ -1,14 +1,14 @@
 {
 # ===== Description =====
  
-  description = "My little Snowflake";
+  description = "My Little Snowflake";
 
 # ===== Inputs =====
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
@@ -27,11 +27,6 @@
 
     nix-snapd = {
       url = "github:nix-community/nix-snapd";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -66,8 +61,8 @@
           inherit pkgs-stable; 
         };
         modules = [
-          ./host/desktop/configuration.nix 
-          ./host/desktop/hardware-configuration.nix
+          ./hosts/desktop/configuration.nix 
+          ./hosts/desktop/hardware-configuration.nix
           inputs.spicetify-nix.nixosModules.default
           inputs.nix-snapd.nixosModules.default
           inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -85,8 +80,8 @@
           inherit inputs;
         };
         modules = [
-          ./host/laptop/configuration.nix
-          ./host/laptop/hardware-configuration.nix
+          ./hosts/laptop/configuration.nix
+          ./hosts/laptop/hardware-configuration.nix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
           inputs.spicetify-nix.nixosModules.default
         ];

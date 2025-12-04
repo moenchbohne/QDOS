@@ -5,7 +5,7 @@
   services.displayManager.gdm = {
     enable = true;
     autoSuspend = false;
-    banner = "It's declarative!";
+    banner = "hello, quentin!";
   };
   services.displayManager.defaultSession = "gnome";
 
