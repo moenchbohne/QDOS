@@ -1,5 +1,6 @@
 # nix-build output
 **/result
+*.lock
 
 # Editor files
 *.swp
