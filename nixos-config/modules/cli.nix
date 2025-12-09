@@ -40,6 +40,32 @@ in
     eza
     bat
     fzf
+
+    # cli util
+    pciutils
+    tldr
+    aha
+    yazi
+    powertop
+    appimage-run
+    starship
+    btop
+    git
+    git-filter-repo
+
+    # unixp*rn
+    starfetch
+    fastfetch
+    countryfetch
+    cbonsai
+    unimatrix
+    pokeget-rs
+    pipes-rs
+    fortune-kind
+    charasay
+    lolcat
+    snowmachine
+    asciiquarium-transparent
   ];
 
   # enable * term PW

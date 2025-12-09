@@ -145,7 +145,6 @@
     blueman
     mkvtoolnix
     foliate
-    powertop
     signal-desktop
     localsend
     # gnome
@@ -153,27 +152,7 @@
     gnome-tweaks
     kdePackages.kdeconnect-kde
     # cli
-    charasay
-    fortune-kind
-    lolcat
-    pokeget-rs
-    pipes-rs
-    cbonsai
-    fastfetch
-    starship
-    pokeget-rs
-    btop
-    stow
-    ani-cli
-    unimatrix
-    yazi
-    tldr
-    bat
     nh
-    aha
-    pciutils
-    appimage-run
-    eza
     audacity
     # python
     python3

@@ -189,27 +189,9 @@
       # cli-util
       emacs-nox
       kitty
-      starship
       ani-cli
       alsa-utils
-      btop
-      appimage-run
-      git
-      git-filter-repo
       ncmpcpp
-      # unixp*rn
-      starfetch
-      fastfetch
-      countryfetch
-      cbonsai
-      unimatrix
-      pokeget-rs
-      pipes-rs
-      fortune-kind
-      charasay
-      lolcat
-      snowmachine
-      asciiquarium-transparent
       # themes + rice
       catppuccin-sddm
       base16-schemes
