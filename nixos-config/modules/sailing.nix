@@ -18,5 +18,7 @@
     # Slsk und BitTorrent
     qbittorrent-enhanced
     nicotine-plus
+    # general dwld
+    varia
   ];
 }

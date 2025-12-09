@@ -44,7 +44,6 @@ in
     # cli util
     pciutils
     tldr
-    aha
     yazi
     powertop
     appimage-run
