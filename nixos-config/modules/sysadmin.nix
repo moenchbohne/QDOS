@@ -14,6 +14,7 @@
     dnsutils
     wireshark
     toybox
+    inetutils
     
     # === browser ===
     librewolf
