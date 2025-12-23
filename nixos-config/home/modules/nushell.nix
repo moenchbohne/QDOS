@@ -1,7 +1,18 @@
 { config, lib, pkgs, ... }:
 
 {
-  program.nushell = {
+  # for headless operation -> safe POSIX shell
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      if [[ $- == *i* ]]; then
+        exec nu
+      fi
+    '';
+  };
+
+  # if "user" is operator -> better shell is used
+  programs.nushell = {
     enable = true;
 
     # conf/env
@@ -17,6 +28,11 @@
       formats
       highlight
     ];
+  };
 
+  # powerful completions
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true;
   };
 }
