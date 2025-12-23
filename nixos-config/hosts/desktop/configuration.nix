@@ -4,7 +4,6 @@
   imports = [
     ../../modules/cli.nix
     ../../modules/virtualization.nix
-    ../../modules/java.nix
     ../../modules/gaming.nix
     ../../modules/daw.nix
     ../../modules/uni.nix
