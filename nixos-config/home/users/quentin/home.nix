@@ -14,7 +14,7 @@
 
   # Hier kommen deine Module rein
   imports = [
-    ../modules/nushell.nix
+    # ../modules/nushell.nix
   ];
 
   # Beispiel direkt hier
