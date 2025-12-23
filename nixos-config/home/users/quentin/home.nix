@@ -20,9 +20,7 @@
   # Beispiel direkt hier
   programs.git = {
     enable = true;
-    settings = {
-      userName = "quentin";
-      userEmail = "beckercelle@gmail.com";
-    };
   };
+
+  programs.cava.enable = true;
 }
