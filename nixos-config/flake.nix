@@ -91,13 +91,21 @@
         modules = [
           ./hosts/laptop/configuration.nix
           ./hosts/laptop/hardware-configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            
+            # Hier bindest du deine User-Config ein
+            home-manager.users.quentin = import ./home/users/quentin/home.nix;
+            
+            # Optional: Pass inputs an home-manager weiter
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
           inputs.spicetify-nix.nixosModules.default
         ];
       };
-
-# ===== Closing Brackets =====
-
     };
   };
 }
