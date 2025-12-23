@@ -7,7 +7,7 @@
   home.homeDirectory = "/home/quentin";
 
   # Wichtig: State Version (ähnlich wie bei NixOS)
-  home.stateVersion = "25.11"; # oder was gerade aktuell ist
+  home.stateVersion = "26.05"; # oder was gerade aktuell ist
 
   # Programme aktivieren
   programs.home-manager.enable = true; # HM verwaltet sich selbst
