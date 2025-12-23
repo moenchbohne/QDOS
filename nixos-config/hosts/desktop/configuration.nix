@@ -15,6 +15,7 @@
     ../../modules/apps/thunderbird.nix
     ../../modules/sessions/kde.nix
     ../../modules/sailing.nix
+    ../../modules/apps/hi-fi.nix
   ];
 
   # Boot
@@ -207,13 +208,6 @@
       pavucontrol
       github-desktop
       # angryipscanner
-      qbittorrent-enhanced
-      nicotine-plus
-      picard
-      slsk-batchdl
-      kid3-qt
-      aonsoku
-      feishin
       gparted
       # creative
       darktable

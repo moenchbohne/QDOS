@@ -18,6 +18,7 @@
     # Slsk und BitTorrent
     qbittorrent-enhanced
     nicotine-plus
+    slsk-batchdl
     # general dwld
     varia
   ];
