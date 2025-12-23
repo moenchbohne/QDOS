@@ -7,7 +7,7 @@
   home.homeDirectory = "/home/quentin";
 
   # Wichtig: State Version (ähnlich wie bei NixOS)
-  home.stateVersion = "26.05"; # oder was gerade aktuell ist
+  home.stateVersion = "25.11"; # oder was gerade aktuell ist
 
   # Programme aktivieren
   programs.home-manager.enable = true; # HM verwaltet sich selbst
@@ -20,7 +20,9 @@
   # Beispiel direkt hier
   programs.git = {
     enable = true;
-    userName = "quentin";
-    userEmail = "beckercelle@gmail.com";
+    settings = {
+      userName = "quentin";
+      userEmail = "beckercelle@gmail.com";
+    };
   };
 }
