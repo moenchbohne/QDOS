@@ -239,7 +239,7 @@
 
     # stable release
     (with pkgs-stable; [
-      angryipscanner
+      # angryipscanner
       flacon
       qemu
       quickemu
