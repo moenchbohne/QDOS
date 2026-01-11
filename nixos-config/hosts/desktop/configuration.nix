@@ -206,7 +206,6 @@
       musescore
       pavucontrol
       github-desktop
-      # angryipscanner
       gparted
       # creative
       darktable
@@ -240,6 +239,7 @@
 
     # stable release
     (with pkgs-stable; [
+      angryipscanner
       flacon
       qemu
       quickemu
