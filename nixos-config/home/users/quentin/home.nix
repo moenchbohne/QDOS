@@ -1,5 +1,5 @@
 # home.nix
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Metadaten müssen sein
@@ -12,6 +12,10 @@
   # Programme aktivieren
   programs.home-manager.enable = true; # HM verwaltet sich selbst
 
+  home.packages = with pkgs; [
+    zettlr
+  ];
+
   # Hier kommen deine Module rein
   imports = [
     # ../modules/nushell.nix
@@ -21,6 +25,8 @@
   programs.git = {
     enable = true;
   };
+
+  
 
   programs.cava.enable = true;
 }
