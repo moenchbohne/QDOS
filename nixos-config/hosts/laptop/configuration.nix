@@ -20,16 +20,23 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 0;
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
 
   boot = {
-
     plymouth = {
       enable = true;
-      theme = "ibm";
+      theme = "mac-style";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" "ibm" "blockchain" ];
+          selected_themes = [ "rings" "ibm" "blockchain" "bgrt" ""];
+        })
+        (pkgs.catppuccin-plymouth.override {
+          variant = "macchiato";
+        })
+        (pkgs.plymouth-theme-mac-style.override {
+          variant = "grey"; 
         })
       ];
     };
