@@ -27,9 +27,8 @@
       enable = true;
       theme = "catppuccin-macchiato";
       themePackages = with pkgs; [
-        # By default we would install all themes
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" "ibm" "blockchain" "bgrt" ""];
+          selected_themes = [ "rings" "ibm" "blockchain"];
         })
         (pkgs.catppuccin-plymouth.override {
           variant = "macchiato";
