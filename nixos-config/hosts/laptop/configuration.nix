@@ -25,7 +25,7 @@
   boot = {
     plymouth = {
       enable = true;
-      theme = "mac-style";
+      theme = "catppuccin-macchiato";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
@@ -33,9 +33,6 @@
         })
         (pkgs.catppuccin-plymouth.override {
           variant = "macchiato";
-        })
-        (pkgs.plymouth-theme-mac-style.override {
-          variant = "grey"; 
         })
       ];
     };
