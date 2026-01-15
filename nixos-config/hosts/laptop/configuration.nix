@@ -13,6 +13,7 @@
       ../../modules/apps/krusader.nix
       ../../modules/apps/thunderbird.nix
       ../../modules/apps/flameshot.nix
+      ../../modules/system/plymouth.nix
     ];
 
   # Bootloader
@@ -21,21 +22,6 @@
   boot.loader.timeout = 0;
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
-
-  boot = {
-    plymouth = {
-      enable = true;
-      theme = "catppuccin-macchiato";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" "ibm" "blockchain"];
-        })
-        (pkgs.catppuccin-plymouth.override {
-          variant = "macchiato";
-        })
-      ];
-    };
-  };
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
