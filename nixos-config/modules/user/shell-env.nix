@@ -56,7 +56,7 @@ in
 
     plugins = with pkgs.nushellPlugins; [
       # net broken
-      units
+      # units broken
       skim      
       gstat
       formats
