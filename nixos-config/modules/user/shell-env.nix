@@ -46,14 +46,17 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     shellAliases = myAliases;
+    initExtra = '' 
+      ../../../dotfiles/zsh/.zshrc
+    ''
   };
 
   programs.nushell = {
     enable = true;
     shellAliases = myAliases;
     package = pkgs-stable.nushell;
-    # configFile.source = ../../../dotfiles/nushell/config.nu;
-    # envFile.source = ../../../dotfiles/nushell/env.nu;
+    configFile.source = ../../../dotfiles/nushell/config.nu;
+    envFile.source = ../../../dotfiles/nushell/env.nu;
 
     plugins = with pkgs-stable.nushellPlugins; [
     #  net broken

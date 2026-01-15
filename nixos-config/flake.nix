@@ -99,6 +99,8 @@
             
             # Hier bindest du deine User-Config ein
             home-manager.users.quentin = import ./home/users/quentin/home.nix;
+
+            home-manager.backupFileExtension = "backup";
             
             # Optional: Pass inputs an home-manager weiter
             home-manager.extraSpecialArgs = { 
