@@ -44,7 +44,7 @@ in
     enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
     shellAliases = myAliases;
   };
 
