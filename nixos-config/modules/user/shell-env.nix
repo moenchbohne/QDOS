@@ -56,7 +56,7 @@ in
     shellAliases = myAliases;
     package = pkgs-stable.nushell;
     configFile.source = ../../../dotfiles/nushell/config.nu;
-    envFile.source = ../../../dotfiles/nushell/env.nu;
+    # envFile.source = ../../../dotfiles/nushell/env.nu;
 
     plugins = with pkgs-stable.nushellPlugins; [
     #  net broken
