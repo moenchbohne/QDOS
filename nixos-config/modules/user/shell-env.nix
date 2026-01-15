@@ -54,14 +54,14 @@ in
     # configFile.source = ../../../dotfiles/nushell/config.nu;
     # envFile.source = ../../../dotfiles/nushell/env.nu;
 
-    plugins = with pkgs.nushellPlugins; [
-      # net broken
-      # units broken
-      # skim doch kein plugin :(    
-      gstat
-      formats
-      highlight
-    ];
+    #plugins = with pkgs.nushellPlugins; [
+    #  # net broken
+    #  # units broken
+    #  # skim doch kein plugin :(    
+    #  # gstat
+    #  # formats
+    #  # highlight
+    #];
   };
 
   # 2. TOOLS CONFIGURATION
