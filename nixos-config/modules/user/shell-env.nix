@@ -2,29 +2,21 @@
 
 let 
   myAliases = {
-    # --- Shorties ---
     e   = "emacsclient -nw -c -a 'emacs -nw'";
     x   = "exit";
     cc   = "clear";
     rr  = "rm -rf";
     ff = "fastfetch";
-    
-    # --- NixOS Magic ---
+  
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
-    # fix: maybe ; instead of &&
     nhr  = "nh os switch ~/GitRepos/QDOS/nixos-config"; 
     
-    # --- The "Sensible" Eza Integration ---
-    # Wir überschreiben NICHT 'ls'. 
-  
     l   = "eza --icons -l --git --no-time";      # short
     ll  = "eza --icons -l --git --header --time-style=long-iso"; # detail
     lt  = "eza --icons --tree --level=2";        # tree
     la  = "eza --icons -l -a";                   # hidden
 
-    # --- Bat Integration ---
-    # nushell = open
     cat = "bat --style=plain";
     less = "bat";              
   };
@@ -68,23 +60,18 @@ in
     ];
   };
 
-  # 2. TOOLS CONFIGURATION
-  
-  # Zoxide (Smarter CD)
   programs.zoxide = {
     enable = true;
     enableNushellIntegration = true;
     options = [ "--cmd cd" ];
   };
 
-  # Eza (Ls Replacement)
   programs.eza = {
     enable = true;
     enableNushellIntegration = false; 
     icons = "auto";
   };
 
-  # Bat (Cat Replacement)
   programs.bat = {
     enable = true;
     config = {
@@ -92,14 +79,11 @@ in
     };
   };
 
-
-  # Carapace
   programs.carapace = {
     enable = true;
     enableNushellIntegration = true;
   };
 
-  # Starship Prompt
   programs.starship = {
     enable = true;
     enableNushellIntegration = true;
@@ -107,19 +91,12 @@ in
     configPath = "../../../dotfiles/starship/starship.toml";
   };
   
-  # Yazi TUI Filemanager
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
   };
 
-
-
-  # ====================================================================
-  # 3. PACKAGES (CLI Candy & Tools)
-  # ====================================================================
   home.packages = with pkgs; [
-    # Core Tools
     ripgrep      # Wichtig für grep Alternativen
     fd           # Wichtig für find Alternativen
     pciutils
