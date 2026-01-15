@@ -21,6 +21,7 @@ alias nixcp="cp -r /etc/nixos/* ~/GitRepos/QDOS/nixos-config"
 alias rel="source ~/.zshrc"
 alias build="nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { } '"
 alias doom="sudo nix run github:nix-community/nix-doom-emacs"
+alias nhr="cd ~/GitRepos/QDOS/nixos-config/ && nh os switch ."
 
 # replace old shit
 alias cd="z"

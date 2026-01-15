@@ -13,7 +13,7 @@ let
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
     # fix: maybe ; instead of &&
-    nhr  = "cd ~/GitRepos/QDOS/nixos-config && nh os switch ."; 
+    nhr  = "nh os switch ~/GitRepos/QDOS/nixos-config"; 
     
     # --- The "Sensible" Eza Integration ---
     # Wir überschreiben NICHT 'ls'. 
