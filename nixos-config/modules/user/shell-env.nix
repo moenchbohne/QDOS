@@ -55,7 +55,7 @@ in
     # envFile.source = ../../../dotfiles/nushell/env.nu;
 
     plugins = with pkgs.nushellPlugins; [
-      net
+      # net broken
       units
       skim      
       gstat
