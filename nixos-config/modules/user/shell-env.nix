@@ -12,17 +12,16 @@ let
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
     nhr  = "nh os switch ~/GitRepos/QDOS/nixos-config"; 
     
-    l   = "eza --icons -l --git --no-time";      # short
-    ll  = "eza --icons -l --git --header --time-style=long-iso"; # detail
-    lt  = "eza --icons --tree --level=2";        # tree
-    la  = "eza --icons -l -a";                   # hidden
+    l   = "eza --icons -l --git --no-time";      
+    ll  = "eza --icons -l --git --header --time-style=long-iso";
+    lt  = "eza --icons --tree --level=3";        
+    la  = "eza --icons -l -a";                   
 
-    cat = "bat --style=plain";
+    cat = "bat --style=plain --theme="Dracula" ";
     less = "bat";              
   };
 in
 {
-  # 1. SHELLS
   programs.bash = {
     enable = true;
     initExtra = ''
