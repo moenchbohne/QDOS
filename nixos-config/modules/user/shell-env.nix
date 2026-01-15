@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, pkgs-stable, ... }:
 
 let 
   myAliases = {
@@ -51,17 +51,18 @@ in
   programs.nushell = {
     enable = true;
     shellAliases = myAliases;
+    package = pkgs-stable.nushell;
     # configFile.source = ../../../dotfiles/nushell/config.nu;
     # envFile.source = ../../../dotfiles/nushell/env.nu;
 
-    #plugins = with pkgs.nushellPlugins; [
+    plugins = with pkgs-stable.nushellPlugins; [
     #  # net broken
     #  # units broken
     #  # skim doch kein plugin :(    
     #  # gstat
     #  # formats
     #  # highlight
-    #];
+    ];
   };
 
   # 2. TOOLS CONFIGURATION

@@ -87,6 +87,7 @@
         inherit system;
         specialArgs = {
           inherit inputs;
+          inherit pkgs-stable;
         };
         modules = [
           ./hosts/laptop/configuration.nix
