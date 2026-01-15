@@ -7,6 +7,7 @@ let
     x   = "exit";
     cc   = "clear"; # In Nu ist 'clear' oft schon eingebaut, aber schadet nicht
     rr  = "rm -rf";
+    ff = "fastfetch";
     
     # --- NixOS Magic ---
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
