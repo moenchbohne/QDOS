@@ -20,12 +20,9 @@
     ../../../modules/user/shell-env.nix
   ];
 
-  # Beispiel direkt hier
   programs.git = {
     enable = true;
   };
-
-  
 
   programs.cava.enable = true;
 }
