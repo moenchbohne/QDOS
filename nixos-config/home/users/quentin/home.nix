@@ -1,5 +1,4 @@
-# home.nix
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, pkgs-stable, ... }:
 
 {
   # Metadaten müssen sein

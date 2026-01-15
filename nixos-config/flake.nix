@@ -101,7 +101,10 @@
             home-manager.users.quentin = import ./home/users/quentin/home.nix;
             
             # Optional: Pass inputs an home-manager weiter
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = { 
+              inherit inputs;
+              inherit pkgs-stable; 
+            };
           }
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
           inputs.spicetify-nix.nixosModules.default
