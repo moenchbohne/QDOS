@@ -2,11 +2,6 @@
 #
 # version = "0.93.0"
 
-# Use nushell functions to define your right and left prompt
-$env.PROMPT_COMMAND = {|| create_left_prompt }
-# FIXME: This default is not implemented in rust code as of 2023-09-08.
-$env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
-
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
 $env.PROMPT_INDICATOR = {|| "> " }
@@ -58,6 +53,3 @@ $env.NU_PLUGIN_DIRS = [
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
-
-mkdir ~/.cache/starship
-starship init nu | save -f ~/.cache/starship/init.nu

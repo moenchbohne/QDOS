@@ -48,7 +48,7 @@ in
     shellAliases = myAliases;
     initExtra = '' 
       ../../../dotfiles/zsh/.zshrc
-    ''
+    '';
   };
 
   programs.nushell = {
@@ -62,9 +62,9 @@ in
     #  net broken
     #  units broken
     #  skim doch kein plugin :(    
-    #  gstat
-    #  formats
-    #  highlight
+      gstat
+      formats
+    #  highlight version conflict
     ];
   };
 
@@ -104,6 +104,7 @@ in
     enable = true;
     enableNushellIntegration = true;
     enableZshIntegration = true;
+    configPath = "../../../dotfiles/starship/starship.toml";
   };
   
   # Yazi TUI Filemanager
