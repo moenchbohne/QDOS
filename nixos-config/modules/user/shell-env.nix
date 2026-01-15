@@ -57,7 +57,7 @@ in
     plugins = with pkgs.nushellPlugins; [
       # net broken
       # units broken
-      skim      
+      # skim doch kein plugin :(    
       gstat
       formats
       highlight
@@ -123,6 +123,7 @@ in
     appimage-run
     btop
     git-filter-repo
+    skim # for now...
 
     # Unix P*rn / Fun
     starfetch
