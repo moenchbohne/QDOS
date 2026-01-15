@@ -17,7 +17,7 @@ let
     lt  = "eza --icons --tree --level=3";        
     la  = "eza --icons -l -a";                   
 
-    cat = "bat --style=plain --theme="Dracula" ";
+    cat = "bat --style=plain";
     less = "bat";              
   };
 in
@@ -74,7 +74,7 @@ in
   programs.bat = {
     enable = true;
     config = {
-      theme = "TwoDark";
+      theme = "Dracula";
     };
   };
 
