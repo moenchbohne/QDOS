@@ -16,9 +16,8 @@
     zettlr
   ];
 
-  # Hier kommen deine Module rein
   imports = [
-    # ../modules/nushell.nix
+    ../../../modules/user/shell-env.nix
   ];
 
   # Beispiel direkt hier

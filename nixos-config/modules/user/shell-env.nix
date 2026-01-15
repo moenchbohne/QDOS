@@ -51,8 +51,8 @@ in
   programs.nushell = {
     enable = true;
     shellAliases = myAliases;
-    configFile.source = ../../../dotfiles/nushell/config.nu;
-    envFile.source = ../../../dotfiles/nushell/env.nu;
+    # configFile.source = ../../../dotfiles/nushell/config.nu;
+    # envFile.source = ../../../dotfiles/nushell/env.nu;
 
     plugins = with pkgs.nushellPlugins; [
       net
