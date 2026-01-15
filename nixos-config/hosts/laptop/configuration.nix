@@ -156,12 +156,6 @@
     pipx
     mpv
     ghostty
-    # nushell POC
-    nushell
-    nushellPlugins.skim
-    nushellPlugins.formats
-    nushellPlugins.highlight
-    # nushellPlugins.net
   ];
 
   programs.firefox = {

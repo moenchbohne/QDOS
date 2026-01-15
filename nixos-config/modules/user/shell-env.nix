@@ -56,12 +56,12 @@ in
     # envFile.source = ../../../dotfiles/nushell/env.nu;
 
     plugins = with pkgs-stable.nushellPlugins; [
-    #  # net broken
-    #  # units broken
-    #  # skim doch kein plugin :(    
-    #  # gstat
-    #  # formats
-    #  # highlight
+    #  net broken
+    #  units broken
+    #  skim doch kein plugin :(    
+    #  gstat
+    #  formats
+    #  highlight
     ];
   };
 
