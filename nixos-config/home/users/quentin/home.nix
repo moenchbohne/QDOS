@@ -1,15 +1,14 @@
-{ config, pkgs, lib, pkgs-stable, ... }:
+{ config, pkgs, lib, pkgs-stable, inputs, ... }:
 
 {
-  # Metadaten müssen sein
-  home.username = "quentin";
-  home.homeDirectory = "/home/quentin";
-
-  # Wichtig: State Version (ähnlich wie bei NixOS)
-  home.stateVersion = "25.11"; # oder was gerade aktuell ist
+  home = {
+    username = "quentin";
+    homeDirectory = "/home/quentin";
+    stateVersion = "25.11";
+  };
 
   # Programme aktivieren
-  programs.home-manager.enable = true; # HM verwaltet sich selbst
+  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
     zettlr
@@ -17,6 +16,7 @@
 
   imports = [
     ../../../modules/user/shell-env.nix
+    ../../../modules/user/rofi.nix
   ];
 
   programs.git = {
