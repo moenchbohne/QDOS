@@ -8,7 +8,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -87,6 +87,7 @@
         inherit system;
         specialArgs = {
           inherit inputs;
+          inherit pkgs-stable;
         };
         modules = [
           ./hosts/laptop/configuration.nix
@@ -98,9 +99,14 @@
             
             # Hier bindest du deine User-Config ein
             home-manager.users.quentin = import ./home/users/quentin/home.nix;
+
+            home-manager.backupFileExtension = "backup";
             
             # Optional: Pass inputs an home-manager weiter
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = { 
+              inherit inputs;
+              inherit pkgs-stable; 
+            };
           }
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
           inputs.spicetify-nix.nixosModules.default

@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
       ../../modules/cli.nix
       ../../modules/uni.nix
-      ../../modules/java.nix
       ../../modules/sessions/gnome.nix
       ../../modules/sailing.nix
       ../../modules/apps/spotify.nix
@@ -14,26 +13,15 @@
       ../../modules/apps/krusader.nix
       ../../modules/apps/thunderbird.nix
       ../../modules/apps/flameshot.nix
+      ../../modules/system/plymouth.nix
     ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 0;
-
-  boot = {
-
-    plymouth = {
-      enable = true;
-      theme = "ibm";
-      themePackages = with pkgs; [
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" "ibm" "blockchain" ];
-        })
-      ];
-    };
-  };
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
@@ -110,13 +98,6 @@
     defaultUserShell = pkgs.zsh;
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -168,12 +149,6 @@
     pipx
     mpv
     ghostty
-    # nushell POC
-    nushell
-    nushellPlugins.skim
-    nushellPlugins.formats
-    nushellPlugins.highlight
-    # nushellPlugins.net
   ];
 
   programs.firefox = {
