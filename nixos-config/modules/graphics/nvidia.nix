@@ -14,7 +14,7 @@
       nvidia-vaapi-driver 
       vulkan-loader
       mesa 
-      vaapiVdpau            
+      libva-vdpau-driver            
       libvdpau-va-gl
     ];
   };
