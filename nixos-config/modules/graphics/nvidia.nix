@@ -14,6 +14,8 @@
       nvidia-vaapi-driver 
       vulkan-loader
       mesa 
+      vaapiVdpau            
+      libvdpau-va-gl
     ];
   };
 
@@ -28,5 +30,13 @@
      open = false;
      nvidiaSettings = true;
      package = config.boot.kernelPackages.nvidiaPackages.stable;
+   };
+
+   environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+
+    NVD_BACKEND = "direct";
+
+    MOZ_DISABLE_RDD_SANDBOX = "1";
    };
 }

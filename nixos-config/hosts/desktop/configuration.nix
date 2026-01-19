@@ -7,7 +7,7 @@
     ../../modules/gaming.nix
     ../../modules/daw.nix
     ../../modules/uni.nix
-    ../../modules/graphics/amd.nix
+    ../../modules/graphics/nvidia.nix
     ../../modules/apps/mullvad.nix
     ../../modules/apps/krusader.nix
     ../../modules/apps/spotify.nix
@@ -180,6 +180,7 @@
     # rolling release
     (with pkgs; [
       # POC/WIP
+      mixxx
       opensoundmeter
       wofi
       zellij
@@ -221,7 +222,6 @@
       ffmpeg
       scdl
       asunder
-      # mixxx
       # python
       python3
       # office
