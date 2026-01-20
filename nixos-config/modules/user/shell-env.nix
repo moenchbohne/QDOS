@@ -55,8 +55,8 @@ in
         "pokeget 249 -s --hide-name" # Lugia
         "pokeget 483 -s --hide-name" # Dialga
         "pokeget 484 -s --hide-name" # Palkia
-        "pokeget 002 -s --hide-name" # Ivysaur
-        "pokeget 001 -s --hide-name" # Bulbasaur
+        # "pokeget 002 -s --hide-name" # Ivysaur
+        # "pokeget 001 -s --hide-name" # Bulbasaur
       )
 
       selectedpoke=$(select_random "''${pokes[@]}")
@@ -110,17 +110,17 @@ in
     enable = true;
     enableNushellIntegration = true;
     enableZshIntegration = true;
-    configPath = "../../../dotfiles/starship/starship.toml";
   };
-  
+  xdg.configFile."starship.toml".source = ../../../dotfiles/starship/starship.toml;
+
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
   };
 
   home.packages = with pkgs; [
-    ripgrep      # Wichtig für grep Alternativen
-    fd           # Wichtig für find Alternativen
+    ripgrep      
+    fd           
     pciutils
     tldr
     powertop
