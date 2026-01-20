@@ -111,9 +111,10 @@ in
     enableNushellIntegration = true;
     enableZshIntegration = true;
   };
-  home.sessionVariables = {
-    STARSHIP_CONFIG = "${config.home.homeDirectory}/GitRepos/QDOS/dotfiles/starship/starship.toml";
-  };
+
+  # home.sessionVariables = {
+  #   STARSHIP_CONFIG = "${config.home.homeDirectory}/GitRepos/QDOS/dotfiles/starship/starship.toml";
+  # };
 
   programs.yazi = {
     enable = true;
