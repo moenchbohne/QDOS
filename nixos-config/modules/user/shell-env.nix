@@ -37,8 +37,16 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     shellAliases = myAliases;
-    initExtra = '' 
-      ../../../dotfiles/zsh/.zshrc
+    initExtra = ''
+      # random poke on start
+      select_random() {
+        printf "%s\0" "$@" | shuf -z -n1 | tr -d '\0'
+      }
+
+      pokes=("pokeget 487 -s --hide-name" "pokeget 382 -s --hide-name" "pokeget 384 -s --hide-name" "pokeget 383 -s --hide-name")
+
+      selectedpoke=$(select_random "''${pokes[@]}")
+      eval $selectedpoke
     '';
   };
 
@@ -62,6 +70,7 @@ in
   programs.zoxide = {
     enable = true;
     enableNushellIntegration = true;
+    enableZshIntegration = true;
     options = [ "--cmd cd" ];
   };
 
