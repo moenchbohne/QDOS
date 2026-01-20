@@ -37,13 +37,27 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     shellAliases = myAliases;
-    initExtra = ''
+    initContent = ''
       # random poke on start
       select_random() {
         printf "%s\0" "$@" | shuf -z -n1 | tr -d '\0'
       }
 
-      pokes=("pokeget 487 -s --hide-name" "pokeget 382 -s --hide-name" "pokeget 384 -s --hide-name" "pokeget 383 -s --hide-name")
+      pokes=(
+        "pokeget 487 -s --hide-name" # Giratina
+        "pokeget 382 -s --hide-name" # Kyogre
+        "pokeget 384 -s --hide-name" # Rayquaza
+        "pokeget 383 -s --hide-name" # Groudon
+        "pokeget 491 -s --hide-name" # Darkrai
+        "pokeget 386 -s --hide-name" # Deoxys
+        "pokeget 644 -s --hide-name" # Zektrom (Tims Pokemon)
+        "pokeget 800 -s --hide-name" # Necrozma
+        "pokeget 249 -s --hide-name" # Lugia
+        "pokeget 483 -s --hide-name" # Dialga
+        "pokeget 484 -s --hide-name" # Palkia
+        "pokeget 002 -s --hide-name" # Ivysaur
+        "pokeget 001 -s --hide-name" # Bulbasaur
+      )
 
       selectedpoke=$(select_random "''${pokes[@]}")
       eval $selectedpoke
