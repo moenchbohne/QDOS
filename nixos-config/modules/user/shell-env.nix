@@ -112,9 +112,9 @@ in
     enableZshIntegration = true;
   };
 
-  # home.sessionVariables = {
-  #   STARSHIP_CONFIG = lib.mkForce "${config.home.homeDirectory}/GitRepos/QDOS/dotfiles/starship/starship.toml";
-  # };
+  home.sessionVariables = {
+    STARSHIP_CONFIG = lib.mkForce "${config.home.homeDirectory}/GitRepos/QDOS/dotfiles/starship/starship.toml";
+  };
 
   programs.yazi = {
     enable = true;
