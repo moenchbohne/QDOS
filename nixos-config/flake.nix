@@ -26,7 +26,7 @@
 
     musnix.url = "github:musnix/musnix"; 
 
-    # stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
