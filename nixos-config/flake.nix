@@ -96,11 +96,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            
             home-manager.users.quentin = import ./home/users/quentin/home.nix;
-
             home-manager.backupFileExtension = "backup";
-            
             home-manager.extraSpecialArgs = { 
               inherit inputs;
               inherit pkgs-stable; 
@@ -108,6 +105,31 @@
           }
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
           inputs.spicetify-nix.nixosModules.default
+        ];
+      };
+
+# ===== Work =====
+
+      work = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
+        };
+        modules = [
+          ./hosts/work/configuration.nix
+          ./hosts/work/hardware-configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.quentin = import ./home/users/quentin/home.nix;
+            home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = { 
+              inherit inputs;
+              inherit pkgs-stable; 
+            };
+          }
         ];
       };
     };
