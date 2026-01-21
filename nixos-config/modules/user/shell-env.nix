@@ -22,6 +22,10 @@ let
   };
 in
 {
+  imports = [
+    ./shell-env/starship.nix
+  ];
+
   programs.bash = {
     enable = true;
     initExtra = ''
@@ -104,16 +108,6 @@ in
   programs.carapace = {
     enable = true;
     enableNushellIntegration = true;
-  };
-
-  programs.starship = {
-    enable = true;
-    enableNushellIntegration = true;
-    enableZshIntegration = true;
-  };
-
-  home.sessionVariables = {
-    STARSHIP_CONFIG = lib.mkForce "${config.home.homeDirectory}/GitRepos/QDOS/dotfiles/starship/starship.toml";
   };
 
   programs.yazi = {
