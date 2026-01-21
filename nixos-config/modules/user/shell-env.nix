@@ -113,7 +113,7 @@ in
   };
 
   # home.sessionVariables = {
-  #   STARSHIP_CONFIG = "${config.home.homeDirectory}/GitRepos/QDOS/dotfiles/starship/starship.toml";
+  #   STARSHIP_CONFIG = lib.mkForce "${config.home.homeDirectory}/GitRepos/QDOS/dotfiles/starship/starship.toml";
   # };
 
   programs.yazi = {
