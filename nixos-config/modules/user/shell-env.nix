@@ -24,6 +24,7 @@ in
 {
   imports = [
     ./shell-env/starship.nix
+    ./shell-env/fastfetch.nix
   ];
 
   programs.bash = {
