@@ -31,7 +31,7 @@
     modules = [
       {
         type = "custom";
-        format = "  [スウェーデン] ";
+        format = "  [シミュレーション] ";
         keyColor = "blue";
       }
       {
