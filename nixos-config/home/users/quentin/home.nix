@@ -7,7 +7,6 @@
     stateVersion = "25.11";
   };
 
-  # Programme aktivieren
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
