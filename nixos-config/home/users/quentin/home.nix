@@ -16,6 +16,7 @@
   imports = [
     ../../../modules/user/shell-env.nix
     ../../../modules/user/rofi.nix
+    # ../../../modules/user/shell-env/default.nix
     ../../../modules/user/flameshot/default.nix
     ../../../modules/user/thunderbird/default.nix
   ];
