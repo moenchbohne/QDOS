@@ -5,6 +5,12 @@
     enable = true;
 
     package = pkgs.thunderbird;
+
+    profiles = {
+      "quentin" = {
+        isDefault = true;
+      };
+    };
   };
 
   home.packages = with pkgs; [
