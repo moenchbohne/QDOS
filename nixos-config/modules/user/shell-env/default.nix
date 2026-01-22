@@ -23,7 +23,8 @@ let
 in
 {
   imports = [
-    ./shell-env/starship.nix
+    ./starship.nix
+    ./fastfetch.nix
   ];
 
   programs.bash = {
@@ -128,7 +129,6 @@ in
 
     # Unix P*rn / Fun
     starfetch
-    fastfetch
     countryfetch
     cbonsai
     unimatrix

@@ -3,19 +3,15 @@
 {
   programs.fastfetch = {
     enable = true;
-
-    # This copies your local ./pngs/logo.png to ~/.config/fastfetch/pngs/logo.png
-    # when you run home-manager switch
-    package = pkgs.fastfetch; # Ensure package is installed
+    package = pkgs.fastfetch; 
   };
 
-  # Handle the file placement separately
+  # copys logo to the right location 
   xdg.configFile."fastfetch/pngs/logo.png".source = ./pngs/logo.png;
 
   programs.fastfetch.settings = {
     logo = {
       type = "auto";
-      # We point directly to the file we just deployed above
       source = "${config.xdg.configHome}/fastfetch/pngs/logo.png";
       height = 25;
       padding = {
@@ -31,7 +27,7 @@
     modules = [
       {
         type = "custom";
-        format = "  [シミュレーション] ";
+        format = "  [シミュレーション] "; # Simulation in Japanese
         keyColor = "blue";
       }
       {

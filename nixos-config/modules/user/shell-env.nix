@@ -129,7 +129,6 @@ in
 
     # Unix P*rn / Fun
     starfetch
-    fastfetch
     countryfetch
     cbonsai
     unimatrix
