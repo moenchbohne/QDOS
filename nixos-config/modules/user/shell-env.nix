@@ -84,6 +84,32 @@ in
       formats
     #  highlight version conflict
     ];
+
+    extraConfig = ''
+      # Disable the startup banner
+      $env.config.show_banner = false
+
+      # --- Random Poke on Start ---
+      let poke_ids = [
+          487 # Giratina
+          382 # Kyogre
+          384 # Rayquaza
+          383 # Groudon
+          491 # Darkrai
+          386 # Deoxys
+          644 # Zektrom (Tims Pokemon)
+          800 # Necrozma
+          249 # Lugia
+          483 # Dialga
+          484 # Palkia
+          # 002 # Ivysaur
+          # 001 # Bulbasaur
+      ]
+
+      # Select random ID and run pokeget
+      let selected = ($poke_ids | shuffle | first)
+      pokeget $selected -s --hide-name
+    '';
   };
 
   programs.zoxide = {
