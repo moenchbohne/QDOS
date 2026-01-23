@@ -24,7 +24,8 @@ in
 {
   imports = [
     ./starship.nix
-    ./fastfetch.nix
+    ./fastfetch/default.nix
+    ./nu/default.nix
   ];
 
   programs.bash = {
@@ -67,23 +68,6 @@ in
       selectedpoke=$(select_random "''${pokes[@]}")
       eval $selectedpoke
     '';
-  };
-
-  programs.nushell = {
-    enable = true;
-    shellAliases = myAliases;
-    package = pkgs-stable.nushell;
-    # configFile.source = ../../../dotfiles/nushell/config.nu;
-    # envFile.source = ../../../dotfiles/nushell/env.nu;
-
-    plugins = with pkgs-stable.nushellPlugins; [
-    #  net broken
-    #  units broken
-    #  skim doch kein plugin :(    
-      gstat
-      formats
-    #  highlight version conflict
-    ];
   };
 
   programs.zoxide = {
