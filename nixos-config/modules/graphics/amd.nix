@@ -18,6 +18,8 @@
     "amdgpu" 
   ];
 
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   hardware.amdgpu = {
     opencl.enable = true;
     legacySupport.enable = true;

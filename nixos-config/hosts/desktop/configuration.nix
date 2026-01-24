@@ -7,11 +7,10 @@
     ../../modules/gaming.nix
     ../../modules/daw.nix
     ../../modules/uni.nix
-    ../../modules/graphics/nvidia.nix
+    ../../modules/graphics/nvidia.nix # Graphics
     ../../modules/apps/mullvad.nix
     ../../modules/apps/krusader.nix
     ../../modules/apps/spotify.nix
-    ../../modules/apps/thunderbird.nix
     ../../modules/sessions/kde.nix
     ../../modules/sailing.nix
     ../../modules/apps/hi-fi.nix
@@ -24,8 +23,6 @@
   boot.loader.timeout = 5;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   boot.initrd.kernelModules = [ 
-    "amdgpu" 
-    # -----
     "vmd"
     "nvme"
     "ahci"

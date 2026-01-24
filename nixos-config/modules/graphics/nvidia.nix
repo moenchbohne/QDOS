@@ -43,4 +43,13 @@
    environment.systemPackages = with pkgs; [
     nvtop
    ];
+
+   environment.sessionVariables = {
+
+    # Electron Wayland Force
+    NIXOS_OZONE_WL = "1";
+
+    # Firefox Wayland
+    MOZ_ENABLE_WAYLAND = "1"; 
+  };
 }
