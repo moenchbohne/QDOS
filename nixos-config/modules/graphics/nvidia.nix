@@ -40,8 +40,8 @@
     MOZ_DISABLE_RDD_SANDBOX = "1";
    };
 
-   # environment.systemPackages = with pkgs; [
-   #  nvtop
+   # environment.systemPackages = with pkgs.nvtopPackages; [
+   #  nvidia
    # ];
 
    environment.sessionVariables = {
