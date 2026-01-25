@@ -177,6 +177,7 @@
     # rolling release
     (with pkgs; [
       # POC/WIP
+      mediainfo
       mixxx
       opensoundmeter
       wofi
