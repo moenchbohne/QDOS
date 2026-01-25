@@ -12,7 +12,8 @@
     yabridgectl
 
     # ===== VSTs (plugins) =====
-    vital
+    helm
+    dexed
     # chow-tape-model
     # x42-avldrums
     # lsp-plugins # collection
