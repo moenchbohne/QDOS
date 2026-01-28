@@ -6,7 +6,11 @@ let
     x   = "exit";
     cc   = "clear";
     rr  = "rm -rf";
+
+    # fetches
     ff = "fastfetch";
+    cd = "countryfetch";
+    sf = "starfetch";
   
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";

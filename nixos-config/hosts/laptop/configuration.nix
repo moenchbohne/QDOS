@@ -92,6 +92,7 @@
       isNormalUser = true;
       description = "quentin";
       extraGroups = [ "audio" "networkmanager" "wheel" ];
+      shell = pkgs.bash; # nushell wrapped
     };
     defaultUserShell = pkgs.zsh;
   };
