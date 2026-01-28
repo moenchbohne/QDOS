@@ -27,6 +27,11 @@ let
   iconThemePkg = pkgs.papirus-icon-theme;
 in
 {
+  # --- Keyboard & Input Fixes ---
+  # Ensure the system and the greeter know we are using German layout
+  services.xserver.xkb.layout = "de";
+  environment.variables.XKB_DEFAULT_LAYOUT = "de";
+
   # --- REGREET CONFIGURATION ---
   # This module automatically configures 'greetd' and 'cage' (the compositor) for you.
   programs.regreet = {
