@@ -9,7 +9,6 @@
     ../../modules/uni.nix
     ../../modules/graphics/nvidia.nix # Graphics
     ../../modules/apps/mullvad.nix
-    ../../modules/apps/krusader.nix
     ../../modules/apps/spotify.nix
     ../../modules/sessions/kde.nix
     ../../modules/sailing.nix
