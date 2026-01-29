@@ -16,8 +16,8 @@ let
   gtkThemeName = "Adwaita-dark";
   gtkThemePkg = pkgs.gnome-themes-extra; 
 
-  name = "Adwaita";
-  package = pkgs.adwaita-icon-theme;
+  iconThemeName = "Adwaita";
+  iconThemePkg = pkgs.adwaita-icon-theme;
 in
 {
   # --- Keyboard & Input Fixes ---
