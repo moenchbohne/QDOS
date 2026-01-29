@@ -9,7 +9,7 @@ let
 
     # fetches
     ff = "fastfetch";
-    cd = "countryfetch";
+    cf = "countryfetch";
     sf = "starfetch";
   
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
