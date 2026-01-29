@@ -9,7 +9,7 @@ let
   # 1. Background Image
   # Replace with your actual path: ./wallpapers/my-image.png
   # Or use a built-in one for testing:
-  wallpaper = pkgs.nixos-icons + "/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+  wallpaper = ./0016.jpg;
 
   # 2. Visual Styling (Dark Mode & Modern Cursors)
   # "Bibata" is a very popular, smooth cursor for Wayland.
