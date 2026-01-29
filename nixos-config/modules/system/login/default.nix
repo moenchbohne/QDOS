@@ -105,7 +105,7 @@ in
   # 3. Disable competing Display Managers
   # This ensures SDDM and GDM don't fight for control of the screen.
   services.displayManager.sddm.enable = lib.mkForce false;
-  services.xserver.displayManager.gdm.enable = lib.mkForce false;
+  services.displayManager.gdm.enable = lib.mkForce false;
   
   # 4. Fallback TUI
   # If ReGreet ever breaks, you can uncomment this to fallback to a text greeter:
