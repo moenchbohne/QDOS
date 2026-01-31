@@ -3,32 +3,28 @@
 # ===== ===== ===== Using regreet for now ===== ===== =====$
 
 let
-  # --- ASSETS & THEME CONFIGURATION ---
-  # Define these here so you can swap themes quickly in one place.
-
   # 1. Background Image
-  # Replace with your actual path: ./wallpapers/my-image.png
-  # Or use a built-in one for testing:
-  wallpaper = pkgs.nixos-icons + "/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+  wallpaper = ./0016.jpg;
 
   # 2. Visual Styling (Dark Mode & Modern Cursors)
-  # "Bibata" is a very popular, smooth cursor for Wayland.
   cursorThemeName = "Bibata-Modern-Classic";
   cursorThemePkg = pkgs.bibata-cursors;
 
   fontName = "Inter";
   fontPkg = pkgs.inter;
 
-  # "Adwaita-dark" is the most stable/tested GTK4 theme for ReGreet.
   gtkThemeName = "Adwaita-dark";
   gtkThemePkg = pkgs.gnome-themes-extra; 
 
-  iconThemeName = "Papirus-Dark";
-  iconThemePkg = pkgs.papirus-icon-theme;
+  iconThemeName = "Adwaita";
+  iconThemePkg = pkgs.adwaita-icon-theme;
 in
 {
+  # --- Keyboard & Input Fixes ---
+  services.xserver.xkb.layout = "de";
+  environment.variables.XKB_DEFAULT_LAYOUT = "de";
+
   # --- REGREET CONFIGURATION ---
-  # This module automatically configures 'greetd' and 'cage' (the compositor) for you.
   programs.regreet = {
     enable = true;
 
@@ -55,7 +51,7 @@ in
     settings = {
       background = {
         path = wallpaper;
-        fit = "Cover"; # Options: Fill, Contain, Cover, ScaleDown
+        fit = "Cover"; # Fill, Contain, Cover, ScaleDown
       };
 
       GTK = {
@@ -89,7 +85,6 @@ in
   # but ensuring greetd has valid PAM entry is good.
 
   # 2. Dependencies
-  # Ensure the themes and fonts are actually installed system-wide so ReGreet can read them.
   environment.systemPackages = [
     cursorThemePkg
     fontPkg
@@ -98,11 +93,9 @@ in
   ];
 
   # 3. Disable competing Display Managers
-  # This ensures SDDM and GDM don't fight for control of the screen.
   services.displayManager.sddm.enable = lib.mkForce false;
-  services.xserver.displayManager.gdm.enable = lib.mkForce false;
+  services.displayManager.gdm.enable = lib.mkForce false;
   
   # 4. Fallback TUI
-  # If ReGreet ever breaks, you can uncomment this to fallback to a text greeter:
   # services.greetd.settings.default_session.command = lib.mkForce "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.bash}/bin/bash";
 }

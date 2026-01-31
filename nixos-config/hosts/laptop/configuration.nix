@@ -10,8 +10,8 @@
       ../../modules/sailing.nix
       ../../modules/apps/spotify.nix
       ../../modules/apps/emacs.nix
-      ../../modules/apps/krusader.nix
       ../../modules/system/plymouth.nix
+      ../../modules/system/login/default.nix
     ];
 
   # Bootloader
