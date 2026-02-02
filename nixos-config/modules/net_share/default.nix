@@ -15,7 +15,9 @@
       "uid=1000" 
       "gid=100"
       
-      "credentials=/etc/nixos/secrets/syn.cred" 
+      "credentials=/etc/nixos/secrets/syn.cred"
+
+      "vers=2.0" 
     ];
   };
 
@@ -32,6 +34,8 @@
       "gid=100"
       
       "credentials=/etc/nixos/secrets/wd.cred"
+
+      "vers=3.0"
     ];
   };
 }
