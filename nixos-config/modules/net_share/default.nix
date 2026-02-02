@@ -3,42 +3,35 @@
 {
   environment.systemPackages = [ pkgs.cifs-utils ];
 
-  # mount Synology
+  # --- Synology Mount ---
   fileSystems."/home/quentin/synMOUNT" = {
-    device = "//192.168.178.X/ShareName";
+    device = "//192.168.178.20/SynologyShareName"; 
     fsType = "cifs";
     options = [ 
-      # SYSTEMD BOOT BEHAVIOR
-      "_netdev"                  # Wait for network before mounting
-      "nofail"                   # Continue booting even if this mount fails
-      "x-systemd.mount-timeout=10s" # Don't wait 90s (default) if server is down; fail fast
+      "_netdev"
+      "nofail"
+      "x-systemd.mount-timeout=10s"
 
-      # PERMISSIONS
       "uid=1000" 
       "gid=100"
       
-      # CREDENTIALS
-      "credentials=./syn.cred"
+      "credentials=/etc/nixos/secrets/syn.cred" 
     ];
   };
 
-
-  # mount Western Digital
+  # --- Western Digital Mount ---
   fileSystems."/home/quentin/wdMOUNT" = {
-    device = "//192.168.178.X/ShareName";
+    device = "//192.168.178.30/WDShareName";
     fsType = "cifs";
     options = [ 
-      # SYSTEMD BOOT BEHAVIOR
-      "_netdev"                  # Wait for network before mounting
-      "nofail"                   # Continue booting even if this mount fails
-      "x-systemd.mount-timeout=10s" # Don't wait 90s (default) if server is down; fail fast
+      "_netdev"
+      "nofail"
+      "x-systemd.mount-timeout=10s"
 
-      # PERMISSIONS
       "uid=1000" 
       "gid=100"
       
-      # CREDENTIALS
-      "credentials=./wd.cred"
+      "credentials=/etc/nixos/secrets/wd.cred"
     ];
   };
 }
