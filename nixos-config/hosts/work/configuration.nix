@@ -106,6 +106,7 @@
     pritunl-client
     git
     nh
+    kitty
   ];
 
 
