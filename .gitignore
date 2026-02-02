@@ -10,3 +10,6 @@
 .idea/
 *.sublime-*
 nixos-config/modules/uni.nix
+
+# secrets
+*.cred
