@@ -107,6 +107,7 @@
     git
     nh
     kitty
+    onlyoffice-desktopeditors
   ];
 
 
