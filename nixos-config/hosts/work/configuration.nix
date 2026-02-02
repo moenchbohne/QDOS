@@ -108,6 +108,8 @@
     nh
   ];
 
+
+  # GUI for OVPN
   systemd.packages = [
     pkgs.pritunl-client
   ];
