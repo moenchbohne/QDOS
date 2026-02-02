@@ -105,6 +105,7 @@
     vlc
     pritunl-client
     git
+    nh
   ];
 
   systemd.packages = [
