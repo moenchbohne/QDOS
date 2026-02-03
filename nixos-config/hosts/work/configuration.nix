@@ -105,8 +105,13 @@
     vlc
     pritunl-client
     git
+    nh
+    kitty
+    onlyoffice-desktopeditors
   ];
 
+
+  # GUI for OVPN
   systemd.packages = [
     pkgs.pritunl-client
   ];

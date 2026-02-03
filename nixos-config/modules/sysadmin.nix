@@ -18,5 +18,8 @@
     
     # === browser ===
     librewolf
+
+    # === scan ===
+    nmapzen
   ];
 }
