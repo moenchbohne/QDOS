@@ -12,6 +12,7 @@
       ../../modules/apps/emacs.nix
       ../../modules/system/plymouth.nix
       ../../modules/system/login/default.nix
+      ../../modules/system/net_share/default.nix
     ];
 
   # Bootloader
