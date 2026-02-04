@@ -77,6 +77,16 @@ in
 
   # --- SYSTEM INTEGRATION ---
 
+  environment.sessionVariables = {
+    # This tells GNOME Settings that it is running on GNOME, 
+    # fixing the crash/hang issue.
+    XDG_CURRENT_DESKTOP = "GNOME";
+  };
+
+  # Also ensure dconf is enabled, as it is strictly required for 
+  # GNOME Settings to save/read changes.
+  programs.dconf.enable = true;
+
   # 1. Keyring Support (Platform Agnostic)
   # Allows automatic unlocking of Gnome Keyring and KWallet upon login.
   # Essential for a smooth experience in both Gnome and KDE.
