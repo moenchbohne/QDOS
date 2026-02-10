@@ -13,7 +13,7 @@
     ../../modules/sessions/kde.nix
     ../../modules/sailing.nix
     ../../modules/apps/hi-fi.nix
-    ../../net_share/default.nix
+    ../../modules/system/net_share/default.nix
   ];
 
   # Boot
