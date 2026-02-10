@@ -76,11 +76,11 @@ in
   programs.nushell = {
     enable = true;
     shellAliases = myAliases;
-    package = pkgs-stable.nushell;
+    package = pkgs.nushell;
     # configFile.source = ../../../dotfiles/nushell/config.nu;
     # envFile.source = ../../../dotfiles/nushell/env.nu;
 
-    plugins = with pkgs-stable.nushellPlugins; [
+    plugins = with pkgs.nushellPlugins; [
     #  net broken
     #  units broken
     #  skim doch kein plugin :(    
