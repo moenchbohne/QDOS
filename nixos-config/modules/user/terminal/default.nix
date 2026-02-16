@@ -37,8 +37,6 @@
         "ctrl+shift+t=new_tab"
         "ctrl+shift+w=close_surface"
         "ctrl+tab=next_tab"
-        "ctrl+space+d=move_tab:1"
-        "ctrl+space+a=move_tab:-1"
         "ctrl+shift+right=next_tab"
         "ctrl+shift+left=last_tab"
         "ctrl+shift+c=copy_to_clipboard"
