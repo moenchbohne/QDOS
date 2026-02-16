@@ -38,7 +38,7 @@
         "ctrl+shift+w=close_surface"
         "ctrl+tab=next_tab"
         "ctrl+shift+right=next_tab"
-        "ctrl+shift+left=last_tab"
+        "ctrl+shift+left=previous_tab"
         "ctrl+shift+c=copy_to_clipboard"
         "ctrl+shift+v=paste_from_clipboard"
         "ctrl+shift+a=select_all"
