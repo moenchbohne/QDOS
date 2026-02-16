@@ -36,8 +36,8 @@
         "ctrl+shift+c=copy_to_clipboard"
         "ctrl+shift+v=paste_from_clipboard"
         "ctrl+shift+r=reload_config"
-        "ctrl++=increase_font_size"
-        "ctrl+-=decrease_font_size"
+        "ctrl++=increase_font_size:1.5"
+        "ctrl+-=decrease_font_size:1.5"
         "ctrl+0=reset_font_size"
       ];
 
