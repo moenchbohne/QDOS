@@ -18,7 +18,6 @@
       ### Window & Tabs ###
       window-padding-x = 4;
       window-padding-y = 4;
-      # window-save-state = true;
       confirm-close-surface = false;
 
       ### Mouse & Selection ###
@@ -42,6 +41,7 @@
         "ctrl+shift+left=move_tab:-1"
         "ctrl+shift+c=copy_to_clipboard"
         "ctrl+shift+v=paste_from_clipboard"
+        "ctrl+shift+a=select_all"
         "ctrl+shift+r=reload_config"
         "ctrl+plus=increase_font_size:1.5"
         "ctrl+minus=decrease_font_size:1.5"
