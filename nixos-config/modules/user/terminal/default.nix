@@ -23,8 +23,15 @@
 
       ### Mouse & Selection ###
       copy-on-select = true;
-      # mouse-middle-paste = true;
-      # mouse-right-paste = true;
+      right-click-action = "context-menu";
+
+      ### Shell Integration ###
+      shell-integration = "detect";
+      shell-integration-features = true;
+
+      ### Desktop ###
+      desktop-notifications = false;
+      bell-features = "no-audio";
 
       ### Keybinds ###
       keybind = [
@@ -40,9 +47,6 @@
         "ctrl+minus=decrease_font_size:1.5"
         "ctrl+0=reset_font_size"
       ];
-
-      ### Misc ###
-      # adjust-cursor-blink = true;
     };
   };
 }
