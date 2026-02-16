@@ -110,7 +110,7 @@
 
 # ===== Work =====
 
-      work = nixpkgs.lib.nixosSystem {
+      quentin-laptop = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
