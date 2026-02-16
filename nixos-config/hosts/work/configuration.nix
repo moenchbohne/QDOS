@@ -107,6 +107,8 @@
     thunderbird
     vlc
     pritunl-client
+    zettlr
+    popsicle
     git
     nh
     kitty
