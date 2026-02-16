@@ -31,7 +31,7 @@
 
       ### Desktop ###
       desktop-notifications = false;
-      bell-features = "no-audio";
+      bell-features = "no-audio,no-visual";
 
       ### Keybinds ###
       keybind = [
