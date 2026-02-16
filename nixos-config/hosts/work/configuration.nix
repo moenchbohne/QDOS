@@ -10,6 +10,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 0;
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
