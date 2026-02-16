@@ -12,7 +12,6 @@
       ### Font & Appearance ###
       font-family = "JetBrains Mono";
       font-size = 12;
-      theme = "dark";
       background-opacity = "0.95";
       background-blur-radius = "20";
 
@@ -43,7 +42,7 @@
       ];
 
       ### Misc ###
-      adjust-cursor-blink = true;
+      # adjust-cursor-blink = true;
     };
   };
 }
