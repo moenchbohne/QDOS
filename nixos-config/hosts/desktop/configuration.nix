@@ -25,13 +25,16 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
 
   # fix text running
-  boot.kernelParams = [ 
-    # Force the 4K monitor to run at standard 1080p during the boot sequence
-    "video=DP-2:1920x1080@60" 
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "boot.shell_on_fail"
+    "loglevel=3"
+    "rd.systemd.show_status=false"
 
-    # Tell the kernel to disable the ultrawide *only* during the boot text phase 
-    # (Wayland will automatically wake it back up the second your login screen loads)
-    "video=DP-3:d" 
+    # monitor fixes
+    "video=DP-2:1920x1080@60" # 4K
+    "video=DP-3:d" # UW
   ];
 
   boot.initrd.kernelModules = [ 
