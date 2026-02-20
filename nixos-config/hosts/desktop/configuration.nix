@@ -14,6 +14,7 @@
     ../../modules/sailing.nix
     ../../modules/apps/hi-fi.nix
     ../../modules/system/net_share/default.nix
+    ../../modules/system/boot/plymouth.nix
   ];
 
   # Boot
@@ -22,6 +23,17 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.timeout = 0;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+
+  # fix text running
+  boot.kernelParams = [ 
+    # Force the 4K monitor to run at standard 1080p during the boot sequence
+    "video=DP-2:1920x1080@60" 
+
+    # Tell the kernel to disable the ultrawide *only* during the boot text phase 
+    # (Wayland will automatically wake it back up the second your login screen loads)
+    "video=DP-3:d" 
+  ];
+
   boot.initrd.kernelModules = [ 
     "vmd"
     "nvme"
