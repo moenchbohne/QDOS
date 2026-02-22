@@ -148,7 +148,6 @@
     parsec-bin
     pipx
     mpv
-    ghostty
   ];
 
   programs.firefox = {
