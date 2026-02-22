@@ -26,15 +26,15 @@
 
   # fix text running
   boot.kernelParams = [
-    "quiet"
-    "splash"
-    "boot.shell_on_fail"
-    "loglevel=3"
-    "rd.systemd.show_status=false"
+    # "quiet"
+    # "splash"
+    # "boot.shell_on_fail"
+    # "loglevel=3"
+    # "rd.systemd.show_status=false"
 
     # monitor fixes
-    "video=DP-2:1920x1080@60" # 4K
-    "video=DP-3:d" # UW
+    # "video=DP-2:1920x1080@60" # 4K
+    # "video=DP-3:d" # UW
   ];
 
   boot.initrd.kernelModules = [ 
