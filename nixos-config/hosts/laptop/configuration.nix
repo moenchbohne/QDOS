@@ -148,6 +148,11 @@
     parsec-bin
     pipx
     mpv
+    # the big FM showdown
+    mc 
+    doublecmd
+    krusader
+    nemo
   ];
 
   programs.firefox = {
