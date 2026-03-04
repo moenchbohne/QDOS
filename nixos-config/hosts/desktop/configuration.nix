@@ -178,9 +178,12 @@
         "wheel" 
         "mpd"
         "adbusers kvm"
+        "cdrom"
       ];
     };
   };
+
+  programs.k3b.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-gtk3-1.1.07"
@@ -235,7 +238,6 @@
       ffmpeg
       scdl
       asunder
-      kdePackages.k3b
       # python
       python3
       # office
