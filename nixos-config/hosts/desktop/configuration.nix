@@ -235,6 +235,7 @@
       ffmpeg
       scdl
       asunder
+      kdePackages.k3b
       # python
       python3
       # office
