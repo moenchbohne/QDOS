@@ -20,7 +20,7 @@ home.packages = with pkgs; [
     kdePackages.kdoctools          # Required for the internal help/manuals to load
 
     # qt control outside of KDE
-    kdePackages.qt6ct
+    # kdePackages.qt6ct
 
     # 4. Standard Archivers (Krusader expects these to be in your PATH)
     p7zip
@@ -29,8 +29,6 @@ home.packages = with pkgs; [
     unzip
     kdePackages.kget # DL manager 
     krename # rename util
-    mlocate # ???
-    busybox # diff util ?
     rar # rar archieves
 
     # auto mount??
