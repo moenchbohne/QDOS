@@ -22,7 +22,7 @@
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "poplar";
   # networking.wireless.enable = true;
@@ -131,7 +131,6 @@
     # gnome
     apple-cursor
     gnome-tweaks
-    kdePackages.kdeconnect-kde
     # cli
     nh
     audacity
@@ -153,6 +152,7 @@
     doublecmd
     krusader
     nemo
+    valent
   ];
 
   programs.firefox = {

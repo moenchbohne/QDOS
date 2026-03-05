@@ -12,7 +12,7 @@
       ### Font & Appearance ###
       font-family = "JetBrains Mono";
       font-size = 12;
-      background-opacity = 0.95;
+      background-opacity = 0.26;
       background-blur-radius = 20;
 
       ### Window & Tabs ###
