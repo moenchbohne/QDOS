@@ -52,10 +52,10 @@
   services.xserver.enable = true;
 
   # Enable the LightDM Display Manager.
-  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Enable the Cinnamon Desktop Environment.
-  services.xserver.desktopManager.cinnamon.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
