@@ -113,6 +113,7 @@
     zettlr
     popsicle
     git
+    gitkraken
     nh
     kitty
     onlyoffice-desktopeditors
