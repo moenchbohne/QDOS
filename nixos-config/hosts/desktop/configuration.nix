@@ -195,6 +195,7 @@
     # rolling release
     (with pkgs; [
       # POC/WIP
+      krusader
       mediainfo
       mixxx
       opensoundmeter
