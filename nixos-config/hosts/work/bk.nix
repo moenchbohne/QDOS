@@ -1,32 +1,27 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
-    ../../modules/system/plymouth.nix
+    ./hardware-configuration.nix
+
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 0;
-  boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "hci_quentin";
+  networking.hostName = "hci_quentin"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    plugins = with pkgs; [
-      networkmanager-openvpn
-    ];
-  };
+  programs.openvpn3.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -47,12 +42,13 @@
   };
 
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # Enable the LightDM Display Manager.
+  services.xserver.displayManager.gdm.enable = true;
+
+  # Enable the Cinnamon Desktop Environment.
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -74,13 +70,13 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
-
-    # media-session.enable = true;
+    #media-session.enable = true;
   };
 
+  # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
+  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.quentin = {
     isNormalUser = true;
     description = "quentin";
@@ -99,44 +95,45 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
+    valent
     vim
-    micro-full
-    krusader
-    fastfetch
-    github-desktop
-    gparted
-    git # why tf not installed by default???
+    gnome-extension-manager
 
-    # moved over from old
-    vscodium
-    nh
-    onlyoffice-desktopeditors
-    popsicle
-    zettlr
+    github-desktop
+    thunderbird
     vlc
     pritunl-client
-    thunderbird
-
-    # editor war
-    lapce
-    cudatext
-    zed-editor
-
-    # language server
-    # nix
-    nixd
-    nil
-    nixfmt-rfc-style
+    zettlr
+    popsicle
+    git
+    gitkraken
+    nh
+    kitty
+    onlyoffice-desktopeditors
   ];
 
   # GUI for OVPN
   systemd.packages = [
     pkgs.pritunl-client
   ];
+
   systemd.targets.multi-user.wants = [
     "pritunl-client.service"
   ];
+
+  # fix loud fans
+  hardware = {
+    enableAllFirmware = true;
+    cpu.intel.updateMicrocode = true;
+  };
+
+  powerManagement = {
+    powertop.enable = true;
+    # cpuFreqGovernor = "powersave";
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -151,12 +148,11 @@
   #   enableSSHSupport = true;
   # };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 
-  system.stateVersion = "25.11";
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
