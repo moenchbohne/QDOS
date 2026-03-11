@@ -113,7 +113,6 @@
     nh
     onlyoffice-desktopeditors
     popsicle
-    zettlr
     vlc
     pritunl-client
     thunderbird
@@ -122,12 +121,6 @@
     lapce
     cudatext
     zed-editor
-
-    # language server
-    # nix
-    nixd
-    nil
-    nixfmt-rfc-style
   ];
 
   # GUI for OVPN
