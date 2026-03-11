@@ -18,7 +18,7 @@
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
-  networking.hostName = "hci_quentin";
+  networking.hostName = "quentinHCI";
 
   # Enable networking
   networking.networkmanager = {

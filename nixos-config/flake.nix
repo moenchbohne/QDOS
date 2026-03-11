@@ -115,7 +115,7 @@
 
         # ===== Work =====
 
-        hci_quentin = nixpkgs.lib.nixosSystem {
+        quentinHCI = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs;
