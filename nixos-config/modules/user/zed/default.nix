@@ -18,16 +18,12 @@
       lsp = {
         nil = {
           binary = {
-            path = {
-            /run/current-system/sw/bin/nil
-            };
+            path = "/run/current-system/sw/bin/nil";
           };
         };
         nixd = {
           binary = {
-            path = {
-            /run/current-system/sw/bin/nil
-            };
+            path = "/run/current-system/sw/bin/nixd";
           };
         };
       };
