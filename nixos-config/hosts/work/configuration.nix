@@ -104,19 +104,16 @@
     vim
     micro-full
     krusader
-    fastfetch
     github-desktop
     gparted
     git # why tf not installed by default???
 
     # moved over from old
-    vscodium
     nh
     onlyoffice-desktopeditors
     popsicle
     vlc
     pritunl-client
-    thunderbird
 
     # editor war
     lapce
