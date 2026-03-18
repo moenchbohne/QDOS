@@ -113,6 +113,37 @@
           ];
         };
 
+        # ===== Sec-Laptop =====
+
+        cherry = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+            inherit pkgs-stable;
+          };
+          modules = [
+            ./hosts/sec-laptop/configuration.nix
+            ./hosts/sec-laptop/hardware-configuration.nix
+
+            # HW and spicetify modules
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-
+            inputs.spicetify-nix.nixosModules.default
+
+            # fucking HM magic
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.quentin = import ./home/users/quentin/home.nix;
+              home-manager.backupFileExtension = "backup";
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit pkgs-stable;
+              };
+            }
+          ];
+        };
+
         # ===== Work =====
 
         quentinHCI = nixpkgs.lib.nixosSystem {
