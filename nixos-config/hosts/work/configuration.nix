@@ -7,6 +7,7 @@
 {
   imports = [
     ../../modules/system/plymouth.nix
+    ../../modules/system/lsp/default.nix
   ];
 
   # Bootloader.
@@ -120,7 +121,6 @@
     # editor war
     lapce
     cudatext
-    zed-editor
   ];
 
   # GUI for OVPN

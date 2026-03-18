@@ -20,7 +20,6 @@
     ../../../modules/user/flameshot/default.nix
     ../../../modules/user/thunderbird/default.nix
     ../../../modules/user/terminal/default.nix
-    ../../../modules/user/lsp/default.nix
   ];
 
   programs.git = {
