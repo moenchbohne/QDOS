@@ -6,8 +6,7 @@
 
 {
   imports = [
-    ../../modules/system/plymouth.nix
-    ../../modules/system/lsp/default.nix
+    ../../modules/system/boot/plymouth.nix
   ];
 
   # Bootloader.

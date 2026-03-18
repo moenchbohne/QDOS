@@ -3,9 +3,25 @@
 {
   programs.zed-editor = {
     enable = true;
+    package = pkgs.zed-editor-fhs;
 
     extensions = [
       "nix"
+    ];
+
+    extraPackages = with pkgs; [
+      # nix fucking rocks
+      nixd
+      nil
+      nixfmt
+
+      # toml + yaml
+      taplo
+      yaml-language-server
+
+      # python
+      pyright
+      ruff
     ];
 
     userSettings = {
@@ -17,14 +33,8 @@
       };
       lsp = {
         nil = {
-          binary = {
-            path = "/run/current-system/sw/bin/nil";
-          };
         };
         nixd = {
-          binary = {
-            path = "/run/current-system/sw/bin/nixd";
-          };
         };
       };
     };

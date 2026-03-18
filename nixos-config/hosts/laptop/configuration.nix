@@ -1,19 +1,24 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../modules/cli.nix
-      ../../modules/uni.nix
-      ../../modules/sessions/gnome.nix
-      ../../modules/sailing.nix
-      ../../modules/apps/spotify.nix
-      ../../modules/apps/emacs.nix
-      ../../modules/system/plymouth.nix
-      # ../../modules/system/login/default.nix
-      ../../modules/system/net_share/default.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/cli.nix
+    ../../modules/uni.nix
+    ../../modules/sessions/gnome.nix
+    ../../modules/sailing.nix
+    ../../modules/apps/spotify.nix
+    ../../modules/apps/emacs.nix
+    ../../modules/system/boot/plymouth.nix
+    # ../../modules/system/login/default.nix
+    ../../modules/system/net_share/default.nix
+  ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -50,11 +55,10 @@
 
   # podman
   virtualisation.podman = {
-  enable = true;
-  dockerCompat = true;
-  defaultNetwork.settings.dns_enabled = true;
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
-
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -65,7 +69,7 @@
   # Configure console keymap
   console.keyMap = "de";
   services.xserver.enable = true;
-  services.xserver.xkb.layout = "de"; 
+  services.xserver.xkb.layout = "de";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -92,7 +96,11 @@
     users.quentin = {
       isNormalUser = true;
       description = "quentin";
-      extraGroups = [ "audio" "networkmanager" "wheel" ];
+      extraGroups = [
+        "audio"
+        "networkmanager"
+        "wheel"
+      ];
       shell = pkgs.bash; # nushell wrapped
     };
     defaultUserShell = pkgs.zsh;
@@ -148,7 +156,7 @@
     pipx
     mpv
     # the big FM showdown
-    mc 
+    mc
     doublecmd
     krusader
     nemo
@@ -170,7 +178,12 @@
   ];
 
   networking.firewall = rec {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
     allowedUDPPortRanges = allowedTCPPortRanges;
     allowedUDPPorts = [ 53317 ];
     allowedTCPPorts = [ 52217 ];
@@ -190,7 +203,10 @@
 
   # nix settings
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.optimise.automatic = true;
   nix.gc = {
