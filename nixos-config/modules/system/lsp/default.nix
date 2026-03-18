@@ -8,7 +8,7 @@
     # nix, so my code fucking rocks
     nixd
     nil
-    nixfmt-rfc-style
+    nixfmt
 
     # toml + yaml
     taplo

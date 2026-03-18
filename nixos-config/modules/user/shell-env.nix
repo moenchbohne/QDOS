@@ -1,28 +1,34 @@
-{ config, pkgs, lib, pkgs-stable, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  pkgs-stable,
+  ...
+}:
 
-let 
+let
   myAliases = {
-    e   = "emacsclient -nw -c -a 'emacs -nw'";
-    x   = "exit";
-    cc   = "clear";
-    rr  = "rm -rf";
+    e = "emacsclient -nw -c -a 'emacs -nw'";
+    x = "exit";
+    cc = "clear";
+    rr = "rm -rf";
 
     # fetches
     ff = "fastfetch";
     cf = "countryfetch";
     sf = "starfetch";
-  
+
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
-    nhr  = "nh os switch ~/GitRepos/QDOS/nixos-config"; 
-    
-    l   = "eza --icons -l --git --no-time";      
-    ll  = "eza --icons -l --git --header --time-style=long-iso";
-    lt  = "eza --icons --tree --level=3";        
-    la  = "eza --icons -l -a";                   
+    nhr = "nh os switch ~/GitRepos/QDOS/nixos-config";
+
+    l = "eza --icons -l --git --no-time";
+    ll = "eza --icons -l --git --header --time-style=long-iso";
+    lt = "eza --icons --tree --level=3";
+    la = "eza --icons -l -a";
 
     cat = "bat --style=plain";
-    less = "bat";              
+    less = "bat";
   };
 in
 {
@@ -81,12 +87,12 @@ in
     # envFile.source = ../../../dotfiles/nushell/env.nu;
 
     plugins = with pkgs.nushellPlugins; [
-    #  net broken
-    #  units broken
-    #  skim doch kein plugin :(    
+      #  net broken
+      #  units broken
+      #  skim doch kein plugin :(
       gstat
       formats
-    #  highlight version conflict
+      #  highlight version conflict
     ];
 
     extraConfig = ''
@@ -125,7 +131,7 @@ in
 
   programs.eza = {
     enable = true;
-    enableNushellIntegration = false; 
+    enableNushellIntegration = false;
     icons = "auto";
   };
 
@@ -144,11 +150,12 @@ in
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
+    shellWrapperName = "y";
   };
 
   home.packages = with pkgs; [
-    ripgrep      
-    fd           
+    ripgrep
+    fd
     pciutils
     tldr
     powertop
