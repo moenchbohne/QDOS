@@ -126,7 +126,7 @@
             ./hosts/sec-laptop/hardware-configuration.nix
 
             # HW and spicetify modules
-            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
             inputs.spicetify-nix.nixosModules.default
 
             # fucking HM magic
