@@ -80,7 +80,7 @@
     # media-session.enable = true;
   };
 
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   users.users.quentin = {
     isNormalUser = true;
