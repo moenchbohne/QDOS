@@ -1,6 +1,9 @@
-{ config, lib, pkgs, pkgs-stable, inputs, ... }:
-
 {
+  lib,
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
   imports = [
     ../../modules/cli.nix
     ../../modules/virtualization.nix
@@ -36,7 +39,7 @@
     # "video=DP-3:d" # UW
   ];
 
-  boot.initrd.kernelModules = [ 
+  boot.initrd.kernelModules = [
     "vmd"
     "nvme"
     "ahci"
@@ -51,8 +54,8 @@
   boot.kernelModules = [
     "sg" # SCSI for BlueRay
   ];
-  
-  # Please Fix 
+
+  # Please Fix
   hardware.enableRedistributableFirmware = true;
 
   # GRUB Theme
@@ -76,7 +79,7 @@
   networking = {
     hostName = "mangrove";
     networkmanager.enable = true;
-  }; 
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -97,7 +100,7 @@
   };
 
   # SDDM / Login
-  services.xserver.displayManager.setupCommands="${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off";
+  services.xserver.displayManager.setupCommands = "${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off";
   services.displayManager.sddm.enable = true;
 
   # XFCE
@@ -136,10 +139,10 @@
     vim.enable = true;
   };
 
-  security ={
+  security = {
     rtkit.enable = true;
   };
-  
+
   # printing
   services.printing.enable = true;
   services.avahi = {
@@ -163,18 +166,18 @@
     pulse.enable = true;
     jack.enable = true;
   };
- 
+
   # User / quentin
   users = {
     defaultUserShell = pkgs.zsh;
     users.quentin = {
       isNormalUser = true;
       description = "quentin";
-      extraGroups = [ 
-        "audio" 
-        "gamemode"  
-        "networkmanager" 
-        "wheel" 
+      extraGroups = [
+        "audio"
+        "gamemode"
+        "networkmanager"
+        "wheel"
         "mpd"
         "adbusers kvm"
         "cdrom"
@@ -189,7 +192,7 @@
     "electron-36.9.5"
   ];
 
-  # List packages installed in system profile. 
+  # List packages installed in system profile.
   environment.systemPackages =
     # rolling release
     (with pkgs; [
@@ -244,16 +247,15 @@
       zettlr # FOSS md journal
       onlyoffice-desktopeditors
       texliveFull
-      (aspellWithDicts (dicts: with dicts; [
-        de
-        en
-        en-computers
-        en-science
-      ]))
+      (aspellWithDicts (dicts:
+        with dicts; [
+          de
+          en
+          en-computers
+          en-science
+        ]))
     ])
-
     ++
-
     # stable release
     (with pkgs-stable; [
       # angryipscanner
@@ -263,13 +265,11 @@
       bottles
     ]);
 
-
-
   nixpkgs.config = {
     allowUnfree = true;
-  };       
+  };
 
-  qt =  {
+  qt = {
     enable = true;
     platformTheme = lib.mkForce "kde";
   };
@@ -281,26 +281,36 @@
     migmix # Japanese Chars
     lxgw-wenkai # Chinese Chars
     nerd-fonts.jetbrains-mono # Terminal Font
-    maple-mono.NL-CN # Mono Space 
+    maple-mono.NL-CN # Mono Space
   ];
 
   # ssh + ports
-   networking.firewall = { 
+  networking.firewall = {
     enable = true;
     # TCP
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedTCPPorts = [ 445 139 53317 ];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedTCPPorts = [445 139 53317];
     # UDP
-    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPorts = [ 137 138 53317 ]; 
+    allowedUDPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPorts = [137 138 53317];
   };
 
   services.openssh = {
     enable = true;
-    ports = [ 22 ];
+    ports = [22];
     settings = {
       PasswordAuthentication = true;
-      AllowUsers = null; 
+      AllowUsers = null;
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "no";
@@ -309,7 +319,7 @@
 
   # nix config
   nix = {
-    settings.experimental-features = [ "flakes" "nix-command" ];
+    settings.experimental-features = ["flakes" "nix-command"];
     optimise.automatic = true;
   };
 
@@ -319,5 +329,5 @@
     dates = "weekly";
   };
 
-  system.stateVersion = "24.05"; 
+  system.stateVersion = "24.05";
 }

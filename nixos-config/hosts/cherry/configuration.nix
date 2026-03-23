@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/system/kdeConnect/default.nix
   ];
 
   # Bootloader.
