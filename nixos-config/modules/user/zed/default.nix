@@ -48,6 +48,9 @@
       # LSPs
       lsp = {
         nixd = {
+          binary = {
+            path = "${pkgs.nixd}/bin/nixd";
+          };
           settings = {
             formatting = {
               command = [ "alejandra" ];

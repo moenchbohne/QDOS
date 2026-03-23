@@ -1,10 +1,11 @@
-{ config, pkgs, lib, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -25,7 +26,6 @@
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = lib.mkForce true;
   services.fwupd.enable = true;
-
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -80,7 +80,7 @@
   users.users.quentin = {
     isNormalUser = true;
     description = "quentin";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # Install firefox.
@@ -94,18 +94,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim
-     wget
-     curl
-     fastfetch
-     git
-     btop
-     powertop
-     cudatext
-     vscodium
-     wl-clipboard
-     asciiquarium-transparent
-     gnome-extension-manager
+    vim
+    wget
+    curl
+    fastfetch
+    git
+    btop
+    powertop
+    cudatext
+    vscodium
+    wl-clipboard
+    asciiquarium-transparent
+    gnome-extension-manager
   ];
 
   services.openssh.enable = true;
