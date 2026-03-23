@@ -122,8 +122,8 @@
             inherit pkgs-stable;
           };
           modules = [
-            ./hosts/sec-laptop/configuration.nix
-            ./hosts/sec-laptop/hardware-configuration.nix
+            ./hosts/cherry/configuration.nix
+            ./hosts/cherry/hardware-configuration.nix
 
             # HW and spicetify modules
             inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
