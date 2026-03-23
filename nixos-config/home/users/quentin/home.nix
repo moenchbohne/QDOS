@@ -1,6 +1,4 @@
-{ config, pkgs, lib, pkgs-stable, inputs, ... }:
-
-{
+{pkgs, ...}: {
   home = {
     username = "quentin";
     homeDirectory = "/home/quentin";
@@ -23,6 +21,7 @@
     ../../../modules/user/thunderbird/default.nix
     ../../../modules/user/terminal/default.nix
     ../../../modules/user/zed/default.nix
+    ../../../modules/user/kdeConnect/default.nix
   ];
 
   programs.cava.enable = true;
