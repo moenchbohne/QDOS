@@ -16,6 +16,7 @@
   imports = [
     ../../../modules/user/shell-env.nix
     ../../../modules/user/rofi/default.nix
+    ../../../modules/user/git/default.nix
     ../../../modules/user/uni-util/default.nix
     # ../../../modules/user/shell-env/default.nix
     ../../../modules/user/flameshot/default.nix
