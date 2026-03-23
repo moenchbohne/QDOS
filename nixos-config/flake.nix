@@ -15,8 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     spicetify-nix = {
@@ -29,11 +27,6 @@
     stylix.url = "github:danth/stylix";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-
-    nix-snapd = {
-      url = "github:nix-community/nix-snapd";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   # ===== Outputs =====
