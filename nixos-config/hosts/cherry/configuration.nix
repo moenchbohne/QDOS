@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
     ];
 
@@ -17,7 +17,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "cherry";
-  # networking.wireless.enable = true;  
+  # networking.wireless.enable = true;
 
   networking.networkmanager.enable = true;
 
@@ -25,7 +25,7 @@
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = lib.mkForce true;
   services.fwupd.enable = true;
-  
+
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -71,7 +71,7 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true; 
+    pulse.enable = true;
     jack.enable = true;
 
     #media-session.enable = true;
@@ -94,7 +94,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim 
+     vim
      wget
      curl
      fastfetch
@@ -105,6 +105,7 @@
      vscodium
      wl-clipboard
      asciiquarium-transparent
+     gnome-extension-manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
