@@ -7,7 +7,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/cli.nix
-    ../../modules/uni.nix
     ../../modules/sessions/gnome.nix
     ../../modules/sailing.nix
     ../../modules/apps/spotify.nix

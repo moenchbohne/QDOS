@@ -6,7 +6,6 @@
     ../../modules/virtualization.nix
     ../../modules/gaming.nix
     ../../modules/daw.nix
-    ../../modules/uni.nix
     ../../modules/graphics/nvidia.nix # Graphics
     ../../modules/apps/mullvad.nix
     ../../modules/apps/spotify.nix
