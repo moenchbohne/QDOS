@@ -7,7 +7,7 @@
 {
   imports = [
     ../../modules/system/boot/plymouth.nix
-    ../../modules/system/kdeConnect/default.nix
+    # ../../modules/system/kdeConnect/default.nix
   ];
 
   # Bootloader.
@@ -28,6 +28,19 @@
       networkmanager-openvpn
     ];
   };
+
+
+  programs.kdeconnect = {
+    enable = true;
+  };
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+    allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
+  };
+
+
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
