@@ -7,6 +7,7 @@
 {
   imports = [
     ../../modules/system/boot/plymouth.nix
+    ../../modules/system/kdeConnect/default.nix
   ];
 
   # Bootloader.
