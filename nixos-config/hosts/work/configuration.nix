@@ -1,10 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ../../modules/system/boot/plymouth.nix
     # ../../modules/system/kdeConnect/default.nix
@@ -29,18 +26,25 @@
     ];
   };
 
-
   programs.kdeconnect = {
     enable = true;
   };
 
   networking.firewall = {
     enable = true;
-    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
-    allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
   };
-
-
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -131,6 +135,7 @@
     # editor war
     lapce
     cudatext
+    kdePackages.isoimagewriter
   ];
 
   # GUI for OVPN
@@ -161,5 +166,4 @@
   # networking.firewall.enable = false;
 
   system.stateVersion = "25.11";
-
 }
