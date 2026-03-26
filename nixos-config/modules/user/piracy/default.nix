@@ -10,8 +10,6 @@
     picard
     puddletag
     kid3
-    # movie metadata
-    filebot
     # soundcloud
     scdl
     ffmpeg
