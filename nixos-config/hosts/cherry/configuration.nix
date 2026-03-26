@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/system/kdeConnect/default.nix
+    ../../modules/user/piracy/default.nix
   ];
 
   # Bootloader.
