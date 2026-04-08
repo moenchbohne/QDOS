@@ -24,6 +24,8 @@
 
   # gpu fix
   hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.legacy_470;
+  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   networking.hostName = "quentinHCI";
 
