@@ -1,32 +1,28 @@
-{ config, pkgs, lib, pkgs-stable, ... }:
-
-let 
+{pkgs, ...}: let
   myAliases = {
-    e   = "emacsclient -nw -c -a 'emacs -nw'";
-    x   = "exit";
-    cc   = "clear";
-    rr  = "rm -rf";
+    e = "emacsclient -nw -c -a 'emacs -nw'";
+    x = "exit";
+    cc = "clear";
+    rr = "rm -rf";
 
     # fetch
     ff = "fastfetch";
     cf = "countryfetch";
     sf = "starfetch";
 
-  
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
-    nhr  = "nh os switch ~/GitRepos/QDOS/nixos-config"; 
-    
-    l   = "eza --icons -l --git --no-time";      
-    ll  = "eza --icons -l --git --header --time-style=long-iso";
-    lt  = "eza --icons --tree --level=3";        
-    la  = "eza --icons -l -a";                   
+    nhr = "nh os switch ~/GitRepos/QDOS/nixos-config";
+
+    l = "eza --icons -l --git --no-time";
+    ll = "eza --icons -l --git --header --time-style=long-iso";
+    lt = "eza --icons --tree --level=3";
+    la = "eza --icons -l -a";
 
     cat = "bat --style=plain";
-    less = "bat";              
+    less = "bat";
   };
-in
-{
+in {
   imports = [
     ./starship.nix
     ./fastfetch/default.nix
@@ -79,12 +75,12 @@ in
     enable = true;
     enableNushellIntegration = true;
     enableZshIntegration = true;
-    options = [ "--cmd cd" ];
+    options = ["--cmd cd"];
   };
 
   programs.eza = {
     enable = true;
-    enableNushellIntegration = false; 
+    enableNushellIntegration = false;
     icons = "auto";
   };
 
@@ -106,8 +102,8 @@ in
   };
 
   home.packages = with pkgs; [
-    ripgrep      
-    fd           
+    ripgrep
+    fd
     pciutils
     tldr
     powertop

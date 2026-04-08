@@ -6,7 +6,6 @@
 }: {
   imports = [
     ../../modules/cli.nix
-    ../../modules/virtualization.nix
     ../../modules/gaming.nix
     ../../modules/daw.nix
     ../../modules/graphics/nvidia.nix # Graphics
@@ -17,6 +16,7 @@
     ../../modules/apps/hi-fi.nix
     ../../modules/system/net_share/default.nix
     ../../modules/system/boot/plymouth.nix
+    ../../modules/system/virtualization/default.nix
   ];
 
   # Boot

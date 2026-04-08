@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-{
+{...}: {
   programs.starship = {
     enable = true;
 
@@ -143,7 +141,7 @@
         format = "via [$symbol$context]($style) ";
         style = "blue bold";
         only_with_files = true;
-        detect_files = [ "docker-compose.yml" "docker-compose.yaml" "Dockerfile" ];
+        detect_files = ["docker-compose.yml" "docker-compose.yaml" "Dockerfile"];
         detect_folders = [];
         disabled = false;
       };

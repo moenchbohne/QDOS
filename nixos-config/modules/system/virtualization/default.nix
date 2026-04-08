@@ -1,7 +1,5 @@
-{ config, pkgs, ... }:
-
+{pkgs, ...}:
 # AI-Generated
-
 {
   virtualisation = {
     # Enable Podman with Docker compatibility layer
@@ -9,7 +7,8 @@
       enable = true;
       dockerCompat = true; # Create `docker` alias for Podman
       defaultNetwork.settings.dns_enabled = true;
-      autoPrune = { # Automatic cleanup
+      autoPrune = {
+        # Automatic cleanup
         enable = true;
         dates = "weekly";
       };
@@ -27,7 +26,7 @@
   };
 
   # Enable necessary kernel modules
-  boot.kernelModules = [ "kvm-amd" "kvm-intel" "vhost_net" ];
+  boot.kernelModules = ["kvm-amd" "kvm-intel" "vhost_net"];
   boot.extraModprobeConfig = ''
     options kvm_intel nested=1
   '';
@@ -42,11 +41,11 @@
     spice-gtk # SPICE client
     win-spice # Windows SPICE tools
     virt-viewer # VM viewer
-    
+
     # QEMU and related tools
     qemu_kvm
     qemu-utils # qemu-img, qemu-io, etc
-    
+
     # Container tools
     docker-compose
     podman-compose
@@ -66,6 +65,6 @@
 
   # Optional: Enable firewall for Podman
   networking.firewall = {
-    trustedInterfaces = [ "podman0" ];
+    trustedInterfaces = ["podman0"];
   };
 }

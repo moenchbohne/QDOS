@@ -1,13 +1,5 @@
 {pkgs, ...}: {
-  imports = [
-    ./cli.nix
-  ];
-
-  environment.systemPackages = with pkgs; [
-    # === OVPN + WG ===
-    pritunl-client # OVPN
-    # eddie
-
+  home.packages = with pkgs; [
     # === Utils ===
     dnsutils
     wireshark

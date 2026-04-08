@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   stylix = {
-    
     enable = true;
     image = /../../wallpaper/horizontal/0001.jpg;
     polarity = "dark";
