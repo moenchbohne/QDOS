@@ -18,7 +18,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # NVIDIA
-  services.xserver.videoDrivers = ["nvidia"];
+  # services.xserver.videoDrivers = ["nvidia"];
 
   nixpkgs.config.nvidia.acceptLicense = true;
 
