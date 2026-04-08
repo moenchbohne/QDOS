@@ -9,7 +9,6 @@
 }: {
   imports = [
     ../../modules/system/boot/plymouth.nix
-    ../../modules/graphics/nvidia.nix
     # ../../modules/system/kdeConnect/default.nix
   ];
 
