@@ -15,7 +15,7 @@
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
       # vulkan-loader
-      mesa
+      # mesa
       libva-vdpau-driver
       libvdpau-va-gl
     ];

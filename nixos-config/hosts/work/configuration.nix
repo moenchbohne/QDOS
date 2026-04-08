@@ -146,6 +146,8 @@
     # editor war
     lapce
     cudatext
+    obsidian
+
     kdePackages.isoimagewriter
   ];
 
