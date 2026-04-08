@@ -16,14 +16,14 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 0;
+  boot.loader.timeout = 5;
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
 
   boot.kernelPackages = pkgs.linuxPackages;
 
   # gpu fix
-  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.legacy_470;
+  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.legacy_535;
   # nixpkgs.config.allowUnfree = true;
   nixpkgs.config.nvidia.acceptLicense = true;
 
