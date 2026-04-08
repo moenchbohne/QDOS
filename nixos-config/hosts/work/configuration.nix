@@ -1,7 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ../../modules/system/boot/plymouth.nix
     ../../modules/graphics/nvidia.nix
@@ -16,6 +21,9 @@
   boot.initrd.verbose = false;
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
+  # gpu fix
+  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.legacy_535;
 
   networking.hostName = "quentinHCI";
 
