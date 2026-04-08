@@ -20,7 +20,7 @@
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
 
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # gpu fix
   hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.legacy_535;
