@@ -22,10 +22,31 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # gpu fix
-  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.legacy_535;
-  # nixpkgs.config.allowUnfree = true;
+  # NVIDIA
   nixpkgs.config.nvidia.acceptLicense = true;
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_535;;
+  };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages32 = with pkgs; [
+      libva
+      driversi686Linux.libva-vdpau-driver
+    ];
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+      libva-vdpau-driver
+      libvdpau-va-gl
+    ];
+  };
 
   networking.hostName = "quentinHCI";
 

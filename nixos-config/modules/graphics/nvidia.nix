@@ -8,14 +8,14 @@
     enable32Bit = true;
     extraPackages32 = with pkgs; [
       libva
-      # vulkan-loader
+      vulkan-loader
       driversi686Linux.libva-vdpau-driver
-      # driversi686Linux.mesa
+      driversi686Linux.mesa
     ];
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
-      # vulkan-loader
-      # mesa
+      vulkan-loader
+      mesa
       libva-vdpau-driver
       libvdpau-va-gl
     ];
