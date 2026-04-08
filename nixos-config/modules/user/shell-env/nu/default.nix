@@ -1,41 +1,38 @@
-{ config, lib, pkgs, ... }:
-
-let 
+{pkgs, ...}: let
   myAliases = {
-    e   = "emacsclient -nw -c -a 'emacs -nw'";
-    x   = "exit";
-    cc   = "clear";
-    rr  = "rm -rf";
+    e = "emacsclient -nw -c -a 'emacs -nw'";
+    x = "exit";
+    cc = "clear";
+    rr = "rm -rf";
     ff = "fastfetch";
-  
+
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
-    nhr  = "nh os switch ~/GitRepos/QDOS/nixos-config"; 
-    
-    l   = "eza --icons -l --git --no-time";      
-    ll  = "eza --icons -l --git --header --time-style=long-iso";
-    lt  = "eza --icons --tree --level=3";        
-    la  = "eza --icons -l -a";                   
+    nhr = "nh os switch ~/GitRepos/QDOS/nixos-config";
+
+    l = "eza --icons -l --git --no-time";
+    ll = "eza --icons -l --git --header --time-style=long-iso";
+    lt = "eza --icons --tree --level=3";
+    la = "eza --icons -l -a";
 
     cat = "bat --style=plain";
-    less = "bat";              
+    less = "bat";
   };
-in
-{
+in {
   programs.nushell = {
     enable = true;
     shellAliases = myAliases;
-    package = pkgs-stable.nushell;
+    package = pkgs.nushell;
     # configFile.source = ./config.nu;
     # envFile.source = ./env.nu;
 
-    plugins = with pkgs-stable.nushellPlugins; [
-    #  net broken
-    #  units broken
-    #  skim doch kein plugin :(    
+    plugins = with pkgs.nushellPlugins; [
+      #  net broken
+      #  units broken
+      #  skim doch kein plugin :(
       gstat
       formats
-    #  highlight version conflict
+      #  highlight version conflict
     ];
 
     extraConfig = ''
