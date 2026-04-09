@@ -13,6 +13,7 @@
     ../../modules/apps/spotify.nix
     ../../modules/sessions/kde.nix
     ../../modules/sailing.nix
+    ../../modules/java.nix
     ../../modules/apps/hi-fi.nix
     ../../modules/system/net_share/default.nix
     ../../modules/system/boot/plymouth.nix
