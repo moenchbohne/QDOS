@@ -67,7 +67,6 @@
             ./hosts/desktop/configuration.nix
             ./hosts/desktop/hardware-configuration.nix
             inputs.spicetify-nix.nixosModules.default
-            inputs.nix-snapd.nixosModules.default
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.chaotic.nixosModules.default
             # inputs.stylix.nixosModules.stylix
