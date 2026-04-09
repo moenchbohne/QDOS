@@ -136,7 +136,6 @@
       package = pkgs.floorp-bin;
     };
 
-    adb.enable = true;
     vim.enable = true;
   };
 
