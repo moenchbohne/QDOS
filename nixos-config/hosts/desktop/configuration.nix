@@ -244,7 +244,7 @@
       # python
       python3
       # office
-      zettlr # FOSS md journal
+      # zettlr # FOSS md journal
       onlyoffice-desktopeditors
       texliveFull
       (aspellWithDicts (dicts:
