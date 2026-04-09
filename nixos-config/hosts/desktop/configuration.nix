@@ -188,7 +188,7 @@
   programs.k3b.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-gtk3-1.1.07"
+    "ventoy-gtk3-1.1.10"
     "electron-36.9.5"
   ];
 
