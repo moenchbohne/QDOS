@@ -11,6 +11,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    jetbrains.idea-oss
+    # jetbrains.idea-oss <- compiles from source!!! plan 3h ahead
   ];
 }
