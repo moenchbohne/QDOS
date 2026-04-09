@@ -18,7 +18,7 @@
       addToQueueTop
       shuffle
      ];
-     # theme = lib.mkForce spicePkgs.themes.matte; # alt: text; retroBlur; hazy 
+     theme = lib.mkForce spicePkgs.themes.matte; # alt: text; retroBlur; hazy; starryNight
      # colorScheme = "mocha";
    };
 }
