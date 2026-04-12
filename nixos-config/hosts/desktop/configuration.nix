@@ -196,8 +196,11 @@
   environment.systemPackages =
     # rolling release
     (with pkgs; [
-      # POC/WIP
+      # note taking will be some serious shit
       obsidian
+      anytype
+      logseq
+      # POC/WIP
       krusader
       mediainfo
       mixxx
