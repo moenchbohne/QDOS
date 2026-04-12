@@ -119,6 +119,7 @@
     package = pkgs.emacs-pgtk;
     install = true;
     defaultEditor = true;
+    startWithGraphical = true;
   };
 
   services.openssh.enable = true;
