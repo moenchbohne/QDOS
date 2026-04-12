@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.zed-editor = {
     enable = true;
     package = pkgs.zed-editor;
@@ -9,6 +7,7 @@
       "nix"
       "toml"
       "docker-compose"
+      "java"
     ];
 
     extraPackages = with pkgs; [
@@ -53,7 +52,7 @@
           };
           settings = {
             formatting = {
-              command = [ "alejandra" ];
+              command = ["alejandra"];
             };
             nixpkgs = {
               expr = "import <nixpkgs> { }";
