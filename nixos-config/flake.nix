@@ -70,6 +70,21 @@
             inputs.nix-flatpak.nixosModules.nix-flatpak
             # inputs.stylix.nixosModules.stylix
             inputs.musnix.nixosModules.musnix
+
+            # fucking HM magic
+            /*
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.quentin = import ./home/users/quentin/home.nix;
+              home-manager.backupFileExtension = "backup";
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit pkgs-stable;
+              };
+            }
+            */
           ];
         };
 
