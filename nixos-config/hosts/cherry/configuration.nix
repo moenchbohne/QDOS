@@ -109,7 +109,17 @@
     wl-clipboard
     asciiquarium-transparent
     gnome-extension-manager
+    # we going in
+    emacs-pgtk
   ];
+
+  # emacs
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs-pgtk;
+    install = true;
+    defaultEditor = true;
+  };
 
   services.openssh.enable = true;
 
