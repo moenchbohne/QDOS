@@ -24,7 +24,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
-  boot.loader.timeout = 0;
+  boot.loader.timeout = 3;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
 
   # fix text running
@@ -99,10 +99,6 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-
-  # SDDM / Login
-  services.xserver.displayManager.setupCommands = "${lib.getExe pkgs.xorg.xrandr} --output DP-2 --off";
-  services.displayManager.sddm.enable = true;
 
   # XFCE
   services.xserver = {
