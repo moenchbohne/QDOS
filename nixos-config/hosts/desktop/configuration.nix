@@ -194,7 +194,7 @@
     (with pkgs; [
       # note taking will be some serious shit
       obsidian
-      anytype
+      # anytype NOT FOSS
       logseq
       # POC/WIP
       krusader
