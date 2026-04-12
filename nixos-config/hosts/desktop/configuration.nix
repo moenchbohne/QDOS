@@ -197,6 +197,7 @@
     # rolling release
     (with pkgs; [
       # POC/WIP
+      obsidian
       krusader
       mediainfo
       mixxx
