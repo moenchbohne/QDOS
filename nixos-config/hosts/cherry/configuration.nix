@@ -115,6 +115,7 @@
     gnome-extension-manager
     # we going in
     emacs-pgtk
+    go-grip
   ];
 
   # emacs
