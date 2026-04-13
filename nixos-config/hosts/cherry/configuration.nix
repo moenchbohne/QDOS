@@ -87,7 +87,10 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = pkgs.floorp-bin;
+  };
 
   programs.nh.enable = true;
 
