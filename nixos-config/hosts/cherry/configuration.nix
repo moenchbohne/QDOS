@@ -104,6 +104,7 @@
     wget
     curl
     fastfetch
+    geteduroam-cli
     git
     btop
     powertop
