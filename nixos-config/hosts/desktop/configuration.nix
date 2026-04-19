@@ -194,8 +194,6 @@
     (with pkgs; [
       # note taking will be some serious shit
       obsidian
-      # anytype NOT FOSS
-      logseq
       # POC/WIP
       krusader
       mediainfo
@@ -208,7 +206,7 @@
       ventoy-full-gtk
       helix
       # cli-util
-      emacs-nox
+      emacs-pgtk
       kitty
       ani-cli
       alsa-utils
