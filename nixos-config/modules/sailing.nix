@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./apps/mullvad.nix
+    ./system/mullvad/default.nix
   ];
 
   environment.systemPackages = with pkgs; [

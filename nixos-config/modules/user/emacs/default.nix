@@ -5,10 +5,12 @@
     enable = true;
     package = pkgs.emacs-pgtk;
     
-  }
+  };
 
   home.Packages = with pkgs; [
-                     nixd
-                     
+    ##### LSPs #####
+    nixd
+
+    ##### Misc #####
   ];
 }
