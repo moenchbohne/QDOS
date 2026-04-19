@@ -87,7 +87,10 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = pkgs.floorp-bin;
+  };
 
   programs.nh.enable = true;
 
@@ -101,6 +104,7 @@
     wget
     curl
     fastfetch
+    geteduroam-cli
     git
     btop
     powertop
@@ -109,7 +113,19 @@
     wl-clipboard
     asciiquarium-transparent
     gnome-extension-manager
+    # we going in
+    emacs-pgtk
+    go-grip
   ];
+
+  # emacs
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs-pgtk;
+    install = true;
+    defaultEditor = true;
+    startWithGraphical = true;
+  };
 
   services.openssh.enable = true;
 

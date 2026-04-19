@@ -15,7 +15,7 @@
     ../../../modules/user/rofi/default.nix
     ../../../modules/user/git/default.nix
     ../../../modules/user/uni-util/default.nix
-    ../../../modules/user/shell-env/default.nix
+    ../../../modules/user/shell_env/default.nix
     ../../../modules/user/flameshot/default.nix
     ../../../modules/user/thunderbird/default.nix
     ../../../modules/user/terminal/default.nix

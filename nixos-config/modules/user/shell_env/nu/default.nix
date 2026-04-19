@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   myAliases = {
-    e = "emacsclient -nw -c -a 'emacs -nw'";
+    eg = "emacsclient -c -a ''";
+    e = "emacsclient -nw -a ''";
     x = "exit";
     cc = "clear";
     rr = "rm -rf";
