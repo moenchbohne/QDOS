@@ -113,6 +113,7 @@
     wl-clipboard
     asciiquarium-transparent
     gnome-extension-manager
+    github-desktop
     # we going in
     emacs-pgtk
     go-grip
