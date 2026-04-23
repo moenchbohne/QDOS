@@ -22,6 +22,9 @@
       # python
       pyright
       ruff
+
+      #
+      jdt-language-server
     ];
 
     userSettings = {
