@@ -167,6 +167,7 @@
     obsidian
 
     kdePackages.isoimagewriter
+    tilix
   ];
 
   # GUI for OVPN
