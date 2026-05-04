@@ -170,6 +170,16 @@
     tilix
   ];
 
+  # Fonts
+  fonts.packages = with pkgs; [
+    noto-fonts-color-emoji
+    fira-code-symbols
+    migmix # Japanese Chars
+    lxgw-wenkai # Chinese Chars
+    nerd-fonts.jetbrains-mono # Terminal Font
+    maple-mono.NL-CN # Mono Space
+  ];
+
   # GUI for OVPN
   systemd.packages = [
     pkgs.pritunl-client
