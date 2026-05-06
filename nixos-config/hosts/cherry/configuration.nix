@@ -22,7 +22,7 @@
 
   networking.hostName = "cherry";
   # networking.wireless.enable = true;
-  
+
   # Fprint
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = lib.mkForce true;
@@ -114,6 +114,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    kdePackages.konsole
     vim
     wget
     curl
