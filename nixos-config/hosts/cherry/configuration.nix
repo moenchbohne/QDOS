@@ -131,6 +131,7 @@
     # we going in
     emacs-pgtk
     go-grip
+    pritunl-client
   ];
 
   # emacs
