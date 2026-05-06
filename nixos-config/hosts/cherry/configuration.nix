@@ -22,9 +22,7 @@
 
   networking.hostName = "cherry";
   # networking.wireless.enable = true;
-
-  networking.networkmanager.enable = true;
-
+  
   # Fprint
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = lib.mkForce true;
@@ -66,6 +64,22 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
+
+  # GUI for OVPN
+  systemd.packages = [
+    pkgs.pritunl-client
+  ];
+
+  systemd.targets.multi-user.wants = [
+    "pritunl-client.service"
+  ];
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
