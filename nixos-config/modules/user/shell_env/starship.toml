@@ -1,0 +1,45 @@
+# ~/.config/starship.toml
+
+# The main format string. We use \\[ and \\] to escape the brackets
+# so Starship draws them literally instead of reading them as style tags.
+format = """
+┌─\\[$username@$hostname\\]─\\[$directory\\]$git_branch$git_status
+└──╼ $character"""
+
+# Disables a blank line between shell prompts
+add_newline = true
+
+[username]
+show_always = true
+style = "bold bright-blue"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+style = "bold bright-blue"
+format = "[$hostname]($style)"
+
+[directory]
+style = "bold bright-cyan"
+format = "[$path]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+# Automatically hides if not in a git repo.
+# Injects its own dash and brackets to connect seamlessly to the path.
+symbol = " " # You can change this to "" if you don't use Nerd Fonts
+style = "bold bright-purple"
+format = "─\\[[$symbol$branch]($style)\\]"
+
+[git_status]
+# Also hides if not in a repo, or if the repo is clean.
+# Appends another bracketed section for dirty statuses.
+style = "bold bright-red"
+format = "─\\[[$all_status$ahead_behind]($style)\\]"
+
+[character]
+# Completely replaces Starship's default icons and the error [X].
+# Keeps the symbol as '$', but changes color based on the last command's exit code.
+success_symbol = "[$](bold white) "
+error_symbol = "[$](bold red) "
