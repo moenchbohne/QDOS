@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system/kdeConnect/default.nix
+    ../../modules/system_apps/kde_connect/default.nix
     ../../modules/user/piracy/default.nix
     ../../modules/java.nix
   ];

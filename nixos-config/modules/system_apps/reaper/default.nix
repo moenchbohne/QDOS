@@ -1,10 +1,8 @@
-{ config, pkgs, inputs, lib, ... }:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # ===== REAPER =====
     reaper # DAW 4 Life
-    
+
     reaper-sws-extension
     reaper-reapack-extension
 

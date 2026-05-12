@@ -8,6 +8,7 @@
     ../../modules/cli.nix
     ../../modules/gaming.nix
     ../../modules/daw.nix
+    ../../modules/system_apps/mullvad/default.nix
     ../../modules/graphics/nvidia.nix # Graphics
     # ../../modules/apps/spotify.nix
     ../../modules/sessions/kde.nix

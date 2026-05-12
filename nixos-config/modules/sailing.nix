@@ -1,8 +1,6 @@
-{ config, lib, pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
-    ./system/mullvad/default.nix
+    ./system_apps/mullvad/default.nix
   ];
 
   environment.systemPackages = with pkgs; [
