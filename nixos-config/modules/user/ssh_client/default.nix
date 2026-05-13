@@ -8,6 +8,11 @@
         identityFile = "~/.ssh/github/id_ed25519";
         identitiesOnly = true;
       };
+      "gitlab.com" = {
+        user = "git";
+        identityFile = "~/.ssh/gitlab/id_ed25519";
+        identitiesOnly = true;
+      };
       "192.168.xyz.abc" = {
         user = "admin";
         identityFile = "~/.ssh/suse_at_hci/id_ed25519";
