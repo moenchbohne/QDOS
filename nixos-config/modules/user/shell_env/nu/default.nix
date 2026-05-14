@@ -18,6 +18,9 @@
 
     cat = "bat --style=plain";
     less = "bat";
+
+    # utility
+    getmp3 = "";
   };
 in {
   programs.nushell = {

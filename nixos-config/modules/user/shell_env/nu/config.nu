@@ -390,6 +390,10 @@ alias e = emacsclient -nw -a -c "emacs -nw"
 alias reb = nh os switch /etc/nixos
 alias rep = nh os switch /etc/nixos --update
 
+def getmp3 [url: string] {
+    yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-metadata --embed-thumbnail --no-update -o "%(title)s.%(ext)s" $url
+}
+
 # starship
 use ~/.cache/starship/init.nu
 
