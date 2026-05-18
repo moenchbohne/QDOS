@@ -168,6 +168,7 @@
 
     kdePackages.isoimagewriter
     tilix
+    ansible
   ];
 
   # Fonts
