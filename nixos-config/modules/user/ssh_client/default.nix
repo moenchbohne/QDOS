@@ -13,7 +13,7 @@
         identityFile = "~/.ssh/gitlab/id_ed25519";
         identitiesOnly = true;
       };
-      "*.hci.uni-hannover.de" = {
+      "*.hci.uni-hannover.de 192.168.2.*" = {
         user = "hci_admin";
         identityFile = "~/.ssh/hci/id_ed25519";
         identitiesOnly = true;
