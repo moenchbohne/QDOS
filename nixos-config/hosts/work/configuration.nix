@@ -168,7 +168,10 @@
 
     kdePackages.isoimagewriter
     tilix
+
+    # some sysi admin shit
     ansible
+    wl-clipboard-rs
   ];
 
   # Fonts
