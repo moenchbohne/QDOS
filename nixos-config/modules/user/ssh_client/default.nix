@@ -17,7 +17,11 @@
         user = "admin";
         identityFile = "~/.ssh/hci/id_ed25519";
         identitiesOnly = true;
+        addKeysToAgent = "yes";
       };
     };
   };
+
+  # persistent ssh private keys
+  services.ssh-agent.enable = true;
 }
