@@ -13,9 +13,9 @@
         identityFile = "~/.ssh/gitlab/id_ed25519";
         identitiesOnly = true;
       };
-      "192.168.xyz.abc" = {
+      "*.hci.uni-hannover.de" = {
         user = "admin";
-        identityFile = "~/.ssh/suse_at_hci/id_ed25519";
+        identityFile = "~/.ssh/hci/id_ed25519";
         identitiesOnly = true;
       };
     };

@@ -20,7 +20,7 @@
     less = "bat";
 
     # utility
-    getmp3 = "";
+    # getmp3 = "";
   };
 in {
   programs.nushell = {
