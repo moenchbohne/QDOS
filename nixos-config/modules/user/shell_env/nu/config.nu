@@ -174,7 +174,7 @@ $env.config = {
             stop_after: 10sec # how long to wait after a plugin is inactive to stop it
         }
         plugins: {
-            
+
         }
     }
 
@@ -196,7 +196,7 @@ $env.config = {
             type: {
                 layout: columnar
                 columns: 4
-                col_width: 20     
+                col_width: 20
                 col_padding: 2
             }
             style: {
@@ -215,7 +215,7 @@ $env.config = {
                 layout: ide
                 min_completion_width: 0,
                 max_completion_width: 50,
-                max_completion_height: 10, 
+                max_completion_height: 10,
                 padding: 0,
                 border: true,
                 cursor_offset: 0,
@@ -375,8 +375,6 @@ $env.config = {
         }
     ]
 }
-# startup cmd
-# fastfetch
 
 # env
 $env.config.buffer_editor = "codium"
@@ -390,10 +388,32 @@ alias e = emacsclient -nw -a -c "emacs -nw"
 alias reb = nh os switch /etc/nixos
 alias rep = nh os switch /etc/nixos --update
 
+# yt-dlp downloader with sensible defaults
 def getmp3 [url: string] {
     yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-metadata --embed-thumbnail --no-update -o "%(title)s.%(ext)s" $url
 }
 
+# ssh key gen with direct directory
+def gen-ssh-key [
+    email: string      # The email/comment to attach to the key
+    key_name: string   # The subfolder name inside ~/.ssh/ (e.g., "work")
+] {
+    # 1. Construct the target directory path (~/.ssh/<key_name>)
+    # We use 'path expand' to safely resolve the '~' to your actual home directory
+    let target_dir = ("~/.ssh" | path join $key_name | path expand)
+
+    # 2. Ensure the directory exists
+    mkdir $target_dir
+
+    # 3. Construct the full file path safely
+    let key_path = ($target_dir | path join "id_ed25519")
+
+    # 4. Execute the external ssh-keygen command
+    ^ssh-keygen -t ed25519 -a 100 -C $email -f $key_path
+
+    # 5. Print a success message
+    print $"(ansi green)✅ Key pair successfully generated at: (ansi reset)($key_path)"
+}
+
 # starship
 use ~/.cache/starship/init.nu
-
