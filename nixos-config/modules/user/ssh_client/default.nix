@@ -14,7 +14,7 @@
         identitiesOnly = true;
       };
       "*.hci.uni-hannover.de" = {
-        user = "admin";
+        user = "hci_admin";
         identityFile = "~/.ssh/hci/id_ed25519";
         identitiesOnly = true;
         addKeysToAgent = "yes";
