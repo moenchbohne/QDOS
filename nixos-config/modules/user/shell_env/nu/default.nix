@@ -4,12 +4,13 @@
     e = "emacsclient -nw -a ''";
     x = "exit";
     cc = "clear";
-    rr = "rm -rf";
+    rr = "rm -rf"; # really remove
     ff = "fastfetch";
 
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
     nhr = "nh os switch ~/GitRepos/QDOS/nixos-config";
+    m = "cd ~/monorepo"; # move to monorepo
 
     l = "eza --icons -l --git --no-time";
     ll = "eza --icons -l --git --header --time-style=long-iso";
@@ -18,17 +19,16 @@
 
     cat = "bat --style=plain";
     less = "bat";
-
-    # utility
-    # getmp3 = "";
   };
 in {
   programs.nushell = {
     enable = true;
     shellAliases = myAliases;
     package = pkgs.nushell;
-    # configFile.source = ./config.nu;
+
     # envFile.source = ./env.nu;
+    # configFile.source = ./config.nu;
+    # loginFile.source = ./login.nu;
 
     plugins = with pkgs.nushellPlugins; [
       #  net broken
@@ -40,27 +40,9 @@ in {
     ];
 
     extraConfig = ''
-      # Disable the startup banner
       $env.config.show_banner = false
 
-      # --- Random Poke on Start ---
-      let poke_ids = [
-          487 # Giratina
-          382 # Kyogre
-          384 # Rayquaza
-          383 # Groudon
-          491 # Darkrai
-          386 # Deoxys
-          644 # Zektrom (Tims Pokemon)
-          800 # Necrozma
-          249 # Lugia
-          483 # Dialga
-          484 # Palkia
-          # 002 # Ivysaur
-          # 001 # Bulbasaur
-      ]
-
-      # Select random ID and run pokeget
+      let poke_ids = [ 487 382 384 383 491 386 644 800 249 483 484 002 001 ]
       let selected = ($poke_ids | shuffle | first)
       pokeget $selected -s --hide-name
     '';
