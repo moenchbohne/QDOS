@@ -8,6 +8,8 @@
       "toml"
       "docker-compose"
       "java"
+      "nu"
+      "nu-lint"
     ];
 
     extraPackages = with pkgs; [
