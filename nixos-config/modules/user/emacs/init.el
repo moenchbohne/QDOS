@@ -177,7 +177,9 @@
 
 ;; Java
 (use-package lsp-java
-  :config (add-hook 'java-mode-hook 'lsp))
+  :config
+  (setq lsp-java-server-install-dir (expand-file-name "~/.nix-profile/share/java/jdtls/"))
+  (add-hook 'java-mode-hook 'lsp))
 
 ;; Nix
 ;; test and and and and and and and
@@ -235,7 +237,7 @@
 (add-hook 'LaTeX-mode-hook 'lsp-deferred)
 
 (use-package pdf-tools
-  :ensure t
+  :ensure nil
   :config
   (pdf-tools-install)
   (setq-default pdf-view-display-size 'fit-width)
