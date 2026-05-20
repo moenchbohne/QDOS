@@ -144,6 +144,12 @@
     startWithGraphical = true;
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark"; # Or "adwaita" if you prefer light mode
+  };
+
   services.openssh.enable = true;
 
   nix.settings.experimental-features = [

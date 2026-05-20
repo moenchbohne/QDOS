@@ -10,6 +10,7 @@
       "java"
       "nu"
       "nu-lint"
+      "elisp"
     ];
 
     extraPackages = with pkgs; [
