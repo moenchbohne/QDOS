@@ -1,0 +1,83 @@
+{
+  "workbench.colorTheme": "Doom One",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
+  "workbench.activityBar.location": "top",
+  "workbench.layoutControl.enabled": false,
+  "window.menuBarVisibility": "toggle",
+  "breadcrumbs.enabled": true,
+
+  "editor.lineNumbers": "relative",
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
+  "editor.renderLineHighlight": "all",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.formatOnSave": true,
+
+  "editor.minimap.enabled": true,
+  "editor.minimap.scale": 0.75,
+  "editor.minimap.maxColumn": 80,
+
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.hotExit": "onExitAndWindowClose",
+
+  "foam.edit.linkReferenceDefinitions": "withExtensions",
+  "foam.openDailyNote.directory": "~/Documents/Notes/journal",
+
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nixd",
+  "nix.serverSettings": {
+    "nixd": {
+      "formatting": {
+        "command": [
+          "alejandra"
+        ]
+      },
+      "nixpkgs": {
+        "expr": "import <nixpkgs> { }"
+      },
+      "diagnostic": {
+        "suppress": [
+          "unused_binding"
+        ]
+      }
+    }
+  },
+
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "python.languageServer": "Default",
+  "python.analysis.typeCheckingMode": "basic",
+
+  "yaml.schemas": {
+    "kubernetes": [
+      "/*.k8s.yaml",
+      "/*.k8s.yml"
+    ]
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+
+  "java.configuration.updateBuildConfiguration": "automatic",
+
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  
+  "git-graph.repository.sign.commits": true,
+  "git-graph.dialog.rebase.launchInteractiveRebase": true
+}
