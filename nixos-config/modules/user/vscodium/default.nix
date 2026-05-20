@@ -1,8 +1,13 @@
-{ config, lib, pkgs, ... }: 
-
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium-fhs
+    package = pkgs.vscodium;
+
+    # some settings
+    mutableExtensionsDir = false;
+
+    # Extensions
+    extensions = with pkgs.vscode-extensions; [
+    ];
   };
 }
