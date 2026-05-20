@@ -27,6 +27,9 @@
     stylix.url = "github:danth/stylix";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    # VSCodium: Unlock all extensions
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   # ===== Outputs =====
@@ -45,6 +48,9 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+
+        # What the fuck all overlays?
+        overlays = [ inputs.nix-vscode-extensions.overlays.default ];
       };
       pkgs-stable = import nixpkgs-stable {
         inherit system;
@@ -130,6 +136,9 @@
           modules = [
             ./hosts/cherry/configuration.nix
             ./hosts/cherry/hardware-configuration.nix
+
+            # apparently needed for vscodium extensions?
+            ({ ... }: { nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ]; })
 
             # HW and spicetify modules
             inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
