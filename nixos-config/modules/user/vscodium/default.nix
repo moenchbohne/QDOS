@@ -11,7 +11,7 @@ in {
     pyright
     ruff
     jdt-language-server
-    texlive.combined.scheme-full
+    # texlive.combined.scheme-full
     multimarkdown
   ];
 
