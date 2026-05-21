@@ -21,5 +21,6 @@
     ../../../modules/user/terminal/default.nix
     ../../../modules/user/zed/default.nix
     ../../../modules/user/ssh_client/default.nix
+    ../../../modules/user/vscodium/default.nix
   ];
 }

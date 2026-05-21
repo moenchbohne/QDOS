@@ -1,9 +1,6 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   mp = pkgs.vscode-marketplace;
-in
-{
+in {
   # Install the language servers and binaries system-wide (or user-wide)
   # so VSCodium can find them in your PATH.
   home.packages = with pkgs; [
@@ -63,7 +60,7 @@ in
     # ==========================================
     # IMPORT EXTERNAL SETTINGS
     # ==========================================
-    userSettings = builtins.fromJSON (builtins.readFile ./settings.json);
+    userSettings = builtins.fromJSON (builtins.readFile ./settings.jsonc);
 
     # Emacs-style keybindings
     keybindings = [
