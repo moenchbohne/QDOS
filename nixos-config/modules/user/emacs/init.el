@@ -352,7 +352,7 @@
 
 
 ;; ==========================================
-;; 12. CONFIGURATION MANAGEMENT (Nushell Style)
+;; 12. CONFIGURATION MANAGEMENT
 ;; ==========================================
 
 (defun edit-config ()
@@ -373,3 +373,54 @@
 ;; C-c r = "Reload"
 (global-set-key (kbd "C-c c") 'edit-config)
 (global-set-key (kbd "C-c r") 'reload-config)
+
+
+;; ==========================================
+;; 13. MAKING EMACS "NORMAL" (The Hybrid Setup)
+;; ==========================================
+
+;; --- RIGHT-CLICK CONTEXT MENU ---
+;; This is exactly what you are looking for! It gives you a modern
+;; right-click menu to copy, paste, undo, and manipulate text.
+(context-menu-mode 1)
+
+;; --- MODERN SHORTCUTS (CUA Mode) ---
+;; Enables standard Ctrl+C (copy), Ctrl+V (paste), Ctrl+X (cut), and Ctrl+Z (undo).
+;; It also lets you naturally type over highlighted text to replace it.
+(cua-mode t)
+
+;; --- COMMAND PALETTE ---
+;; Binds Ctrl+Shift+P to your Vertico/Consult M-x prompt,
+;; functioning exactly like the VS Code or Lapce command palette.
+(global-set-key (kbd "C-S-p") 'execute-extended-command)
+
+;; --- MOUSE SUPPORT ---
+;; Ensures the mouse works reliably (even if you launch Emacs in a terminal)
+;; and makes the scroll wheel smooth rather than jumpy.
+(xterm-mouse-mode 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+
+;; --- EASY WINDOW SWITCHING ---
+;; Use Shift + Arrow Keys to move your cursor between split windows seamlessly.
+(windmove-default-keybindings)
+
+;; ==========================================
+;; 14. NUSHELL & LSP INTEGRATION
+;; ==========================================
+
+;; 1. Install the syntax highlighting mode for .nu files
+(use-package nushell-mode
+  :ensure t
+  :mode "\\.nu\\'"
+  ;; 2. Automatically launch the Language Server when opening a Nushell file
+  :hook (nushell-mode . lsp-deferred))
+
+;; 3. Tell Emacs how to talk to Nushell's built-in LSP
+;; (Nushell actually has a language server built right into its own CLI binary!)
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(nushell-mode . "nushell"))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("nu" "--lsp"))
+                    :major-mode 'nushell-mode
+                    :server-id 'nu-lsp)))
