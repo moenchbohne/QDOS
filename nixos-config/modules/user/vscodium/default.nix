@@ -27,8 +27,8 @@ in {
     # ==========================================
     extensions = with mp; [
       # UI & Themes
-      ntpeters.doom-one-theme
-      pkief.material-icon-theme
+      # ntpeters.doom-one-theme
+      # pkief.material-icon-theme
       oderwat.indent-rainbow
 
       # Git (Strictly FOSS replacements for GitLens)
