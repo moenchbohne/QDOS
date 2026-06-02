@@ -12,7 +12,7 @@
 
     dreb = "sudo nixos-rebuild switch --flake .#mangrove";
     lreb = "sudo nixos-rebuild switch --flake .#poplar";
-    nhr = "nh os switch ~/GitRepos/QDOS/nixos-config";
+    nhr = "nh os switch ~/GitRepos/nixos-config/";
 
     l = "eza --icons -l --git --no-time";
     ll = "eza --icons -l --git --header --time-style=long-iso";
